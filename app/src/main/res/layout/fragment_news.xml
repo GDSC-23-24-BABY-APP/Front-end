@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NewsFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF7272">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NEWS"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#525252"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/BabyDevelopment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="주차별 아기 발달"
+        android:textColor="#525252"
+        android:paddingVertical="20dp"
+        android:textSize="16dp"/>
+    <View
+        android:layout_width="340dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF7272" />
+
+    <TextView
+        android:id="@+id/PregnancyTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="임신 관리 팁"
+        android:textColor="#525252"
+        android:paddingVertical="20dp"
+        android:textSize="16dp"/>
+    <View
+        android:layout_width="340dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF7272" />
+
+    <TextView
+        android:id="@+id/FrequentlyAskedQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="임신 중 자주 묻는 질문"
+        android:textColor="#525252"
+        android:paddingVertical="20dp"
+        android:textSize="16dp"/>
+    <View
+        android:layout_width="340dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF7272" />
+
+    <TextView
+        android:id="@+id/HealthIssues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="주의 깊게 봐야 할 건강 이슈"
+        android:textColor="#525252"
+        android:paddingVertical="20dp"
+        android:textSize="16dp"/>
+    <View
+        android:layout_width="340dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF7272" />
+
+    <TextView
+        android:id="@+id/NearbyHospitals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="주변 병원"
+        android:textColor="#525252"
+        android:paddingVertical="20dp"
+        android:textSize="16dp"/>
+    <View
+        android:layout_width="340dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF7272" />
+
+</LinearLayout>
