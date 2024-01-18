@@ -11,6 +11,7 @@ android {
         viewBinding = true
     }
 
+
     defaultConfig {
         applicationId = "com.company.ait.tobemom"
         minSdk = 24

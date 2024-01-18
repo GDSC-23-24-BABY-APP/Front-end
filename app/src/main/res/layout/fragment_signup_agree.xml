@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background">
+
+    <ImageButton
+        android:id="@+id/agree_back_btn"
+        android:layout_width="7dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/back_btn"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/agree_signup_tv"
+        android:layout_width="78dp"
+        android:layout_height="25dp"
+        android:textSize="20sp"
+        android:text="회원가입"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/agree_division_view"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="57dp"
+        android:background="@color/gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/agree_step_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/agree_division_view">
+
+        <TextView
+            android:id="@+id/agree_step_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="약관 동의"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/agree_step_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  >  ID / PW 생성  >  프로필 생성"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/agree_all_agree_ll"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edge_3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/agree_step_ll">
+
+        <ImageButton
+            android:id="@+id/agree_all_agree_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/check_btn"
+            android:background="@android:color/transparent" />
+
+
+        <TextView
+            android:id="@+id/agree_all_agree_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="7dp"
+            android:text="약관 전체 동의"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/agree_detail_cl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edge_3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/agree_all_agree_ll">
+
+        <ImageButton
+            android:id="@+id/agree_detail1_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/check_btn"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/agree_essential1_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(필수)"
+            android:textColor="#ff0000"
+            android:textSize="13sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toEndOf="@+id/agree_detail1_btn"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/agree_detail_content1_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개인 정보 수집 및 이용 동의"
+            android:textSize="13sp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toEndOf="@+id/agree_essential1_tv"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/agree_agree1_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="전문 보기"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:layout_marginTop="17dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toEndOf="@id/agree_detail_content1_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/agree_detail2_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/check_btn"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/agree_agree1_btn" />
+
+        <TextView
+            android:id="@+id/agree_essential2_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(필수)"
+            android:textColor="#ff0000"
+            android:textSize="13sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="47dp"
+            app:layout_constraintStart_toEndOf="@+id/agree_detail2_btn"
+            app:layout_constraintTop_toBottomOf="@id/agree_essential1_tv"/>
+
+        <TextView
+            android:id="@+id/agree_detail_content2_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="만14세 이상입니다."
+            android:textSize="13sp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="47dp"
+            app:layout_constraintStart_toEndOf="@+id/agree_essential2_tv"
+            app:layout_constraintTop_toBottomOf="@+id/agree_detail_content1_tv"/>
+
+        <TextView
+            android:id="@+id/agree_detail_subcontent2_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="만 14세 미만은 법적 대리인의 동의가 필요합니다."
+            android:textSize="9sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="9dp"
+            app:layout_constraintStart_toStartOf="@id/agree_essential2_tv"
+            app:layout_constraintTop_toBottomOf="@id/agree_essential2_tv" />
+
+        <Button
+            android:id="@+id/agree_agree2_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="전문 보기"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toStartOf="@+id/agree_agree1_btn"
+            app:layout_constraintTop_toBottomOf="@+id/agree_detail_content2_tv" />
+
+        <ImageButton
+            android:id="@+id/agree_detail3_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/check_btn"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/agree_agree2_btn" />
+
+        <TextView
+            android:id="@+id/agree_essential3_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(필수)"
+            android:textColor="#ff0000"
+            android:textSize="13sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/agree_detail3_btn"
+            app:layout_constraintTop_toTopOf="@id/agree_detail3_btn"/>
+
+        <TextView
+            android:id="@+id/agree_detail_content3_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TO BE MOM 이용 약관 동의"
+            android:textSize="13sp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintStart_toEndOf="@+id/agree_essential3_tv"
+            app:layout_constraintTop_toTopOf="@+id/agree_essential3_tv"/>
+
+        <Button
+            android:id="@+id/agree_agree3_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="전문 보기"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toEndOf="@id/agree_detail_content3_tv"
+            app:layout_constraintTop_toTopOf="@+id/agree_detail_content3_tv" />
+
+        <ImageButton
+            android:id="@+id/agree_detail4_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/check_btn"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/agree_agree3_btn" />
+
+        <TextView
+            android:id="@+id/agree_essential4_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(필수)"
+            android:textColor="#ff0000"
+            android:textSize="13sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintStart_toEndOf="@+id/agree_detail4_btn"
+            app:layout_constraintTop_toBottomOf="@id/agree_essential3_tv"/>
+
+        <TextView
+            android:id="@+id/agree_detail_content4_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="52dp"
+            android:text="마케팅 활용 및 광고성 정보 수신 동의"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/agree_essential4_tv"
+            app:layout_constraintTop_toBottomOf="@+id/agree_detail_content3_tv" />
+
+        <TextView
+            android:id="@+id/agree_detail_subcontent4_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다양한 이벤트 및 TO BE MOM의 소식을\n빠르게 받아볼 수 있습니다."
+            android:textSize="9sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="9dp"
+            app:layout_constraintStart_toStartOf="@id/agree_essential4_tv"
+            app:layout_constraintTop_toBottomOf="@id/agree_essential4_tv" />
+
+        <Button
+            android:id="@+id/agree_agree4_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="전문 보기"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toStartOf="@+id/agree_agree3_btn"
+            app:layout_constraintTop_toBottomOf="@+id/agree_detail_content4_tv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/agree_next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/background_maincolor"
+        android:text="다음"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
