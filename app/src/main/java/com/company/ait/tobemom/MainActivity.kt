@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         binding.mainBnv.setOnItemSelectedListener{ item ->
             when (item.itemId) {
 
-                tR.id.homeFragment -> {
+                R.id.homeFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, HomeFragment())
                         .commitAllowingStateLoss()
