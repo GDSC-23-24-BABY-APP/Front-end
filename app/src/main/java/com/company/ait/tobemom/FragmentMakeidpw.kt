@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 
 class FragmentMakeidpw : AppCompatActivity() {
     private lateinit var binding: FragmentMakeidpw
@@ -20,7 +19,7 @@ class FragmentMakeidpw : AppCompatActivity() {
         spinner.setAdapter(adapter);
 
 
-        ArrayAdapter.createFromResource(this, R.array.network_agency_array, R.layout.spinner_text
+        ArrayAdapter.createFromResource(this, R.array.network_agency_array, R.layout.spinner_agency
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner_agency.adapter = adapter

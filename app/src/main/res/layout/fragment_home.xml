@@ -1,17 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal"
-        android:text="Home Fragment" />
+        android:layout_height="50dp"
+        android:background="@color/highlight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/home_logo_iv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/logo"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/home_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TO BE MOM"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <LinearLayout
+        android:id="@+id/home_dday_ll"
+        android:layout_width="334dp"
+        android:layout_height="85dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:layout_marginTop="66dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:background="@drawable/background_subcolor">
+
+        <LinearLayout
+            android:id="@+id/home_ddayfirst_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/home_birthname_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="꿈틀이"
+                android:textSize="20sp"
+                android:textColor="@color/mainText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/home_tomeet_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="와(과) 만날 때까지"
+                android:textSize="20sp"
+                android:textColor="@color/mainText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_ddaylast_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="11dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/home_ddash_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="D-"
+                android:textSize="24sp"
+                android:textColor="@color/mainText" />
+
+            <TextView
+                android:id="@+id/home_dnum_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="232"
+                android:textSize="24sp"
+                android:textColor="@color/mainText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일"
+                android:textSize="24sp"
+                android:textColor="@color/mainText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/home_babygrowth_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="33dp"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_dday_ll">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@color/gray" />
+
+    </androidx.cardview.widget.CardView>
+    
+    <LinearLayout
+        android:id="@+id/home_daycount_ll"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/background_subcolor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_dday_ll"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/home_daycount_weekcnt_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20sp"
+            android:textColor="@color/mainText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주차 ("
+            android:textSize="20sp"
+            android:textColor="@color/mainText" />
+
+        <TextView
+            android:id="@+id/home_daycount_monthcnt_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20sp"
+            android:textColor="@color/mainText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개월)"
+            android:textSize="20sp"
+            android:textColor="@color/mainText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/home_tips_ll"
+        android:layout_width="334dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_babygrowth_iv"
+        android:background="@drawable/background_subcolor"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="간단한 출산 준비 과정 같은 Tip"
+            android:textSize="20sp"
+            android:textColor="@color/mainText" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/home_gocheck_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/background_maincolor"
+        android:text="오늘 상태 체크하러 가기"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_tips_ll" />
+
+    <ImageButton
+        android:id="@+id/home_gobard_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_drbard"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_gocheck_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

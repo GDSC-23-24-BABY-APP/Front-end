@@ -121,8 +121,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원가입 하기"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:textColor="@color/mainText"
+        android:fontFamily="@font/leeseoyun"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="@+id/login_login_btn"
         app:layout_constraintTop_toBottomOf="@+id/login_login_btn" />
@@ -136,7 +137,7 @@
         android:textSize="10sp"
         android:textColor="@color/mainText"
         app:layout_constraintEnd_toStartOf="@+id/login_to_signin_btn"
-        app:layout_constraintTop_toBottomOf="@+id/login_login_btn" />
+        app:layout_constraintTop_toTopOf="@+id/login_to_signin_btn" />
 
     <LinearLayout
         android:id="@+id/login_id_pw_btn"

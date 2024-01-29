@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.myPageFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, MyPageFragment())
+                        .replace(R.id.main_frm, MypageFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

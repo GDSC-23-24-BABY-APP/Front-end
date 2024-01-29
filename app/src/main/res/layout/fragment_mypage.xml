@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MypageFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/highlight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/mypage_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MY PAGE"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/mypage_profile_iv"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="94dp"
+        android:background="@drawable/iv_mypage_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mypage_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_profile_iv"
+        app:layout_constraintTop_toTopOf="@id/mypage_profile_iv" />
+
+    <TextView
+        android:id="@+id/mypage_mom_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="어머니"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_name_tv"
+        app:layout_constraintTop_toTopOf="@id/mypage_profile_iv" />
+
+    <TextView
+        android:id="@+id/mypage_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="aster03"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:textStyle="italic"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@id/mypage_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_name_tv" />
+
+    <TextView
+        android:id="@+id/mypage_birthname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="꿈틀이"
+        android:textSize="16sp"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toStartOf="@id/mypage_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_id_tv" />
+
+    <TextView
+        android:id="@+id/mypage_n_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="와(과)"
+        android:textSize="16sp"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_birthname_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_id_tv" />
+
+    <TextView
+        android:id="@+id/mypage_ddaycnt_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="21"
+        android:textSize="16sp"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_n_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_id_tv" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일 째"
+        android:textSize="16sp"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_ddaycnt_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_id_tv" />
+
+    <View
+        android:id="@+id/mypage_division_view"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="51dp"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_birthname_tv" />
+
+    <LinearLayout
+        android:id="@+id/mypage_myinfo_btn"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypage_division_view"
+        android:background="@drawable/background_subcolor"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_myinfo"
+            android:layout_gravity="center"
+            android:layout_marginTop="14.4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My info"
+            android:textSize="18sp"
+            android:textColor="@color/mainText"
+            android:layout_gravity="center"
+            android:layout_marginTop="5.1dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mypage_babyinfo_btn"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_myinfo_btn"
+        app:layout_constraintTop_toBottomOf="@id/mypage_division_view"
+        android:background="@drawable/background_subcolor"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_babyinfo"
+            android:layout_gravity="center"
+            android:layout_marginTop="14.4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baby info"
+            android:textSize="18sp"
+            android:textColor="@color/mainText"
+            android:layout_gravity="center"
+            android:layout_marginTop="5.1dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mypage_link_btn"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_babyinfo_btn"
+        app:layout_constraintTop_toBottomOf="@id/mypage_division_view"
+        android:background="@drawable/background_subcolor"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_link"
+            android:layout_gravity="center"
+            android:layout_marginTop="14.4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Link"
+            android:textSize="18sp"
+            android:textColor="@color/mainText"
+            android:layout_gravity="center"
+            android:layout_marginTop="5.1dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mypage_settings_btn"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="@id/mypage_myinfo_btn"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myinfo_btn"
+        android:background="@drawable/background_subcolor"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_settings"
+            android:layout_gravity="center"
+            android:layout_marginTop="14.4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="18sp"
+            android:textColor="@color/mainText"
+            android:layout_gravity="center"
+            android:layout_marginTop="5.1dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mypage_howtouse_btn"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_settings_btn"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myinfo_btn"
+        android:background="@drawable/background_subcolor"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_howtouse"
+            android:layout_gravity="center"
+            android:layout_marginTop="14.4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to use"
+            android:textSize="16sp"
+            android:textColor="@color/mainText"
+            android:layout_gravity="center"
+            android:layout_marginTop="5.1dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mypage_notion_btn"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_howtouse_btn"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myinfo_btn"
+        android:background="@drawable/background_subcolor"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_notion"
+            android:layout_gravity="center"
+            android:layout_marginTop="14.4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notion"
+            android:textSize="18sp"
+            android:textColor="@color/mainText"
+            android:layout_gravity="center"
+            android:layout_marginTop="5.1dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

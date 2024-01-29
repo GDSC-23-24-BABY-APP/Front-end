@@ -9,23 +9,26 @@
         android:enabled="true"
         android:title="HOME"
         app:showAsAction="always"
-        tools:ignore="AlwaysShowAction"/>
+        tools:ignore="AlwaysShowAction" />
 
     <item
         android:id="@+id/diaryFragment"
         android:title="DIRAY"
         android:icon="@drawable/baseline_diary_24"
         app:showAsAction="always"/>
+
     <item
         android:id="@+id/checkFragment"
         android:title="CHECK"
         android:icon="@drawable/baseline_checklist_24"
         app:showAsAction="always"/>
+
     <item
         android:id="@+id/newsFragment"
         android:title="NEWS"
         android:icon="@drawable/baseline_article_24"
         app:showAsAction="always"/>
+
     <item
         android:id="@+id/myPageFragment"
         android:title="MY PAGE"
