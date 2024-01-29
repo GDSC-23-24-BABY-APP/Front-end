@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FindidFragment">
+
+    <ImageButton
+        android:id="@+id/findid_back_btn"
+        android:layout_width="7dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/back_btn"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/findid_appname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TO BE MOM"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/findid_back_btn" />
+
+    <LinearLayout
+        android:id="@+id/findid_idpw_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findid_appname_tv"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID 찾기"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PW 찾기"
+            android:textSize="12sp"
+            android:textColor="@color/mainText"
+            android:layout_marginStart="86dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/findid_essential1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="* 필수"
+        android:textColor="#ff0000"
+        android:textSize="12sp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/findid_idpw_ll" />
+
+    <EditText
+        android:id="@+id/findid_phonenum_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="휴대폰 번호 입력"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/findid_essential1_tv" />
+
+    <TextView
+        android:id="@+id/findid_alarmnum_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="올바른 휴대폰 번호를 입력해주세요."
+        android:textSize="12sp"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="6.32dp"
+        app:layout_constraintStart_toStartOf="@id/findid_phonenum_et"
+        app:layout_constraintTop_toBottomOf="@+id/findid_phonenum_et"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/findid_essential2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="* 필수"
+        android:textColor="#ff0000"
+        android:textSize="12sp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/findid_alarmnum_tv" />
+
+    <EditText
+        android:id="@+id/findid_name_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이름 입력"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/findid_essential2_tv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/findid_find_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/background_maincolor"
+        android:text="아이디 찾기"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
