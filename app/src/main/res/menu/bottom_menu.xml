@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/baseline_home_24"
+        android:enabled="true"
+        android:title="HOME"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction"/>
+
+    <item
+        android:id="@+id/diaryFragment"
+        android:title="DIRAY"
+        android:icon="@drawable/baseline_diary_24"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/checkFragment"
+        android:title="CHECK"
+        android:icon="@drawable/baseline_checklist_24"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/newsFragment"
+        android:title="NEWS"
+        android:icon="@drawable/baseline_article_24"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/myPageFragment"
+        android:title="MY PAGE"
+        android:icon="@drawable/baseline_mypage"
+        app:showAsAction="always"/>
+
+</menu>
