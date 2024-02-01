@@ -6,37 +6,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FindpwFragment">
 
-    <ImageButton
-        android:id="@+id/findpw_back_btn"
-        android:layout_width="7dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:src="@drawable/back_btn"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/findpw_appname_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TO BE MOM"
-        android:textSize="20sp"
-        android:textColor="@color/mainText"
-        android:layout_marginTop="31dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/findpw_topbar_cl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/mainColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/findpw_back_btn" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/findpw_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/findpw_appname_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TO BE MOM"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/findpw_idpw_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="57dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/findpw_appname_tv"
+        app:layout_constraintTop_toBottomOf="@id/findpw_topbar_cl"
         android:orientation="horizontal">
 
         <TextView
@@ -65,7 +76,7 @@
         android:textColor="#ff0000"
         android:textSize="12sp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="34dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/findpw_idpw_ll" />
 
@@ -168,7 +179,8 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/background_maincolor"
         android:text="비밀번호 재설정"
-        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
