@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="15dp"
+    android:paddingTop="23dp">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/background_subcolor"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_babyinfo"
+            android:layout_marginStart="17dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/item_birthname_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="꿈틀이"
+            android:textSize="20sp"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/item_seleced_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선택 중"
+            android:textSize="20sp"
+            android:layout_marginStart="150dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
