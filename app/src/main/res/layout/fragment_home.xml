@@ -4,17 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_topbar_cl"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/highlight"
+        android:background="@color/mainColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/home_logo_iv"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -41,14 +43,15 @@
     
     <LinearLayout
         android:id="@+id/home_dday_ll"
-        android:layout_width="334dp"
+        android:layout_width="match_parent"
         android:layout_height="85dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_topbar_cl"
         android:orientation="vertical"
         android:background="@drawable/background_subcolor">
 
@@ -120,7 +123,7 @@
         android:id="@+id/home_babygrowth_iv"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="84dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +140,7 @@
         android:id="@+id/home_daycount_ll"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/background_subcolor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -178,9 +181,10 @@
 
     <LinearLayout
         android:id="@+id/home_tips_ll"
-        android:layout_width="334dp"
+        android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="87dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_babygrowth_iv"
@@ -199,15 +203,14 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/home_gocheck_btn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="50dp"
         android:background="@drawable/background_maincolor"
         android:text="오늘 상태 체크하러 가기"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_tips_ll" />
@@ -218,8 +221,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ic_drbard"
         android:layout_marginEnd="23dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginBottom="75dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_gocheck_btn" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

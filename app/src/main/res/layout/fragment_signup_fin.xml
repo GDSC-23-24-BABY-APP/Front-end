@@ -44,7 +44,8 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/background_maincolor"
         android:text="시작하기"
-        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

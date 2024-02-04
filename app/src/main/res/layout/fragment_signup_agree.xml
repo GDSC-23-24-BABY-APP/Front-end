@@ -6,46 +6,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background">
 
-    <ImageButton
-        android:id="@+id/agree_back_btn"
-        android:layout_width="7dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:src="@drawable/back_btn"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/agree_signup_tv"
-        android:layout_width="78dp"
-        android:layout_height="25dp"
-        android:textSize="20sp"
-        android:text="회원가입"
-        android:layout_marginTop="18dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/agree_topbar_cl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/mainColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <View
-        android:id="@+id/agree_division_view"
-        android:layout_width="0dp"
-        android:layout_height="1px"
-        android:layout_marginTop="57dp"
-        android:background="@color/gray"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/agree_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/agree_signup_tv"
+            android:layout_width="78dp"
+            android:layout_height="25dp"
+            android:text="SIGN UP"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/agree_step_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="37dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/agree_division_view">
+        app:layout_constraintTop_toBottomOf="@id/agree_topbar_cl">
 
         <TextView
             android:id="@+id/agree_step_tv1"
@@ -70,7 +73,7 @@
         android:layout_height="42dp"
         android:layout_marginStart="26dp"
         android:layout_marginEnd="26dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/edge_3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginEnd="26dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edge_3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -328,10 +331,10 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/background_maincolor"
         android:text="다음"
-        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
