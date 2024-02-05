@@ -2,12 +2,16 @@ package com.company.ait.tobemom
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.company.ait.tobemom.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), LoginView {
     lateinit var binding: ActivityLoginBinding
+
+    private var isChecked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +25,11 @@ class LoginActivity : AppCompatActivity(), LoginView {
         binding.loginLoginBtn.setOnClickListener {
             login()
         }
+
+        val loginAutoBtn = findViewById<ImageButton>(R.id.login_auto_btn)
+
+        // autoLogin 함수 호출
+        autoLogin(loginAutoBtn)
     }
 
     private fun login() {
@@ -90,5 +99,18 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun onLoginFailure() {
         //실패 처리
+    }
+
+    private fun autoLogin(button: ImageButton) {
+        button.setOnClickListener {
+            // isChecked에 따라서 이미지 변경
+            if (isChecked) {
+                button.setBackgroundResource(R.drawable.ic_nocheck)
+            } else {
+                button.setBackgroundResource(R.drawable.check_btn)
+            }
+            // isChecked 값 변경
+            isChecked = !isChecked
+        }
     }
 }

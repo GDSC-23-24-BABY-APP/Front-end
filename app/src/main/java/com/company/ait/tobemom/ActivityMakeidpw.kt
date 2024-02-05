@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import com.company.ait.tobemom.databinding.FragmentSignupMakeidpwBinding
+import com.company.ait.tobemom.databinding.ActivitySignupMakeidpwBinding
 
-class FragmentMakeidpw : AppCompatActivity() {
-    private lateinit var binding: FragmentSignupMakeidpwBinding
+class ActivityMakeidpw : AppCompatActivity() {
+    private lateinit var binding: ActivitySignupMakeidpwBinding
     private lateinit var spinner_agency : Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {

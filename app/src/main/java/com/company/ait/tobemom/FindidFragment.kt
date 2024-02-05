@@ -34,7 +34,7 @@ class FindidFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signup_findid, container, false)
+        return inflater.inflate(R.layout.activity_signup_findid, container, false)
     }
 
     companion object {

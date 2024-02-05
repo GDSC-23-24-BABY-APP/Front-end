@@ -34,7 +34,7 @@ class FindpwFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signup_findpw, container, false)
+        return inflater.inflate(R.layout.activity_signup_findpw, container, false)
     }
 
     companion object {

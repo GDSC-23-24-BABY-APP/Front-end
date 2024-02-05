@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/agree_topbar_cl"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/mainColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +20,11 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="13dp"
             android:background="@drawable/ic_back"
             android:backgroundTint="@color/mainText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/agree_signup_tv"
@@ -84,9 +84,8 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/check_btn"
-            android:background="@android:color/transparent" />
+            android:background="@drawable/ic_nocheck"
+            android:layout_gravity="center" />
 
 
         <TextView
@@ -94,9 +93,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
-            android:layout_marginTop="7dp"
             android:text="약관 전체 동의"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_gravity="center" />
 
     </LinearLayout>
 
@@ -118,8 +117,7 @@
             android:layout_height="28dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/check_btn"
-            android:background="@android:color/transparent"
+            android:background="@drawable/ic_nocheck"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -156,7 +154,7 @@
             android:textSize="12sp"
             android:layout_marginTop="17dp"
             android:layout_marginStart="15dp"
-            app:layout_constraintStart_toEndOf="@id/agree_detail_content1_tv"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
@@ -165,8 +163,7 @@
             android:layout_height="28dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="13dp"
-            android:src="@drawable/check_btn"
-            android:background="@android:color/transparent"
+            android:background="@drawable/ic_nocheck"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/agree_agree1_btn" />
 
@@ -222,8 +219,7 @@
             android:layout_height="28dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="13dp"
-            android:src="@drawable/check_btn"
-            android:background="@android:color/transparent"
+            android:background="@drawable/ic_nocheck"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/agree_agree2_btn" />
 
@@ -259,7 +255,7 @@
             android:textSize="12sp"
             android:layout_marginTop="7dp"
             android:layout_marginStart="15dp"
-            app:layout_constraintStart_toEndOf="@id/agree_detail_content3_tv"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/agree_detail_content3_tv" />
 
         <ImageButton
@@ -268,8 +264,7 @@
             android:layout_height="28dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="13dp"
-            android:src="@drawable/check_btn"
-            android:background="@android:color/transparent"
+            android:background="@drawable/ic_nocheck"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/agree_agree3_btn" />
 
@@ -277,8 +272,8 @@
             android:id="@+id/agree_essential4_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(필수)"
-            android:textColor="#ff0000"
+            android:text="(선택)"
+            android:textColor="@color/mainText"
             android:textSize="13sp"
             android:layout_marginStart="6dp"
             android:layout_marginTop="52dp"
@@ -323,13 +318,29 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/agree_next_btn"
+        android:id="@+id/agree_next_ok_btn"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/background_maincolor"
+        android:text="다음"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/agree_next_no_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/background_designgray"
         android:text="다음"
         android:textSize="20sp"
         android:textColor="@color/mainText"
