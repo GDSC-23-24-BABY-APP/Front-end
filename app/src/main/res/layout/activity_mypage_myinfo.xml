@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MyPageMyinfoActivity"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/myinfo_topbar_cl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/mainColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/myinfo_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/myinfo_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MY INFO"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/myinfo_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_topbar_cl" />
+
+    <EditText
+        android:id="@+id/myinfo_name_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ex. 홍길동"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/leeseoyun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_name_tv"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/myinfo_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_name_et" />
+
+    <EditText
+        android:id="@+id/myinfo_id_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ex. aster03"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/leeseoyun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_id_tv"
+        android:gravity="center" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/myinfo_duplcheck_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:text="중복 확인"
+        android:textSize="14sp"
+        android:textColor="@color/mainText"
+        android:background="@drawable/background_subcolor"
+        android:layout_marginEnd="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/myinfo_id_et" />
+
+    <TextView
+        android:id="@+id/myinfo_idnoti_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="영어 및 숫자 조합"
+        android:textSize="12sp"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="@id/myinfo_id_et"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_id_et" />
+
+    <LinearLayout
+        android:id="@+id/myinfo_idcheck_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="@id/myinfo_idnoti_tv"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_idnoti_tv">
+
+        <TextView
+            android:id="@+id/myinfo_idcheckyes_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용 가능한 아이디입니다"
+            android:textSize="12sp"
+            android:textColor="@color/mainText"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/myinfo_idcheckno_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용 불가한 아이디입니다"
+            android:textSize="12sp"
+            android:textColor="@color/highlight"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/myinfo_pw_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_idcheck_ll" />
+
+    <EditText
+        android:id="@+id/myinfo_pw_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ex. THANKYOUMOM03@"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/leeseoyun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_pw_tv"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/myinfo_pwnoti_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8-30자리 영 대/소문자, 숫자, 특수문자 조합"
+        android:textSize="12sp"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="@id/myinfo_pw_et"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_pw_et" />
+
+    <TextView
+        android:id="@+id/myinfo_bloodtype_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="혈액형"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_pwnoti_tv" />
+
+    <EditText
+        android:id="@+id/myinfo_bloodtype_et"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:hint="ex. A형"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/leeseoyun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_bloodtype_tv"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/myinfo_rhtype_et"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:hint="ex. RH+"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/leeseoyun"
+        app:layout_constraintStart_toEndOf="@id/myinfo_height_et"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_bloodtype_tv"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/myinfo_hw_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="키/몸무게"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_bloodtype_et" />
+
+    <EditText
+        android:id="@+id/myinfo_height_et"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:hint="ex. 167"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/leeseoyun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_hw_tv"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/myinfo_weight_et"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:hint="ex. 55"
+        android:textSize="14sp"
+        android:background="@drawable/edge_2dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/leeseoyun"
+        app:layout_constraintStart_toEndOf="@id/myinfo_height_et"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_hw_tv"
+        android:gravity="center" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/myinfo_editfin_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/background_maincolor"
+        android:text="수정하기"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

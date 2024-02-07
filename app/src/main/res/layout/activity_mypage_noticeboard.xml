@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MyPageNoticeboardActivity"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/noticeboard_topbar_cl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/mainColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/noticeboard_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/noticeboard_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HOW TO USE"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/noticeboard_noticetitle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="앱 업데이트 안내 (2024/01/04)"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:textStyle="bold"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/noticeboard_topbar_cl" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="6dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginTop="37dp"
+        android:background="@drawable/background_subcolor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/noticeboard_noticetitle_tv">
+
+        <TextView
+            android:id="@+id/noticeboard_uploaddate_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="등록일 : "
+            android:textSize="14sp"
+            android:textColor="@color/mainText"
+            app:layout_constraintEnd_toStartOf="@+id/noticeboard_date_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/noticeboard_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2024/01/04"
+            android:textSize="14sp"
+            android:textColor="@color/mainText"
+            android:layout_marginEnd="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/noticeboard_content_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="안녕하십니까, [TO BE MOM] 개발 팀입니다.\n2024년 1월 4일 자로 업데이트 된 내용을\n말씀드리겠습니다.\n\n업데이트 내용 :\n- 앱 안정성과 성능 개선\n- 아기 등록이 안되는 오류 해결\n\n[TO BE MOM]을 이용해 주셔서 감사합니다.\n모든 사용자들에게 보다 나은 서비스를 제공할 수 있도록 지속적으로 개선해 나가겠습니다.\n\n감사합니다."
+            android:textSize="16sp"
+            android:textColor="@color/mainText"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="45dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noticeboard_uploaddate_tv" />
+
+        <TextView
+            android:id="@+id/noticeboard_from_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- 개발 팀 드림"
+            android:textSize="14sp"
+            android:textColor="@color/mainText"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noticeboard_content_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

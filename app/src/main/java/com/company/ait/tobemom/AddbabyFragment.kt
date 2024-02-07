@@ -34,7 +34,7 @@ class AddbabyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mypage_settings_addbaby, container, false)
+        return inflater.inflate(R.layout.activity_mypage_settings_addbaby, container, false)
     }
 
     companion object {

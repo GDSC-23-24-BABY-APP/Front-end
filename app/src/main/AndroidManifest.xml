@@ -29,7 +29,7 @@
             android:value="AIzaSyCVZftl7Ka0UEsOnSJRnchSSb1Mu_Y7Vrc" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +37,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity"
+            android:exported="false" />
+
+        <activity android:name=".LoginActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpAgreeActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpMakeidpwActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpProfileActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpFinActivity"
+            android:exported="false" />
+
+        <activity android:name=".ChangeBabyActivity"
+            android:exported="false" />
+
+        <activity android:name=".ChatActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpFindidActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpFindpwActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AddbabyFragment"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/addbaby_topbar_cl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/mainColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/addbaby_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/addbaby_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BABY ADDITION"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/addbaby_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름 (태명)"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addbaby_topbar_cl" />
+
+    <EditText
+        android:id="@+id/addbaby_birthname_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="꿈틀이"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:background="@drawable/edge_2dp"
+        android:gravity="center"
+        android:fontFamily="@font/leeseoyun"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addbaby_name_tv" />
+
+    <TextView
+        android:id="@+id/addbaby_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="출산예정일"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addbaby_birthname_tv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addbaby_datepicker_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="YYYY/MM/DD"
+        android:text=""
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:background="@drawable/edge_2dp"
+        android:gravity="center"
+        android:fontFamily="@font/leeseoyun"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addbaby_date_tv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addbaby_add_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/background_maincolor"
+        android:text="아기 등록하기"
+        android:textSize="20sp"
+        android:textColor="@color/mainText"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
