@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:orientation="vertical"
     tools:context=".FrequentlyAskedQuestions">
@@ -11,7 +12,8 @@
         android:id="@+id/custom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#FF7272">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/mainColor">
 
         <TextView
             android:layout_width="match_parent"
@@ -19,25 +21,32 @@
             android:gravity="center"
             android:text="NEWS"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#525252"
+            android:textColor="@color/mainText"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
+        android:id="@+id/FAQtv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingVertical="10dp"
+        android:paddingVertical="20dp"
         android:text="임신 중 자주 묻는 질문"
-        android:textColor="#525252"
-        android:textSize="16dp" />
+        android:textColor="@color/mainText"
+        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="405dp"
-        android:layout_marginHorizontal="17dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/FAQtv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/border_maincolor">
 
         <LinearLayout
@@ -60,7 +69,7 @@
                 android:text="임신 초기 (~11주)"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="16dp"
+                android:textSize="18dp"
                 android:textColor="#525252"/>
 
             <ImageButton
@@ -76,7 +85,7 @@
         <View
             android:layout_width="310dp"
             android:layout_height="1dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="45dp"
             android:layout_gravity="center_horizontal"
             android:background="#FF7272"/>
 
@@ -85,10 +94,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="50dp"
-            android:textSize="13dp"
+            android:textSize="16dp"
             android:text="Question "
             android:gravity="center"/>
 
     </FrameLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

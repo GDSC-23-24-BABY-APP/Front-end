@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".DiaryWriting">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/mainColor"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DIARY"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/mainText"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageButton
+    android:id="@+id/diary_back_btn"
+    android:layout_width="13dp"
+    android:layout_height="20dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="22dp"
+    android:src="@drawable/back_btn"
+    android:background="@android:color/transparent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/diary_logo_Image"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/diary_write_image"/>
+
+    <TextView
+        android:id="@+id/diaryTv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diary_logo_Image"
+        android:layout_marginTop="25dp"
+        android:text="어떤 날인가요?"
+        android:textColor="@color/mainText"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/diaryEdit"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="30dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryTv1"
+        android:hint="오늘은 어떤 날인가요? \n 기록하고 싶은 추억이 있나요?"
+        android:gravity="center_horizontal"
+        android:background="@android:color/transparent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/diaryBtn"
+        android:layout_width="300dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryEdit"
+        android:text="다음"
+        android:textSize="20dp"
+        android:textColor="@color/mainText"
+        android:background="@drawable/background_subcolor"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
