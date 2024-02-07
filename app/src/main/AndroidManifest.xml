@@ -44,10 +44,28 @@
         <activity android:name=".LoginActivity"
             android:exported="false" />
 
-        <activity android:name=".SignUpActivity"
+        <activity android:name=".SignUpAgreeActivity"
             android:exported="false" />
 
-        <activity android:name=".ActivityMakeidpw"
+        <activity android:name=".SignUpMakeidpwActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpProfileActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpFinActivity"
+            android:exported="false" />
+
+        <activity android:name=".ChangeBabyActivity"
+            android:exported="false" />
+
+        <activity android:name=".ChatActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpFindidActivity"
+            android:exported="false" />
+
+        <activity android:name=".SignUpFindpwActivity"
             android:exported="false" />
 
     </application>

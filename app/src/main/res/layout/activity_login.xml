@@ -90,8 +90,7 @@
         android:layout_height="19dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/check_btn"
-        android:background="@android:color/transparent"
+        android:background="@drawable/ic_nocheck"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/login_pw_underscore_view" />
 

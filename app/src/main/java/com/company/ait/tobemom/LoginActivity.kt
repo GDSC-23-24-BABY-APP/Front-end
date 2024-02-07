@@ -2,13 +2,13 @@ package com.company.ait.tobemom
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.company.ait.tobemom.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), LoginView {
+
     lateinit var binding: ActivityLoginBinding
 
     private var isChecked = false
@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         setContentView(binding.root)
 
         binding.loginToSigninBtn.setOnClickListener {
-            startActivity(Intent(this, SignUpActivity::class.java))
+            startActivity(Intent(this, SignUpAgreeActivity::class.java))
         }
 
         binding.loginLoginBtn.setOnClickListener {
@@ -27,9 +27,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
 
         val loginAutoBtn = findViewById<ImageButton>(R.id.login_auto_btn)
-
         // autoLogin 함수 호출
         autoLogin(loginAutoBtn)
+
+        //아이디 비번 찾기
+        goFindid()
+        goResetpw()
     }
 
     private fun login() {
@@ -111,6 +114,20 @@ class LoginActivity : AppCompatActivity(), LoginView {
             }
             // isChecked 값 변경
             isChecked = !isChecked
+        }
+    }
+
+    private fun goFindid() {
+        binding.loginFindIdBtn.setOnClickListener {
+            val intent = Intent(this, SignUpFindidActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goResetpw() {
+        binding.loginResetPwBtn.setOnClickListener {
+            val intent = Intent(this, SignUpFindpwActivity::class.java)
+            startActivity(intent)
         }
     }
 }

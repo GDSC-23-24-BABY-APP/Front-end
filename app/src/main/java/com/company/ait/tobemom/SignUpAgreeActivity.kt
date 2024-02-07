@@ -2,24 +2,22 @@ package com.company.ait.tobemom
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.company.ait.tobemom.databinding.ActivitySignupAgreeBinding
 
-class SignUpActivity: AppCompatActivity() {
+class SignUpAgreeActivity: AppCompatActivity() {
     lateinit var binding: ActivitySignupAgreeBinding
-    private var isChecked = false // 버튼의 초기 상태는 체크되지 않음
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivitySignupAgreeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // 초기 상태에서는 다음 버튼은 숨겨져 있어야 함
-        binding.agreeNextOkBtn.visibility = android.view.View.GONE
-        binding.agreeNextNoBtn.visibility = android.view.View.VISIBLE
+        binding.agreeNextOkBtn.visibility = View.GONE
+        binding.agreeNextNoBtn.visibility = View.VISIBLE
 
         //뒤로가기
         goBack()
@@ -84,10 +82,9 @@ class SignUpActivity: AppCompatActivity() {
         val isImageButton1Checked = binding.agreeDetail1Btn.tag as? Boolean ?: false
         val isImageButton2Checked = binding.agreeDetail2Btn.tag as? Boolean ?: false
         val isImageButton3Checked = binding.agreeDetail3Btn.tag as? Boolean ?: false
-        val isImageButton4Checked = binding.agreeDetail4Btn.tag as? Boolean ?: false
 
         // 모든 이미지 버튼이 체크되었을 때
-        if (isImageButton1Checked && isImageButton2Checked && isImageButton3Checked && isImageButton4Checked) {
+        if (isImageButton1Checked && isImageButton2Checked && isImageButton3Checked) {
             // 다음 버튼 표시, 회색 버튼 숨김
             binding.agreeNextOkBtn.visibility = View.VISIBLE
             binding.agreeNextNoBtn.visibility = View.GONE
@@ -129,7 +126,7 @@ class SignUpActivity: AppCompatActivity() {
 
     private fun goNext() {
         binding.agreeNextOkBtn.setOnClickListener {
-            val intent = Intent(this, ActivityMakeidpw::class.java)
+            val intent = Intent(this, SignUpMakeidpwActivity::class.java)
             startActivity(intent)
         }
     }
