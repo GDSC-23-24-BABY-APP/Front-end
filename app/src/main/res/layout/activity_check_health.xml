@@ -88,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="15dp"
-                android:="bold"
                 android:text="건강 이모티콘"
                 android:textColor="@color/mainText"
                 android:textSize="16dp"
@@ -713,6 +712,7 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/background_subcolor"
                 android:text="저장하기"
                 android:textSize="20dp"/>
