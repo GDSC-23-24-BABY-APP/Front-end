@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".CheckHealth">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/mainColor"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHECK HEALTH"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/mainText"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar">
+
+        <LinearLayout
+            android:id="@+id/constraint2"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="날짜가 여기에 표시됩니다."
+                android:textColor="@color/mainText"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/noticeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:text="오늘의 건강상태를 기록해주세요."
+                android:textColor="@color/mainText"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/weightTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="15dp"
+                android:text="체중"
+                android:textColor="@color/mainText"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/weightEdit"
+                android:layout_width="375dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_border"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="__.__  KG"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/emojiHealth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="15dp"
+                android:="bold"
+                android:text="건강 이모티콘"
+                android:textColor="@color/mainText"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:id="@+id/emojiGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                app:columnCount="6"
+                app:rowCount="4"
+                app:useDefaultMargins="false">
+
+                <!-- 이모티콘 1 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/emoji1"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="입덧"
+                        android:textColor="@color/mainText"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- 이모티콘 2 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji2"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji2" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="구역질"
+                        android:textColor="@color/mainText"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <!-- 이모티콘 3 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji3"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji3" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="어지러움"
+                        android:textColor="@color/mainText"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <!-- 이모티콘 4 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji4"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji4" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="빈혈"
+                        android:textColor="@color/mainText"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <!-- 이모티콘 5 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="4"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji5"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="갈색 출혈"
+                        android:textColor="@color/mainText"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <!-- 이모티콘 6 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="5"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji6"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji6" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="출혈"
+                        android:textColor="@color/mainText"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <!-- 이모티콘 7 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji7"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji7" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="태동"
+                        android:textColor="@color/mainText"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <!-- 이모티콘 8 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji8"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji8" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="당김"
+                        android:textColor="@color/mainText"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <!-- 이모티콘 9 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji9"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji9" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="변비"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 10 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji10"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji10" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="부종"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 11 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="4"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji11"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji11" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="요통"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 12 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="5"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji12"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji12" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="컨디션 난조"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 13 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji13"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji13" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="두통"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 14 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji14"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji14" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="복통"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 15 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji15"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji15" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="졸음"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 16 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji16"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji16" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="나른함"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 17 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="4"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji17"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji17" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="불면증"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 18 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="5"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji18"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji18" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="피부트러블"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 19 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji19"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji19" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="다리경련"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 20 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji20"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji20" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="관절통"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 21 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji21"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji21" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="가슴통증"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 22 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji22"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji22" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="두근거림"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 23 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="4"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji23"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji23" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="배변"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <!-- 이모티콘 24 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="5"
+                    android:layout_columnWeight="1"
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/emoji24"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/background_emoji"
+                        android:src="@drawable/emoji24" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="약물"
+                        android:textColor="@color/mainText"
+                        android:textSize="13dp" />
+                </LinearLayout>
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/writeyourHealth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="15dp"
+                android:text="건강 일지"
+                android:textColor="@color/mainText"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emojiGrid" />
+
+            <EditText
+                android:id="@+id/EditwriteyourHealth"
+                android:layout_width="375dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_designgray"
+                android:gravity="center"
+                android:hint="추가적으로 작성하고 싶은 건강 상태를 여기에 작성해주세요."
+                android:textSize="13dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submitBtn"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/background_subcolor"
+                android:text="저장하기"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

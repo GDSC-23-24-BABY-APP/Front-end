@@ -12,7 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TOBEMOM"
         tools:targetApi="31">
-
+        <activity
+            android:name=".DiaryEmoji"
+            android:exported="false" />
+        <activity
+            android:name=".DiaryWriting"
+            android:exported="false" />
+        <activity
+            android:name=".ChecklistResult"
+            android:exported="false" />
+        <activity
+            android:name=".CheckHealth"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

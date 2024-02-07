@@ -6,33 +6,61 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 
 
-class NewsFragment : Fragment() {
+class NewsFragment : Fragment(), View.OnClickListener {
 
+    private lateinit var BabyDevelopment: TextView
+    private lateinit var PregnancyTip: TextView
+    private lateinit var FrequentlyAskedQuestions: TextView
+    private lateinit var HealthIssues: TextView
+    private lateinit var NearbyHospitals: TextView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_news, container, false)
 
-        // 각 TextView에 클릭 리스너를 설정
-        setClickListener(view.findViewById(R.id.BabyDevelopment), R.id.action_newsFragment_to_BabyDevelopment)
-        setClickListener(view.findViewById(R.id.PregnancyTip), R.id.action_newsFragment_to_pregnancyTipsFragment)
-        setClickListener(view.findViewById(R.id.FrequentlyAskedQuestions), R.id.action_newsFragment_to_frequentlyAskedQuestionsFragment)
-        setClickListener(view.findViewById(R.id.HealthIssues), R.id.action_newsFragment_to_healthIssuesFragment)
-        setClickListener(view.findViewById(R.id.NearbyHospitals), R.id.action_newsFragment_to_nearbyHospitalsFragment)
+        BabyDevelopment = view.findViewById(R.id.BabyDevelopment)
+        PregnancyTip = view.findViewById(R.id.PregnancyTip)
+        FrequentlyAskedQuestions = view.findViewById(R.id.FrequentlyAskedQuestions)
+        HealthIssues = view.findViewById(R.id.HealthIssues)
+        NearbyHospitals = view.findViewById(R.id.NearbyHospitals)
 
         return view
+
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 각 TextView에 클릭 리스너 설정
+        BabyDevelopment.setOnClickListener(this)
+        PregnancyTip.setOnClickListener(this)
+        FrequentlyAskedQuestions.setOnClickListener(this)
+        HealthIssues.setOnClickListener(this)
+        NearbyHospitals.setOnClickListener(this)
     }
 
-    private fun setClickListener(textView: TextView, destinationId: Int) {
-        textView.setOnClickListener {
-            // 클릭된 TextView에 따라 다른 화면으로 이동
-            findNavController().navigate(destinationId)
+    override fun onClick(view: View) {
+        // 클릭한 TextView에 따라서 다른 Fragment로 이동
+        when (view.id) {
+            R.id.BabyDevelopment -> replaceFragment(BabyDevelopment())
+            R.id.PregnancyTip -> replaceFragment(PregnancyTip())
+            R.id.FrequentlyAskedQuestions -> replaceFragment(FrequentlyAskedQuestions())
+            //R.id.HealthIssues -> replaceFragment(HealthIssues())
+            R.id.NearbyHospitals -> replaceFragment(HospitalMap())
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        // Fragment를 교체하는 코드
+        val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+        transaction.replace(R.id.newsFragment, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
