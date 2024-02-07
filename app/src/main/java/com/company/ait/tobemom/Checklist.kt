@@ -2,11 +2,11 @@ package com.company.ait.tobemom
 
 import androidx.fragment.app.Fragment
 
-class ChecklistFragment : Fragment() {
+class Checklist : Fragment() {
 
     companion object {
-        fun newInstance(): ChecklistFragment {
-            return ChecklistFragment()
+        fun newInstance(): Checklist {
+            return Checklist()
         }
     }
 

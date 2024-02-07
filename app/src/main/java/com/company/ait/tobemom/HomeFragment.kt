@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
     private fun goCheck() {
         binding.homeGocheckBtn.setOnClickListener {
             childFragmentManager.beginTransaction().apply {
-                val fragment = ChecklistFragment.newInstance() // newInstance 메서드 호출
+                val fragment = Checklist.newInstance() // newInstance 메서드 호출
                 replace(R.id.fragment_container, fragment) // fragment_container 사용
                 addToBackStack(null)
             }.commit()
