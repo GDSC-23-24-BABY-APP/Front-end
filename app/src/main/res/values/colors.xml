@@ -10,4 +10,5 @@
     <color name="subColor">#FFCDC7</color>
     <color name="mainColor">#FF9999</color>
     <color name="highlight">#FF7272</color>
+    <color name="prettyPink">#FFF1EF</color>
 </resources>

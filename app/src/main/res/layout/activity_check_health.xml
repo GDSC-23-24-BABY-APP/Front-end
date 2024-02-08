@@ -7,24 +7,40 @@
     android:background="@color/background"
     tools:context=".CheckHealth">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/custom_toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CheckHealth_topbar_cl"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="60dp"
         android:background="@color/mainColor"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/CheckHealth_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
+            android:id="@+id/CheckHealth_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CHECK HEALTH"
-            android:layout_gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:textColor="@color/mainText"
-            android:textStyle="bold"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,7 +48,7 @@
         android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/CheckHealth_topbar_cl">
 
         <LinearLayout
             android:id="@+id/constraint2"
@@ -61,11 +77,21 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/noticeResultTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:text="체크리스트 결과 작성"
+                android:textColor="@color/highlight"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/weightTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:text="체중"
                 android:textColor="@color/mainText"
                 android:textSize="16sp"
@@ -99,10 +125,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center"
-                app:columnCount="6"
-                app:rowCount="4"
-                app:useDefaultMargins="false">
-
+                android:columnCount="6"
+                android:rowCount="4"
+                android:useDefaultMargins="false">
                 <!-- 이모티콘 1 -->
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -113,7 +138,6 @@
                     android:layout_columnWeight="1"
                     android:layout_marginBottom="5dp"
                     android:orientation="vertical">
-
                     <ImageButton
                         android:id="@+id/emoji1"
                         android:layout_width="45dp"
