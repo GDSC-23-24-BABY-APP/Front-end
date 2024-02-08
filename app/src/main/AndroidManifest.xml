@@ -79,6 +79,9 @@
         <activity android:name=".SignUpFindpwActivity"
             android:exported="false" />
 
+        <activity android:name=".DiaryViewActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
