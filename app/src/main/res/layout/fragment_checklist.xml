@@ -7,29 +7,46 @@
     android:background="@color/background"
     tools:context=".Checklist">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/custom_toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Checklist_topbar_cl"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/mainColor">
+        android:layout_height="60dp"
+        android:background="@color/mainColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/Checklist_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/Checklist_title_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CHECK"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#525252"
-            android:gravity="center"
-            android:textStyle="bold"/>
+            android:text="CHECKLIST"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
         android:id="@+id/relativelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/Checklist_topbar_cl"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal">
@@ -72,7 +89,7 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="411dp"
+        android:layout_height="530dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -113,15 +130,14 @@
         android:id="@+id/resultBtn"
         android:layout_width="350dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="110dp"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginTop="40dp"
         android:background="@drawable/background_subcolor"
         android:text="결과 보기"
         android:textSize="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteX="30dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,23 +9,40 @@
     android:id="@+id/newsFragment"
     tools:context=".NewsFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/custom_toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/news_topbar_cl"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/mainColor">
+        android:layout_height="60dp"
+        android:background="@color/mainColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/news_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/news_title_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NEWS"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:textColor="@color/mainText"
-            android:gravity="center"
-            android:textStyle="bold"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/BabyDevelopment"
@@ -37,7 +54,7 @@
         android:textColor="@color/mainText"
         android:paddingVertical="20dp"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/news_topbar_cl"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="20dp"/>
@@ -137,5 +154,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/mainColor" />
+
+    <ImageButton
+        android:id="@+id/home_gobard_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_drbard"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
