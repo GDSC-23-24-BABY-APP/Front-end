@@ -7,99 +7,209 @@
     android:background="@color/background"
     tools:context=".DiaryEmoji">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/custom_toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/DiaryEmoji_topbar_cl"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="60dp"
         android:background="@color/mainColor"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/DiaryEmoji_back_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/mainText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
+            android:id="@+id/DiaryEmoji_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DIARY"
-            android:layout_gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:textColor="@color/mainText"
-            android:textStyle="bold"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    </androidx.appcompat.widget.Toolbar>
-
-    <ImageButton
-        android:id="@+id/diary_back_btn"
-        android:layout_width="13dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:src="@drawable/back_btn"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/diary_logo_Image"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/diary_write_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/diary_write_image"/>
+        app:layout_constraintTop_toBottomOf="@+id/DiaryEmoji_topbar_cl" />
 
     <TextView
         android:id="@+id/diaryTv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diary_logo_Image"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:text="오늘의 기분을 그려드릴게요."
         android:textColor="@color/mainText"
-        android:textSize="20dp"/>
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diary_logo_Image" />
 
     <GridLayout
         android:id="@+id/DiaryEmojiGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/diaryTv1"
-        app:columnCount="3"
-        app:rowCount="3"
-        app:useDefaultMargins="false">
+        android:columnCount="3"
+        android:rowCount="3"
+        android:useDefaultMargins="false">
+
+        <ImageButton
+            android:id="@+id/diary_emoji1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_happy"/>
+        <ImageButton
+            android:id="@+id/diary_emoji2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_love"/>
+        <ImageButton
+            android:id="@+id/diary_emoji3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="20dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_cat"/>
+        <ImageButton
+            android:id="@+id/diary_emoji4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_sad"/>
+        <ImageButton
+            android:id="@+id/diary_emoji5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_surprise"/>
+        <ImageButton
+            android:id="@+id/diary_emoji6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="20dp"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_sick"/>
+        <ImageButton
+            android:id="@+id/diary_emoji7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_nervous"/>
+        <ImageButton
+            android:id="@+id/diary_emoji8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_mad"/>
+        <ImageButton
+            android:id="@+id/diary_emoji9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/emoji_soso"/>
+
 
     </GridLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/diary_back_btn2"
             android:layout_width="170dp"
             android:layout_height="55dp"
-            android:text="이전"
-            android:textSize="20dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/border_subcolor"/>
+            android:background="@drawable/border_subcolor"
+            android:text="이전"
+            android:textSize="20dp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/diary_next_btn"
             android:layout_width="170dp"
             android:layout_height="55dp"
-            android:text="다음"
-            android:textSize="20dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/background_subcolor"/>
+            android:background="@drawable/background_subcolor"
+            android:text="다음"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
