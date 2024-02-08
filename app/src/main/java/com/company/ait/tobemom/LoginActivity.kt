@@ -130,4 +130,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
             startActivity(intent)
         }
     }
+
+
 }

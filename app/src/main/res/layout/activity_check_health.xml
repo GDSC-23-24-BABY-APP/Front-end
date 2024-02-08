@@ -13,16 +13,17 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/mainColor"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CHECK HEALTH"
             android:layout_gravity="center"
+            android:text="CHECK HEALTH"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/mainText"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -80,7 +81,8 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|center_vertical"
                 android:hint="__.__  KG"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:fontFamily="@font/leeseoyun" />
 
             <TextView
                 android:id="@+id/emojiHealth"
@@ -704,7 +706,8 @@
                 android:background="@drawable/background_designgray"
                 android:gravity="center"
                 android:hint="추가적으로 작성하고 싶은 건강 상태를 여기에 작성해주세요."
-                android:textSize="13dp" />
+                android:textSize="13dp"
+                android:fontFamily="@font/leeseoyun" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/submitBtn"
