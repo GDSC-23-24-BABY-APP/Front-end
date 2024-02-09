@@ -150,21 +150,12 @@
             android:background="@drawable/border_maincolor">
 
             <TextView
-                android:id="@+id/diaryview_mommytitle_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="일기 제목"
-                android:textSize="20sp"
-                android:textColor="@color/mainText" />
-
-            <TextView
                 android:id="@+id/diaryview_mommycontent_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="일기 내용"
+                android:text="작성된 내용이 없습니다."
                 android:textSize="16sp"
-                android:textColor="@color/mainText"
-                android:layout_marginTop="37dp" />
+                android:textColor="@color/mainText" />
 
         </LinearLayout>
 
@@ -220,21 +211,12 @@
             android:background="@drawable/border_maincolor">
 
             <TextView
-                android:id="@+id/diaryview_daddytitle_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="일기 제목"
-                android:textSize="20sp"
-                android:textColor="@color/mainText" />
-
-            <TextView
                 android:id="@+id/diaryview_daddycontent_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="일기 내용"
+                android:text="작성된 내용이 없습니다."
                 android:textSize="16sp"
-                android:textColor="@color/mainText"
-                android:layout_marginTop="37dp" />
+                android:textColor="@color/mainText" />
 
         </LinearLayout>
 

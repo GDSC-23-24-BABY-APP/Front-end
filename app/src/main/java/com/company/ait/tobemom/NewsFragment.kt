@@ -7,9 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.ActivityNavigator
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 
 
 class NewsFragment : Fragment(), View.OnClickListener {

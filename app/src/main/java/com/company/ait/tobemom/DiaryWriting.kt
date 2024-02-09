@@ -13,7 +13,7 @@ class DiaryWriting : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diary_writing)
 
-        diaryBackBtn = findViewById(R.id.diary_back_btn)
+        diaryBackBtn = findViewById(R.id.DiaryWrite_back_btn)
         diaryBtn = findViewById(R.id.diaryBtn)
 
         //TODO editText 데이터베이스에 저장하는 코드 작성

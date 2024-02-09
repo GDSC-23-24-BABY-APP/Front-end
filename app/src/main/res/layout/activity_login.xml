@@ -219,11 +219,11 @@
             android:background="@android:color/transparent" />
 
         <ImageButton
-            android:id="@+id/login_naver_btn"
+            android:id="@+id/login_kakao_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="57dp"
-            android:src="@drawable/naver_btn"
+            android:src="@drawable/kakao_btn"
             android:background="@android:color/transparent" />
 
     </LinearLayout>

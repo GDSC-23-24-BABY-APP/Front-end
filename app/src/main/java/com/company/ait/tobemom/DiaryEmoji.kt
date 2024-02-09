@@ -15,7 +15,7 @@ class DiaryEmoji : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diary_emoji)
 
-        diaryBackBtn = findViewById(R.id.diary_back_btn)
+        diaryBackBtn = findViewById(R.id.DiaryEmoji_back_btn)
         diaryBackBtn2 = findViewById(R.id.diary_back_btn2)
         diaryNextBtn = findViewById(R.id.diary_next_btn)
 

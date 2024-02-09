@@ -2,7 +2,9 @@ package com.company.ait.tobemom
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.company.ait.tobemom.databinding.ActivityMainBinding
+import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initBottomNavigation()
+
+        val keyHash = Utility.getKeyHash(this)
+        Log.d("Hash", keyHash)
 
     }
     private fun initBottomNavigation(){
