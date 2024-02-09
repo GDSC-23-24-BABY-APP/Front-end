@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="354dp"
+    android:layout_height="555dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="33dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/border_maincolor"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/dialog_emoji_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/emoji_happy"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/dialog_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2024-02-08"
+            android:textSize="20sp"
+            android:textColor="@color/mainText"
+            android:layout_marginTop="28dp" />
+
+        <TextView
+            android:id="@+id/dialog_momdad_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MOMMY"
+            android:textSize="18dp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="12dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:layout_marginTop="25dp">
+
+            <TextView
+                android:id="@+id/dialog_diarycontent_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="오늘의 일기 호롤롤롤로"
+                android:textSize="16dp"
+                android:textColor="@color/mainText" />
+
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dialog_close_btn"
+            android:layout_width="90dp"
+            android:layout_height="42dp"
+            android:text="닫기"
+            android:textSize="20sp"
+            android:textColor="@color/mainText"
+            android:background="@drawable/background_maincolor"
+            android:layout_marginTop="26dp"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

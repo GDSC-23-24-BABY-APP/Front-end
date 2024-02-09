@@ -33,6 +33,12 @@ class Checklist : Fragment() {
 
     private lateinit var questionList : List<String>
 
+    companion object {
+        fun newInstance(): Checklist {
+            return Checklist()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

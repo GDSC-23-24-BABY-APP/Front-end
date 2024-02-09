@@ -81,57 +81,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/babyinfo_birthname_tv" />
 
-    <LinearLayout
-        android:id="@+id/babyinfo_birthdate_ll"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/background_subcolor"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="11dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/babyinfo_date_tv"
-        android:orientation="horizontal"
-        android:gravity="center">
-
         <TextView
-            android:id="@+id/babyinfo_birthy_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="YYYY"
+            android:id="@+id/babyinfo_birthdate_tv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="YYYY/MM/DD"
             android:textSize="20sp"
-            android:textColor="@color/mainText" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" / "
-            android:textSize="20sp"
-            android:textColor="@color/mainText" />
-
-        <TextView
-            android:id="@+id/babyinfo_birthm_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MM"
-            android:textSize="20sp"
-            android:textColor="@color/mainText" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" / "
-            android:textSize="20sp"
-            android:textColor="@color/mainText" />
-
-        <TextView
-            android:id="@+id/babyinfo_birthd_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DD"
-            android:textSize="20sp"
-            android:textColor="@color/mainText" />
-
-    </LinearLayout>
+            android:textColor="@color/mainText"
+            android:background="@drawable/background_subcolor"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="11dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/babyinfo_date_tv"
+            android:gravity="center" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
