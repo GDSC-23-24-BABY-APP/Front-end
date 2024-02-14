@@ -50,7 +50,7 @@
                 android:id="@+id/dialog_diarycontent_"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="오늘의 일기 호롤롤롤로"
+                android:text="Today's Diary Contents"
                 android:textSize="16dp"
                 android:textColor="@color/mainText" />
 

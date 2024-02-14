@@ -18,7 +18,7 @@ class AuthService {
     }
 
     fun signUp(user: User) {
-        //자세한 코드 처리는 추후 수정 필요
+
         val authService = getRetrofit().create(AuthRetrofitInterface::class.java)
 
         authService.signUp(user).enqueue(object : Callback<AuthResponse> {
