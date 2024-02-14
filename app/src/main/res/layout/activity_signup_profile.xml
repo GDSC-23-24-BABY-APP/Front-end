@@ -155,7 +155,7 @@
         android:id="@+id/profile_entercode_dt"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:hint="이름 입력"
+        android:hint="인증번호 입력"
         android:textSize="14sp"
         android:background="@drawable/edge_2dp"
         android:paddingStart="16dp"

@@ -2,7 +2,7 @@ package com.company.ait.tobemom.utils
 
 import android.app.Application
 import android.content.Context
-//import com.kakao.sdk.common.KakaoSdk
+import com.kakao.sdk.common.KakaoSdk
 
 class GlobalApplication : Application() {
 
@@ -15,7 +15,7 @@ class GlobalApplication : Application() {
         super.onCreate()
 
         // Kakao SDK 초기화
-        //KakaoSdk.init(this, "612da977c6ea46f65349319262a190e9")
+        KakaoSdk.init(this, "612da977c6ea46f65349319262a190e9")
     }
 
     class MySharedPreference (context: Context) {
