@@ -49,7 +49,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingVertical="20dp"
-        android:text="임신 관리 팁"
+        android:text="Pregnancy Care Tips"
+        android:textStyle="bold"
         android:textColor="@color/mainText"
         app:layout_constraintTop_toBottomOf="@+id/Pregnancytip_topbar_cl"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +84,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="0~5주차"
+                android:text="Weeks 0-5"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textSize="18dp"
@@ -121,7 +122,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="50dp"
             android:textSize="16dp"
-            android:text="임신 관리 팁"
+            android:text="Pregnancy Care Tips"
             android:gravity="center"/>
 
     </FrameLayout>

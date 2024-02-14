@@ -30,5 +30,3 @@ class GlobalApplication : Application() {
             set(value) = spf.edit().putString("jwt", value).apply()
     }
 }
-
-

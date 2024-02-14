@@ -18,17 +18,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/news_back_btn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/ic_back"
-            android:backgroundTint="@color/mainText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
         <TextView
             android:id="@+id/news_title_tv"
             android:layout_width="wrap_content"
@@ -50,14 +39,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="주차별 아기 발달"
+        android:text="Baby development by Week"
         android:textColor="@color/mainText"
-        android:paddingVertical="20dp"
+        android:paddingVertical="30dp"
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@+id/news_topbar_cl"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20dp"/>
+        android:textSize="24dp"/>
     <View
         android:layout_width="340dp"
         android:layout_height="2dp"
@@ -73,13 +62,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="임신 관리 팁"
+        android:text="Pregnancy Care Tips"
         android:textColor="@color/mainText"
-        android:paddingVertical="25dp"
+        android:paddingVertical="30dp"
         app:layout_constraintTop_toBottomOf="@+id/BabyDevelopment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20dp"/>
+        android:textSize="24dp"/>
     <View
         android:layout_width="340dp"
         android:layout_height="2dp"
@@ -95,40 +84,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="임신 중 자주 묻는 질문"
+        android:text="Pregnacny FAQ"
         android:textColor="@color/mainText"
-        android:paddingVertical="25dp"
+        android:paddingVertical="30dp"
         app:layout_constraintTop_toBottomOf="@+id/PregnancyTip"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20dp"/>
+        android:textSize="24dp"/>
     <View
         android:layout_width="340dp"
         android:layout_height="2dp"
         android:layout_gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/FrequentlyAskedQuestions"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/mainColor" />
-
-    <TextView
-        android:id="@+id/HealthIssues"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="주의 깊게 봐야 할 건강 이슈"
-        android:textColor="@color/mainText"
-        android:paddingVertical="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/FrequentlyAskedQuestions"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20dp"/>
-    <View
-        android:layout_width="340dp"
-        android:layout_height="2dp"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/HealthIssues"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/mainColor" />
@@ -139,13 +106,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="주변 병원"
+        android:text="Nearby Hospital"
         android:textColor="@color/mainText"
-        android:paddingVertical="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/HealthIssues"
+        android:paddingVertical="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/FrequentlyAskedQuestions"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20dp"/>
+        android:textSize="24dp"/>
     <View
         android:layout_width="340dp"
         android:layout_height="2dp"
