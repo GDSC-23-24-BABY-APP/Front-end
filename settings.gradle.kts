@@ -2,6 +2,12 @@ pluginManagement {
     repositories {
         google()
         mavenCentral()
+        maven{
+            url = uri("https://maven.google.com")
+
+        }
+        jcenter()
+        maven{url = uri("https://maven.fabric.io/public") }
         gradlePluginPortal()
     }
 }
@@ -10,7 +16,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven(url = "https://devrepo.kakao.com/nexus/content/groups/public/")
+        maven{
+            url = uri("https://maven.google.com")
+            url = uri("https://devrepo.kakao.com/nexus/content/groups/public/")
+        }
+        jcenter()
+        maven{url = uri("https://maven.fabric.io/public") }
     }
 }
 

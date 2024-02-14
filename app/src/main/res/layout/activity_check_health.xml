@@ -52,7 +52,7 @@
 
         <LinearLayout
             android:id="@+id/constraint2"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="날짜가 여기에 표시됩니다."
+                android:text="Today's Date"
                 android:textColor="@color/mainText"
                 android:textSize="20dp" />
 
@@ -71,18 +71,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="18dp"
-                android:text="오늘의 건강상태를 기록해주세요."
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:text="Please record today's health status."
                 android:textColor="@color/mainText"
-                android:textSize="18sp" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/noticeResultTv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="24dp"
-                android:text="체크리스트 결과 작성"
+                android:gravity="center"
+                android:text="CheckList Result will be in HERE"
                 android:textColor="@color/highlight"
                 android:textSize="18sp" />
 
@@ -92,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
-                android:text="체중"
+                android:text="Weight"
                 android:textColor="@color/mainText"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -113,8 +115,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="15dp"
-                android:text="건강 이모티콘"
+                android:layout_marginTop="20dp"
+                android:text="Health Emoji"
                 android:textColor="@color/mainText"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -148,9 +150,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="입덧"
+                        android:text="morning\nsickness"
                         android:textColor="@color/mainText"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <!-- 이모티콘 2 -->
@@ -173,7 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="구역질"
+                        android:text="nausea"
                         android:textColor="@color/mainText"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -197,9 +199,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="어지러움"
+                        android:text="dizziness"
                         android:textColor="@color/mainText"
-                        android:textSize="13sp" />
+                        android:textSize="11sp" />
                 </LinearLayout>
                 <!-- 이모티콘 4 -->
                 <LinearLayout
@@ -221,7 +223,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="빈혈"
+                        android:text="anemia"
                         android:textColor="@color/mainText"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -245,9 +247,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="갈색 출혈"
+                        android:text="brown\nblood"
                         android:textColor="@color/mainText"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
                 <!-- 이모티콘 6 -->
                 <LinearLayout
@@ -269,9 +271,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="출혈"
+                        android:gravity="center"
+                        android:text="bleeding"
                         android:textColor="@color/mainText"
-                        android:textSize="13sp" />
+                        android:textSize="11sp" />
                 </LinearLayout>
                 <!-- 이모티콘 7 -->
                 <LinearLayout
@@ -293,9 +296,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="태동"
+                        android:gravity="center"
+                        android:text="fetal\nmovement"
                         android:textColor="@color/mainText"
-                        android:textSize="13sp" />
+                        android:textSize="11sp" />
                 </LinearLayout>
                 <!-- 이모티콘 8 -->
                 <LinearLayout
@@ -317,7 +321,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="당김"
+                        android:text="pulling"
                         android:textColor="@color/mainText"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -341,9 +345,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="변비"
+                        android:gravity="center"
+                        android:text="cons\ntipation"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 10 -->
                 <LinearLayout
@@ -365,7 +370,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="부종"
+                        android:text="edema"
                         android:textColor="@color/mainText"
                         android:textSize="13dp" />
                 </LinearLayout>
@@ -389,9 +394,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="요통"
+                        android:text="back\nache"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 12 -->
                 <LinearLayout
@@ -413,9 +418,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="컨디션 난조"
+                        android:text="poor\ncondition"
+                        android:gravity="center"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="10dp" />
                 </LinearLayout>
                 <!-- 이모티콘 13 -->
                 <LinearLayout
@@ -437,9 +443,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="두통"
+                        android:text="head\nache"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 14 -->
                 <LinearLayout
@@ -461,9 +467,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="복통"
+                        android:gravity="center"
+                        android:text="abdominal\npain"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="10dp" />
                 </LinearLayout>
                 <!-- 이모티콘 15 -->
                 <LinearLayout
@@ -485,9 +492,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="졸음"
+                        android:text="sleep\niness"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="10dp" />
                 </LinearLayout>
                 <!-- 이모티콘 16 -->
                 <LinearLayout
@@ -509,9 +516,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="나른함"
+                        android:text="lethargy"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 17 -->
                 <LinearLayout
@@ -533,9 +540,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="불면증"
+                        android:text="Insomnia"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 18 -->
                 <LinearLayout
@@ -557,9 +564,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="피부트러블"
+                        android:gravity="center"
+                        android:text="skin\ntrouble"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 19 -->
                 <LinearLayout
@@ -580,9 +588,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="다리경련"
+                        android:gravity="center"
+                        android:text="leg\ncramps"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 20 -->
                 <LinearLayout
@@ -604,9 +613,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="관절통"
+                        android:gravity="center"
+                        android:text="joint\npain"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 21 -->
                 <LinearLayout
@@ -628,9 +638,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="가슴통증"
+                        android:gravity="center"
+                        android:text="chest\npain"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
                 <!-- 이모티콘 22 -->
                 <LinearLayout
@@ -652,9 +663,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="두근거림"
+                        android:text="palpitation"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="10dp" />
                 </LinearLayout>
                 <!-- 이모티콘 23 -->
                 <LinearLayout
@@ -676,9 +687,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="배변"
+                        android:text="defecation"
                         android:textColor="@color/mainText"
-                        android:textSize="13dp" />
+                        android:textSize="10dp" />
                 </LinearLayout>
                 <!-- 이모티콘 24 -->
                 <LinearLayout
@@ -700,7 +711,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="약물"
+                        android:text="drug"
                         android:textColor="@color/mainText"
                         android:textSize="13dp" />
                 </LinearLayout>
@@ -711,8 +722,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="15dp"
-                android:text="건강 일지"
+                android:layout_marginTop="20dp"
+                android:text="Health Note"
                 android:textColor="@color/mainText"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -722,12 +733,12 @@
             <EditText
                 android:id="@+id/EditwriteyourHealth"
                 android:layout_width="375dp"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/background_designgray"
                 android:gravity="center"
-                android:hint="추가적으로 작성하고 싶은 건강 상태를 여기에 작성해주세요."
+                android:hint="Please write any additional health information \nyou would like to include here."
                 android:textSize="13dp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -738,7 +749,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/background_subcolor"
-                android:text="저장하기"
+                android:text="submit"
                 android:textSize="20dp"/>
 
         </LinearLayout>

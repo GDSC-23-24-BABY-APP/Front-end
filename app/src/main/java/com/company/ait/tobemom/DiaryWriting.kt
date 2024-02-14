@@ -20,7 +20,7 @@ class DiaryWriting : AppCompatActivity() {
 
         diaryBackBtn.setOnClickListener {
             // 이전 화면으로 이동하는 코드 작성
-            val intent = Intent(this, DiaryFragment::class.java)
+            val intent = Intent(this, CalendarFragment::class.java)
             startActivity(intent)
         }
         // 다음 버튼 클릭 시 이벤트 처리
