@@ -1,5 +1,7 @@
 package com.company.ait.tobemom.utils
 
+import com.company.ait.tobemom.api.ChatInterface
+import com.company.ait.tobemom.api.UserInterface
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -30,5 +32,7 @@ object RetrofitObject {
     }
 
     val getRetrofitService: RetrofitAPI by lazy {  getRetrofit.create(RetrofitAPI::class.java) }
+    val userApi = getRetrofit.create<UserInterface>(UserInterface::class.java)
+    val chatApi = getRetrofit.create<ChatInterface>(ChatInterface::class.java)
 
 }
