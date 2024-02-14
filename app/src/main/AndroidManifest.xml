@@ -9,6 +9,7 @@
         android:name=".utils.GlobalApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:usesCleartextTraffic="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="TO BE MOM"
@@ -79,9 +80,6 @@
         <activity android:name=".SignUpMakeidpwActivity"
             android:exported="false" />
 
-        <activity android:name=".SignUpProfileActivity"
-            android:exported="false" />
-
         <activity android:name=".SignUpFinActivity"
             android:exported="false" />
 
@@ -99,6 +97,34 @@
 
         <activity android:name=".DiaryViewActivity"
             android:exported="false" />
+
+        <activity android:name=".MyPageMyinfoActivity"
+            android:exported="false" />
+
+        <activity android:name=".MyPageBabyinfoActivity"
+            android:exported="false" />
+
+        <activity android:name=".MyPageLinkActivity"
+            android:exported="false" />
+
+        <activity android:name=".MyPageSettingsActivity"
+            android:exported="false" />
+
+        <activity android:name=".MyPagePhonesetActivity"
+            android:exported="false" />
+
+        <activity android:name=".MyPageCalendarsetActivity"
+            android:exported="false" />
+
+        <activity android:name=".MyPageHowtouseActivity"
+            android:exported="false" />
+
+        <activity android:name=".MyPageNoticeActivity"
+            android:exported="false" />
+
+        <activity android:name=".MyPageNoticeboardActivity"
+            android:exported="false" />
+
 
     </application>
 

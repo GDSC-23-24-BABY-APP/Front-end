@@ -11,7 +11,7 @@
         android:id="@+id/calendar_now_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2024년  1월"
+        android:text="2024 - 01"
         android:textSize="30sp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="107dp"
