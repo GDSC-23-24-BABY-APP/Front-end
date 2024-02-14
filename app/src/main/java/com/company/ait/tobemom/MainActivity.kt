@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.diaryFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, DiaryFragment())
+                        .replace(R.id.main_frm, CalendarFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

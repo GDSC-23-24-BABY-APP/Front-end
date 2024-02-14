@@ -33,6 +33,12 @@ class Checklist : Fragment() {
 
     private lateinit var questionList : List<String>
 
+    companion object {
+        fun newInstance(): Checklist {
+            return Checklist()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,6 +55,7 @@ class Checklist : Fragment() {
 
         //날짜 표시
         displayCurrentDate()
+
 
         //ImageButton 클릭 리스너 설정 (다른 화면으로 이동하는 기능)
         checklistcalbtn.setOnClickListener{

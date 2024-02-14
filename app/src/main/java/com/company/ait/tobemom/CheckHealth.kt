@@ -1,5 +1,6 @@
 package com.company.ait.tobemom
 
+import android.content.Intent
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import java.util.Locale
 
 class CheckHealth : AppCompatActivity() {
 
+    private lateinit var checkHealthBackBtn: ImageButton
     private lateinit var dateTextView: TextView
     private lateinit var WeightEdit: EditText
     private lateinit var Emoji1: ImageButton; private lateinit var Emoji2: ImageButton
@@ -33,6 +35,7 @@ class CheckHealth : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_health)
 
+        checkHealthBackBtn = findViewById(R.id.CheckHealth_back_btn)
         dateTextView = findViewById(R.id.dateTextView)
         WeightEdit = findViewById(R.id.weightEdit)
         Emoji1 = findViewById(R.id.emoji1); Emoji2 = findViewById(R.id.emoji2)
@@ -52,6 +55,11 @@ class CheckHealth : AppCompatActivity() {
 
         //날짜 표시
         displayCurrentDate()
+
+        checkHealthBackBtn.setOnClickListener{
+            val intent = Intent(this, ChecklistResult::class.java)
+            startActivity(intent)
+        }
 
     }
     private fun displayCurrentDate(){

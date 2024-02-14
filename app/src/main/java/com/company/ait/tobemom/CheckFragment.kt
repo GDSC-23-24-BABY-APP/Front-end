@@ -2,7 +2,6 @@ package com.company.ait.tobemom
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.CalendarContract.CalendarAlerts
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +17,7 @@ import java.util.Locale
 class CheckFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var calendarAdapter: CalendarAdapter
+    private lateinit var checkAdapter: CheckCalendarAdapter
     private lateinit var checkHealthBtn : ImageButton
 
     override fun onCreateView(
@@ -27,6 +26,7 @@ class CheckFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_check, container, false)
 
+        checkHealthBtn = view.findViewById(R.id.checklist_cal_btn)
         checkHealthBtn.setOnClickListener{
             val intent = Intent(requireContext(), CheckHealth::class.java)
             startActivity(intent)
@@ -49,8 +49,8 @@ class CheckFragment : Fragment() {
         endDate.add(Calendar.DAY_OF_MONTH,280)
 
         // RecyclerView 어댑터 설정
-        calendarAdapter = CalendarAdapter(generateDateList(startDate, endDate))
-        recyclerView.adapter = calendarAdapter
+        checkAdapter = CheckCalendarAdapter(generateDateList(startDate, endDate))
+        recyclerView.adapter = checkAdapter
 
         return view
     }
