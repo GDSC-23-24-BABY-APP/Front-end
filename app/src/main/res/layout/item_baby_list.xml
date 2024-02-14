@@ -26,7 +26,7 @@
             android:id="@+id/item_birthname_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sweety"
+            android:text="꿈틀이"
             android:textSize="20sp"
             android:layout_marginStart="16dp"
             android:layout_gravity="center" />
@@ -35,7 +35,7 @@
             android:id="@+id/item_seleced_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choosing"
+            android:text="선택 중"
             android:textSize="20sp"
             android:layout_marginStart="150dp"
             android:layout_gravity="center"

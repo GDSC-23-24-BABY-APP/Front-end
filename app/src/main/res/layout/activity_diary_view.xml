@@ -93,7 +93,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Going to write today's diary"
+            android:text="오늘의 일기 작성하러 가기"
             android:textSize="20sp"
             android:textColor="@color/mainText"
             android:layout_marginStart="12dp" />

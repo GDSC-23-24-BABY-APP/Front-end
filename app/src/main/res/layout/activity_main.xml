@@ -18,14 +18,13 @@
         android:id="@+id/main_bnv"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:menu="@menu/bottom_menu"
         app:itemIconSize="20dp"
         app:itemTextColor="@drawable/btm_color_selector"
         app:itemIconTint="@drawable/btm_color_selector"
         app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_menu"
+        style="@style/BottomNavStyle"/>
 
-    <!--        app:itemTextAppearance="@style/BottomNavStyle"-->
-    <!--        android:theme="@style/BottomNavStyle"-->
 </androidx.constraintlayout.widget.ConstraintLayout>
 

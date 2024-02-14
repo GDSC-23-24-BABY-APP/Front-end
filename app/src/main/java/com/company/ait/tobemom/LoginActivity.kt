@@ -1,5 +1,6 @@
 package com.company.ait.tobemom
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,7 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginActivity : AppCompatActivity(), LoginView {
+class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
 
@@ -34,17 +35,16 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
 
         binding.loginLoginBtn.setOnClickListener {
-            login()
+
         }
 
         //아이디 비번 찾기
         goFindid()
         goResetpw()
 
-        // 카카오 로그인 정보 확인
+        // 로그인 정보 확인
         checkLoginInfo()
 
-        // 카카오 로그인
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
                 when {
@@ -97,7 +97,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
                         val email = user.kakaoAccount?.email
                         val name = user.kakaoAccount?.profile?.nickname
                         //이메일 이름 보내서 서버와 연결
-                        //loginServer(email!!, name!!)
+                        loginServer(email!!, name!!)
                     }
                 }
 
@@ -119,85 +119,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 startActivity(intent)
             }
         }
-    }
-
-    private fun login() {
-        if(binding.loginIdEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
-        if(binding.loginPwEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        // 아이디와 비밀번호 가져오기
-        val id: String = binding.loginIdEt.text.toString()
-        val pw: String = binding.loginPwEt.text.toString()
-
-        // 백엔드에서 사용자 정보 확인
-        checkUserExistence(id, pw)
-    }
-
-    private fun checkUserExistence(email: String, password: String) : Boolean {
-        // Retrofit 서비스 인터페이스를 통해 백엔드에 사용자 정보 확인 요청
-        val call = RetrofitObject.getRetrofitService.login(RetrofitClient2.RequestLogin(email, password))
-
-        call.enqueue(object : Callback<RetrofitClient2.ResponseLogin> {
-            override fun onResponse(
-                call: Call<RetrofitClient2.ResponseLogin>,
-                response: Response<RetrofitClient2.ResponseLogin>
-            ) {
-                if (response.isSuccessful) {
-                    val responseData = response.body()
-                    Log.d("SignUpResponse", "response값: $responseData")
-                    if (responseData != null) {
-                        // 사용자 정보가 존재하면 MainActivity 시작
-                        startMainActivity()
-                    } else {
-                        // 사용자 정보가 존재하지 않으면 토스트 메시지 표시
-                        Toast.makeText(this@LoginActivity, "회원 정보가 존재하지 않습니다.", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    // 처리되지 않은 응답에 대한 처리
-                    Log.e("LoginActivity", "응답 실패: ${response.code()}")
-                }
-            }
-
-            override fun onFailure(call: Call<RetrofitClient2.ResponseLogin>, t: Throwable) {
-                // 실패에 대한 처리
-                Log.e("LoginActivity", "에러: ${t.message}")
-            }
-        })
-        return false
-    }
-
-    private fun saveJwt2(jwt: String) {
-        val spf = getSharedPreferences("auth2", MODE_PRIVATE)
-        val editor = spf.edit()
-
-        editor.putString("jwt", jwt)
-        editor.apply()
-    }
-
-    private fun startMainActivity() {
-        // MainActivity 시작
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish() // 뒤로 가기 버튼으로 LoginActivity로 돌아가지 않도록 LoginActivity 종료
-    }
-
-    override fun onLoginSuccess(code: Int, result: Result) {
-        when(code) {
-            1000->{
-                saveJwt2(result.jwt)
-                startMainActivity()
-            }
-        }
-    }
-
-    override fun onLoginFailure() {
-        //실패 처리
     }
 
     private fun goFindid() {
@@ -227,13 +148,56 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-//    private fun saveTokenInfo(context: Context, accessToken: String?, refreshtoken:String?) {
-//        val sharedPref = context.getSharedPreferences("TOBEMOM", Context.MODE_PRIVATE)
-//        with(sharedPref.edit()) {
-//            accessToken?.let { putString("accessToken", it) }
-//            Log.d("loginToken",accessToken.toString())
-//            refreshtoken?.let { putString("refreshtoken", it) }
-//            apply()
-//        }
-//    }
+    private fun loginServer(email: String,name: String): Boolean {
+        val call = RetrofitObject.getRetrofitService.kakaoLogin(RetrofitClient2.RequestLogin(email, name))
+        call.enqueue(object : Callback<RetrofitClient2.ResponseLogin> {
+            override fun onResponse(
+                call: Call<RetrofitClient2.ResponseLogin>,
+                response: Response<RetrofitClient2.ResponseLogin>
+            ) {
+                Log.d("login", response.toString())
+                if (response.isSuccessful) {
+                    val response = response.body()
+                    Log.d("login", response.toString())
+                    if (response != null) {
+                        if (response.isSuccess) {
+                            val accessToken = response.result.accessToken
+                            val refreshToken = response.result.refreshToken
+                            saveTokenInfo(this@LoginActivity,accessToken,refreshToken)
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                            finish()
+                        } else {
+                            Toast.makeText(
+                                this@LoginActivity,
+                                response.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                }
+            }
+
+            override fun onFailure(
+                call:
+                Call<RetrofitClient2.ResponseLogin>, t: Throwable
+            ) {
+                val errorMessage = "Call Failed: ${t.message}"
+                Log.d("login", errorMessage)
+            }
+        })
+        return false
+    }
+
+    private fun saveTokenInfo(context: Context, accessToken: String?, refreshtoken:String?)
+    {
+        val sharedPref = context.getSharedPreferences("TOBEMOM", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            accessToken?.let { putString("accessToken", it) }
+            Log.d("loginToken",accessToken.toString())
+            refreshtoken?.let { putString("refreshtoken", it) }
+            apply()
+        }
+    }
 }
