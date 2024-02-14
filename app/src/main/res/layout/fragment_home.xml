@@ -64,20 +64,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/home_tomeet_tv"
+                android:id="@+id/home_birthname_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Until I meet "
+                android:text="꿈틀이"
                 android:textSize="20sp"
                 android:textColor="@color/mainText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
-                android:id="@+id/home_birthname_tv"
+                android:id="@+id/home_tomeet_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sweety"
+                android:text="와(과) 만날 때까지"
                 android:textSize="20sp"
                 android:textColor="@color/mainText"
                 app:layout_constraintStart_toStartOf="parent"
@@ -159,7 +159,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weeks ("
+            android:text="주차 ("
             android:textSize="20sp"
             android:textColor="@color/mainText" />
 
@@ -174,7 +174,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Months)"
+            android:text="개월)"
             android:textSize="20sp"
             android:textColor="@color/mainText" />
 
@@ -209,7 +209,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/background_maincolor"
-        android:text="Going to do today's status check"
+        android:text="오늘 상태 체크하러 가기"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_marginHorizontal="14dp"

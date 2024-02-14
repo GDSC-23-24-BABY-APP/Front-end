@@ -28,9 +28,9 @@
 
         <TextView
             android:id="@+id/terms_signup_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="78dp"
             android:layout_height="25dp"
-            android:text="Terms and Conditions Name"
+            android:text="약관 이름"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/mainText"

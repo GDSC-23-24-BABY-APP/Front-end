@@ -39,7 +39,7 @@ class SignUpFindpwActivity : AppCompatActivity() {
 
     private fun showDialog() {
         binding.findpwResetBtn.setOnClickListener {
-            val dialog = CustomFindpwDialog(binding.root.context)
+            val dialog = CustomFindidDialog(binding.root.context)
             dialog.show()
         }
     }

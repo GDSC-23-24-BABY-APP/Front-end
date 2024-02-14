@@ -2,17 +2,17 @@ package com.company.ait.tobemom
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.company.ait.tobemom.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
 
-    var birthname: String = "Sweety"
+    lateinit var birthname: String
     var ddaymonth: Int = 0
     var ddayweek: Int = 0
     var ddayday: Int = 0
