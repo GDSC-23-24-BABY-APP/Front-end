@@ -11,62 +11,100 @@ import android.widget.TextView
 
 class PregnancyTip : Fragment() {
 
+    private lateinit var pregnancyTipBackBtn: ImageButton
     private lateinit var weekOfPregnancy: TextView
     private lateinit var pregnancyTips : TextView
     private lateinit var previousWeekBtn: ImageButton
     private lateinit var nextWeekBtn: ImageButton
 
-    private lateinit var pregnancyTipContents: Array<String>
-    private var currentWeekIndex: Int=0
+    private var currentWeekIndex: Int = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pregnancy_tip, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_pregnancy_tip, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        //Initialize views
-        weekOfPregnancy = view.findViewById(R.id.week_of_pregnancy)
-        pregnancyTips = view.findViewById(R.id.pregnancy_tips)
+        pregnancyTipBackBtn = view.findViewById(R.id.Pregnancytip_back_btn)
+        weekOfPregnancy = view.findViewById(R.id.week_of_pregnancy) //Title
+        pregnancyTips = view.findViewById(R.id.pregnancy_tips) //Content
         previousWeekBtn = view.findViewById(R.id.previous_week_button)
         nextWeekBtn = view.findViewById(R.id.next_week_button)
 
-        //Define baby development contents for each week
-        pregnancyTipContents = arrayOf(
-            "0~5주차 임신 팁",
-            "5~10주차 임신 팁 내용",
-            "11~15주차 임신 팁 내용"
-            // ...(나머지 주차별 임신 팁 내용)
-        )
-        //set initial week and description
-        currentWeekIndex = 0
-        weekOfPregnancy.text = "0~5주차"
-        pregnancyTips.text=pregnancyTipContents[currentWeekIndex]
 
-        //set click listeners for previous and next week buttons
-        previousWeekBtn.setOnClickListener{
-            if (currentWeekIndex > 0){
+        //초기 값 설정
+        updateUIForCurrentWeek()
+
+        pregnancyTipBackBtn.setOnClickListener{
+            navigateToOtherFragment()
+        }
+
+        //버튼에 클릭 리스너 설정
+        previousWeekBtn.setOnClickListener {
+            //이전 주 버튼을 처리하는 로직 추가 (필요시)
+            if(currentWeekIndex > 1){
                 currentWeekIndex--
-                weekOfPregnancy.text = getWeekRange(currentWeekIndex)
-                pregnancyTips.text = pregnancyTipContents[currentWeekIndex]
+                updateUIForCurrentWeek()
             }
         }
+
         nextWeekBtn.setOnClickListener {
-            if (currentWeekIndex < pregnancyTipContents.size - 1) {
+            // 다음 주 버튼을 처리하는 로직 호출
+            if(currentWeekIndex < 8){
                 currentWeekIndex++
-                weekOfPregnancy.text = getWeekRange(currentWeekIndex)
-                pregnancyTips.text = pregnancyTipContents[currentWeekIndex]
+                updateUIForCurrentWeek()
             }
         }
+        return view
     }
-    private fun getWeekRange(weekIndex: Int): String {
-        val startWeek = weekIndex * 5
-        val endWeek = startWeek + 5
-        return "$startWeek~$endWeek 주차"
+    private fun navigateToOtherFragment() {
+        // 이동하고 싶은 Fragment를 생성
+        val newsFragment = NewsFragment()
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+
+        // 다른 Fragment로 교체하고 back stack에 추가
+        transaction.replace(R.id.newsFragment, newsFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    private fun updateUIForCurrentWeek(){
+        // 임신 시기에 따라 UI 업데이트
+        when (currentWeekIndex) {
+            1 -> {
+                weekOfPregnancy.text = getString(R.string.PTweek0_5)
+                pregnancyTips.text = getString(R.string.PTweek0_5_content)
+            }
+            2 -> {
+                weekOfPregnancy.text = getString(R.string.PTweek6_10)
+                pregnancyTips.text = getString(R.string.PTweek6_10_content)
+            }
+            3 -> {
+                weekOfPregnancy.text = getString(R.string.PTweek11_15)
+                pregnancyTips.text = getString(R.string.PTweek11_15_content)
+            }
+            4 -> {
+                weekOfPregnancy.text = getString(R.string.PTweek16_20)
+                pregnancyTips.text = getString(R.string.PTweek16_20_content)
+            }
+            5 -> {
+                weekOfPregnancy.text = getString(R.string.PTweek21_25)
+                pregnancyTips.text = getString(R.string.PTweek21_25_content)
+            }
+            6 -> {
+                weekOfPregnancy.text = getString(R.string.PTweek26_30)
+                pregnancyTips.text = getString(R.string.PTweek26_30_content)
+            }
+            7 -> {
+                weekOfPregnancy.text = getString(R.string.PTweek31_35)
+                pregnancyTips.text = getString(R.string.PTweek31_35_content)
+            }
+            8 -> {
+                weekOfPregnancy.text = getString(R.string.PTweek36_40)
+                pregnancyTips.text = getString(R.string.PTweek36_40_content)
+            }
+        }
+
     }
 }

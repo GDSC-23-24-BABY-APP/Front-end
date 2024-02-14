@@ -11,61 +11,103 @@ import org.w3c.dom.Text
 
 class BabyDevelopment : Fragment() {
 
+    private lateinit var babyDevelopBackBtn: ImageButton
     private lateinit var weekOfBabyTextView: TextView
     private lateinit var weekBabyDescriptionTextView : TextView
     private lateinit var previousWeekBtn: ImageButton
     private lateinit var nextWeekBtn: ImageButton
 
-    private lateinit var babyDevelopmentContents: Array<String>
-    private var currentWeekIndex: Int=0
+    private var currentWeekIndex: Int = 1
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_baby_development, container, false)
-    }
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_baby_development, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        //Initialize views
-        weekOfBabyTextView = view.findViewById(R.id.week_of_baby)
-        weekBabyDescriptionTextView = view.findViewById(R.id.week_baby_description)
+        babyDevelopBackBtn = view.findViewById(R.id.BabyDevelop_back_btn)
+        weekOfBabyTextView = view.findViewById(R.id.week_of_baby) //Title
+        weekBabyDescriptionTextView = view.findViewById(R.id.week_baby_description) //Content
         previousWeekBtn = view.findViewById(R.id.previous_week_button)
         nextWeekBtn = view.findViewById(R.id.next_week_button)
 
-        //Define baby development contents for each week
-        babyDevelopmentContents = arrayOf(
-            "0~5주차 아기 발달 내용",
-            "5~10주차 아기 발달 내용",
-            "11~15주차 아기 발달 내용"
-            // ...(나머지 주차별 아기 발달 내용)
-        )
-        //set initial week and description
-        currentWeekIndex = 0
-        weekOfBabyTextView.text = "0~5주차"
-        weekBabyDescriptionTextView.text=babyDevelopmentContents[currentWeekIndex]
 
-        //set click listeners for previous and next week buttons
-        previousWeekBtn.setOnClickListener{
-            if (currentWeekIndex > 0){
+        //초기 값 설정
+        updateUIForCurrentWeek()
+
+        babyDevelopBackBtn.setOnClickListener{
+            navigateToOtherFragment()
+        }
+
+        //버튼에 클릭 리스너 설정
+        previousWeekBtn.setOnClickListener {
+            //이전 주 버튼을 처리하는 로직 추가 (필요시)
+            if(currentWeekIndex > 1){
                 currentWeekIndex--
-                weekOfBabyTextView.text = getWeekRange(currentWeekIndex)
-                weekBabyDescriptionTextView.text = babyDevelopmentContents[currentWeekIndex]
+                updateUIForCurrentWeek()
             }
         }
+
         nextWeekBtn.setOnClickListener {
-            if (currentWeekIndex < babyDevelopmentContents.size - 1) {
+            // 다음 주 버튼을 처리하는 로직 호출
+            if(currentWeekIndex < 8){
                 currentWeekIndex++
-                weekOfBabyTextView.text = getWeekRange(currentWeekIndex)
-                weekBabyDescriptionTextView.text = babyDevelopmentContents[currentWeekIndex]
+                updateUIForCurrentWeek()
             }
         }
+        return view
     }
-    private fun getWeekRange(weekIndex: Int): String {
-        val startWeek = weekIndex * 5
-        val endWeek = startWeek + 5
-        return "$startWeek~$endWeek 주차"
+
+    // 다른 Fragment로 이동하는 함수
+    private fun navigateToOtherFragment() {
+        // 이동하고 싶은 Fragment를 생성
+        val newsFragment = NewsFragment()
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+
+        // 다른 Fragment로 교체하고 back stack에 추가
+        transaction.replace(R.id.newsFragment, newsFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+    private fun updateUIForCurrentWeek(){
+        // 임신 시기에 따라 UI 업데이트
+        when (currentWeekIndex) {
+            1 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek0_5)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek0_5_content)
+            }
+            2 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek6_10)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek6_10_content)
+            }
+            3 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek11_15)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek11_15_content)
+            }
+            4 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek16_20)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek16_20_content)
+            }
+            5 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek21_25)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek21_25_content)
+            }
+            6 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek26_30)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek26_30_content)
+            }
+            7 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek31_35)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek31_35_content)
+
+            }
+            8 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek36_40)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek36_40_content)
+            }
+        }
+
     }
 }

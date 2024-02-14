@@ -53,7 +53,10 @@ dependencies {
     //implementation("androidx.design:design:1.1.0")
     //implementation("com.prolificinterative:material-calendarview:1.4.3")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
-    implementation("com.android.identity:identity-credential-android:20231002")
+    implementation("com.google.android.gms:play-services-location:21.1.0")
+    implementation("com.google.android.libraries.places:places:3.3.0")
+    implementation("noman.placesapi:placesAPI:1.1.3")
+    implementation("com.google.maps.android:android-maps-utils:0.5+")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

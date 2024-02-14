@@ -1,7 +1,169 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
+
+    <data>
+        <description>This is an example with &lt; and &gt; characters.</description>
+        <attribute name="example" value="This has an apostrophe &apos; and a quotation mark &quot;." />
+    </data>
+
+    //FAQ Context
+    <string name="early_pregnancy_title">Early Pregnancy</string>
+    <string name="early_pregnancy_content"> Q1.In Case, you have experienced two or more miscarriages,\n\n A1. The probability of miscarriage increases dramatically to 30%.
+        \n Therefore, women with miscarriage experience should consult an obstetrician and get an ultrasound examination consistently.
+\n\n Q2. What are some dangerous conditions for pregnancy?
+        \n\n A2. Continuous exposure to radiation, such as X-rays and gamma rays, or handling chemicals such as lead, mercury, arsenic, or drugs such as anticancer drugs,
+\n Work concerned about infection with hepatitis B virus or rubella virus,standing for a long time or carrying heavy loads
+\n The work mentioned above poses a risk of miscarriage as well as premature birth, deformity, and low birth weight.
+\n\n Q3. Exercise during pregnancy \n\n A3. If you go to a swimming pool, strong chemicals such as chlorine are unhealthy because the pH balance in the vagina collapses.
+\nPlease find out more about the right exercise for you during pregnancy through consultation with a medical institution. </string>
+    
+    <string name="mid_pregnancy_title">Mid Pregnancy</string>
+    <string name="mid_pregnancy_content"></string>
+
+    <string name="late_pregnancy_title">Late Pregnancy</string>
+    <string name="late_pregnancy_content"></string>
+
+
+    //Pregnancy Tip Content
+    <string name="PTweek0_5">Weeks 0-5</string>
+    <string name="PTweek0_5_content"> If you're preparing to become pregnant, stay away from stimulants such as alcohol, cigarettes, and coffee.\n Figure out the menstrual cycle of a woman to determine the ovulation period with the highest probability of pregnancy.\n Collect information about pregnancy and utilize the experiences and advice of your acquaintances around you.\n Let go of the tension and worries for a while, and do activities that reduce stress.\n There is no significant change in the body until the third week.\n It is difficult to confirm certain results through pregnancy test results or ultrasound.
+After implantation, some women may have small amounts of brown or pink secretions on their underwear. This is called an implantation type, which is different from ovulation blood. Fertile eggs appear during implantation in the endometrium. You may also feel weak abdominal pain or breast pain that seems to be pulling.
+\n A balanced diet with plenty of vitamins and good fats is important. In particular, it is recommended to eat foods high in iron and folate, which play an important role in blood formation and cell growth.
+\n Hormones can cause you to feel tired or lethargic due to slower metabolism than usual. This is a temporary symptom that eases you within two months of pregnancy.
+\n For no apparent reason, you may feel your abdomen pulling or pain in various parts of your body. Another symptom is an increase in secretion. Changes in hormone levels can often cause nausea.
+\n Many pregnant women complain of nausea in the morning because a large amount of HCG hormone release occurs overnight. The body releases large amounts of HCG hormones, which can lead to strong nausea in the early stages of pregnancy. In addition, there are many emotional ups and downs during this period due to the influence of hormones. Morning sickness is often caused by an empty stomach, so it is recommended to eat small amounts of food frequently.</string>
+
+    <string name="PTweek6_10">Weeks 6-10</string>
+    <string name="PTweek6_10_content">In the early stages of pregnancy, various hormonal changes can lead to a variety of symptoms. Commonly experienced symptoms include increased appetite, breast tenderness, fatigue, and lethargy. However, as the pregnancy progresses into the mid-term around the third month, the body adapts, and these symptoms gradually begin to ease.
+\nWhile some women may complain of severe discomfort, others may experience only mild symptoms or none at all. The intensity and variety of symptoms resulting from hormonal changes vary widely and depend on individual adaptability and psychological state.
+\nThe breasts gradually enlarge and become heavier, accompanied by pain. Sensitivity to specific smells and feelings of nausea serve as a protective mechanism against substances that may be harmful to both the pregnant woman and the baby. Vaginal discharge may increase.
+\nAs the body gradually adapts to changing hormone levels, symptoms tend to alleviate. Nausea and abdominal pain decrease. Breast pain and nipple sensitivity also diminish temporarily as the body prepares for breastfeeding.
+\nAlthough the mother's belly may not be significantly enlarged during this time, other pregnancy-related symptoms become apparent. Around the ninth week, pregnant women notice changes in skin and hair. Some may experience thicker, glossy hair, while others may notice thinning. These symptoms are attributed to hormonal fluctuations and tend to subside as hormone levels return to normal after childbirth. Using a mild shampoo during this period may be helpful.</string>
+
+    <string name="PTweek11_15">Weeks 11-15</string>
+    <string name="PTweek11_15_content">Please do not go on a diet.\nMaintain peace of mind.\n Write a pregnancy diary.\n Seek the cooperation of your family.
+\n Start prenatal music education in earnest. Select music that relaxes your mind. It doesn't have to be classical music.
+\n Begin talking to your baby.According to American research, babies can recognize their mother's voice around 3-4 months.
+\n Do not let your guard down about caffeine. During pregnancy, it is recommended to consume less than 300mg of caffeine per day, and a 200ml Americano contains approximately 50mg-150mg.
+\n Avoid excessive exposure to radiation during pregnancy, as it can lead to mutations in the fetus. Experts consider exposure to radiation during this period to be the most dangerous. If X-rays are absolutely necessary, inform the professional about your pregnancy.</string>
+
+    <string name="PTweek16_20">Weeks 16-20</string>
+    <string name="PTweek16_20_content"> Mom's blood pressure increases as the fetus grows, putting strain on the expectant mother's heart and leading to elevated blood pressure during pregnancy.
+\nThe placenta, formed through the mother's blood vessels, is now fully developed.
+\nTry listening to appropriate music that matches the rhythms of the mother and fetus's bodies.
+\nEnsure you consume nutritious food.
+\nBetween weeks 16-18, prenatal tests can reveal the possibility of delivering a baby with abnormalities.
+\nThis test, based on the hormonal levels in the pregnant woman's blood, can provide information. If necessary, an amniotic fluid test can also be conducted.
+\nAs fat begins to accumulate in the fetus's body, the uterus elongates and takes on an oval shape.
+\nMom's body weight increases. The uterus continues to grow, and the ligaments in the abdomen stretch, causing discomfort in the lower abdomen.
+\nDue to hormones, eyesight may weaken and become dry.
+\nEngaging in prenatal exercises is beneficial. It aids in mom's blood circulation, regulates blood pressure, and provides more oxygen to the fetus.
+\nApproximately 30% of the iron in mom's body is transferred to the fetus, leading to pregnancy anemia. About 1000mg of iron is needed during pregnancy, and vitamin C assists in its absorption. Tannins in coffee, black tea, and green tea can interfere with iron absorption.</string>
+
+    <string name="PTweek21_25">Weeks 21-25</string>
+    <string name="PTweek21_25_content">
+Nausea and indigestion may occur. The stomach is compressed, reducing the ability to digest food.
+\nReduce salt intake. Consume vitamin C and calcium.
+\nMetabolic changes lead to increased sweating, and you may experience lower back pain and stiffness.
+\nBe mindful of pregnancy-induced hypertension with sodium restriction and dietary adjustments.
+\nFor managing leg swelling, avoid prolonged standing or sitting in the same position, and wear comfortable shoes.
+\nAs pregnancy progresses, the pelvis opens and widens. Muscles and joints become looser, and internal membranes become more sensitive, making them more susceptible to bacterial invasion, potentially causing urinary tract infections.
+\nDuring pregnancy, the body requires additional magnesium. Magnesium helps prevent intermittent muscle cramps and inhibits uterine contractions, reducing the risk of preterm labor.
+\nSmall protuberances begin to appear on the areolas of pregnant women. These are Montgomery glands that produce a fatty liquid during the breastfeeding period.
+\nFrequent urination occurs due to the enlargement of the uterus, putting pressure on the bladder, reducing its size.</string>
+
+    <string name="PTweek26_30">Weeks 26-30</string>
+    <string name="PTweek26_30_content">Please consider undergoing gestational diabetes testing as needed.
+\nPregnancy lines may appear on the abdomen, breasts, nipples, etc. Symptoms such as varicose veins, tingling in the hands and feet, and swelling may increase. Digestive issues and constipation symptoms may intensify. Movement becomes significantly sluggish.
+\nDizziness may be felt, and the abdomen may occasionally tighten. When the abdomen tightens, assume a comfortable position and take a rest.
+\nModerate exercise without feeling fatigue can aid in promoting blood circulation and appetite.
+\nThere is an increase in discharge. Pigmentation in the breasts intensifies, and colostrum production begins.
+\nThe enlarged uterus may compress the stomach, causing a feeling of fullness. Eating smaller, more frequent meals is advisable.
+\nIf the uterus contracts frequently, it's essential to pay attention to whether it might be a sign of early labor.
+\nAerobic exercises that promote good blood circulation can reduce swelling and tension, providing relief from fatigue and contributing to a change in mood.
+\nThe pregnant body experiences practice contractions in preparation for childbirth. Pregnant individuals may feel contractions or a tightening sensation in the abdomen for about 30 minutes, potentially disrupting the mother's rest.</string>
+
+    <string name="PTweek31_35">Weeks 31-35</string>
+    <string name="PTweek31_35_content">During pregnancy, the skin may stretch, leading to itchiness.
+\nAs the pregnancy progresses, physical activity becomes increasingly challenging. The weight of the uterus presses on internal organs, causing swelling in the legs and lower back pain.
+\nThe pressure on the pelvis and bladder can cause the muscles around the bladder to become quite lax.
+\nAs the uterus enlarges and the abdominal skin stretches, the belly button may protrude.
+\nWith the enlarging uterus, pressure on the lungs and bladder increases, causing shortness of breath, heartburn, and increased urination.
+\nBy the 33rd week of pregnancy, the abdomen may feel more frequent tightening and firmness. Braxton Hicks contractions intensify gradually until true labor contractions occur.
+\nBack pain and shortness of breath are common symptoms experienced by mothers at 34 weeks of pregnancy.
+\nBy the 35th week, daily activities, including movement and breathing, become increasingly challenging.
+\nAs the uterus descends, the pressure on the lungs decreases, leading to gradually improved breathing comfort.
+\nHowever, several other pregnancy symptoms persist, excluding the improvement in breathing comfort.</string>
+
+    <string name="PTweek36_40">Weeks 36-40</string>
+    <string name="PTweek36_40_content">
+As the practice contractions continue, the baby descends lower, creating stronger pressure around the pelvis. This can lead to back pain and opaque discharge. Engaging in exercises that relax the muscles and ligaments around the pelvis can be helpful.
+\nDue to the practice contractions, the pressure on the lungs decreases, making breathing gradually more comfortable.
+\nIf excessive pressure is felt in the pelvis, moving the hip joint in a circular motion to relax it can help alleviate the pressure.
+\nIf discharge or urinary leakage occurs, wear panty liners.
+\nAs the mother's body prepares for childbirth, the cervix gradually softens and dilates. A small amount of blood and an increase in opaque discharge indicate that the cervix is relaxing. This small amount of blood is called "bloody show," and labor generally begins around 24 hours after it occurs.
+\nBecause the mother's body is focusing all energy on preparing for childbirth, the immune system and resilience may weaken, leading to mild cold symptoms. However, this does not interfere with childbirth and does not harm the baby, who already has its own immune system.
+\nMothers should pay close attention to their body's reactions. Symptoms such as abdominal tightening, headaches, discharge, or nausea may be interpreted as signals just before childbirth. However, since these can also be symptoms of practice contractions, careful observation is essential.</string>
+
+
+    //BabyDevelopment Content
+    <string name="BDweek0_5">Weeks 0-5</string>
+    <string name="BDweek0_5_content">Until the second week, it is an embryo, not a fetus, and the fertilized egg is before it becomes a complete individual, the fetus, and the size is about 0.2cm, which is difficult to identify with the naked eye. From the third week of pregnancy, small embryos can be identified through ultrasound.
+\n"An embryo" refers to a fertilized egg before the fourth week of pregnancy. Fertilized eggs repeat cell division.\nFrom about 10 weeks, when important organs form and become one complete entity, they start to be called "fetuses."
+\nSome cells that make up the placenta of the mother start to secrete HCG hormones. These cells form the basis for the amniotic cavity (baby house) and the production of yolk sacs. The yolk sac plays an important role in supplying nutrients to the amniotic fluid instead until the placenta starts to nourish the fetus through the umbilical cord.
+\nFrom the fifth week, you can expect a definite positive test result from the pregnancy test machine.\nEarly pregnancy tests can be found four to six days before the scheduled menstruation date.
+\nRegular pregnancy tests can be checked three to five days after the scheduled menstruation date.\nFrom the 5th week, you can check the daycare center through an ultrasound examination.
+\nAn elongated tail forms from a fertilized egg. Despite containing all of the components that make up a human being, it does not yet appear to be a human being.\nThe most important stage of development, the formation of the brain, takes place.</string>
+
+    <string name="BDweek6_10">Weeks 6-10</string>
+    <string name="BDweek6_10_content">By the 6th week, the embryo can be confirmed through a standard abdominal ultrasound. At this point, the embryo's size is approximately 3-4mm. The tiny heart of the baby beats rapidly, and the back part of the developing body, which will become the spine, becomes distinguishable. The number of heart chambers can be checked to determine whether it's a single or multiple pregnancies.
+\n Essential and fundamental structures of the baby begin to develop. The formation of the arms, legs, and even the tiny hands starts. The small protrusions in the hand's position will soon become fingers.
+\nThe placenta continually develops to provide everything necessary for the baby's growth, including sufficient oxygen and nutrients. By the 7th week, the placenta is about half the size it will be in the later stages of pregnancy, and by around the 14th week, it will have the same shape, size, and weight it will have at birth.
+\nIn the 8th week, fingers and toes gradually take shape and continue to develop. The membrane that looks like a webbing between the fingers and toes soon disappears, allowing independent movement of the hands and feet. The small skin wrinkles above the eyes will soon become eyelids.
+\nFrom the 8th week onward, the embryo gradually transitions into a fetus.</string>
+
+    <string name="BDweek11_15">Weeks 11-15</string>
+    <string name="BDweek11_15_content">
+The developing fetus with formed organs begins to swallow and kick. Parts of the arms and legs are clearly differentiated, fingers are visible, and distinct sections of the arms and legs, including the thighs, calves, and feet, can be seen.
+\n During this period, the fetus's length doubles. By the 15th week, the bones that were already formed in the fetus become harder, rapidly accumulating calcium. Hair grows, not only on the fetus's head but also on features like eyebrows and body fuzz. The baby starts to move its muscles actively, grasping hands, blinking, and even grimacing. Finger-sucking also begins.
+\n Compared to earlier stages, more subtle movements, such as fingers, toes, and ankles, can be detected.</string>
+
+    <string name="BDweek16_20">Weeks 16-20</string>
+    <string name="BDweek16_20_content">Nails are well-formed, and the legs are now longer than the arms. During an ultrasound, you can see the arms and legs moving, and you may feel the baby's movements. There is no need to worry if you don't feel movements yet, as the perception of fetal movements varies among individuals, and there are calm and active fetuses.
+\nHowever, if you notice a significant decrease in movements or no movements for 2-3 hours, it's advisable to seek medical attention immediately. The fetus is about the size of an adult palm, and due to sensitivity to light, it begins to practice the pre-breathing stage called "diaphragmatic breathing."
+\nFrom the 17th week, the fetus starts developing fat in its body. Even if you don't feel movements every day, you will soon start feeling them. Facial expressions begin to appear on the fetus's face from the 19th week. If you shine light on the abdomen, the fetus may respond, indicating the start of retinal function.</string>
+
+    <string name="BDweek21_25">Weeks 21-25</string>
+    <string name="BDweek21_25_content">The development shows a height of approximately 35cm to 40cm and a weight of around 500g to 600g. This is the period when sensory organs are developing.
+\nThe brain starts to develop wrinkles, and the baby begins to react to taste. The baby can distinguish flavors like the sweet taste in addition to the already recognized flavors of the amniotic fluid, bitterness, and saltiness.
+\nThe development of the balance organ in the ear begins, and the baby can move the eyelids to open the eyes. The development of the skull sutures is a significant developmental milestone.
+\nThe baby's digestive system can now separate water from other substances, allowing it to digest the swallowed amniotic fluid. However, the digestive system continues to develop even after birth until it reaches a complete state.
+\nThe first tooth begins to form beneath the baby's gums. These teeth will emerge through the gums between 6 to 9 months after birth.</string>
+
+    <string name="BDweek26_30">Weeks 26-30</string>
+    <string name="BDweek26_30_content">The height ranges from 35cm to 40cm, with a weight of 750g to 1.4kg. The eyelids divide into upper and lower parts, and internal organs and the brain continue to develop.
+\nPerception and motor functions develop, allowing the fetus to move freely. Hearing is advanced enough to perceive the mother's voice. Lungs are developing, and both muscles and the nervous system continue to progress.
+\nSubcutaneous fat starts to accumulate, and the fetus actively responds to external stimuli. It begins practicing breathing movements. The head is directed downward towards the pelvis.</string>
+
+    <string name="BDweek31_35">Weeks 31-35</string>
+    <string name="BDweek31_35_content">
+The baby's size grows up to 46cm, with a weight of around 2.5kg, resembling the height and weight at birth. The baby's lungs are now fairly well developed, and the digestive system is nearly complete, though occasional digestive discomfort may occur for the first 3-4 months after birth.
+\nSubcutaneous fat forms, increasing the overall fat ratio and further developing the body structure. As the baby grows, the amount of amniotic fluid gradually decreases to provide more space for the baby. By the 31st week, fetal movements may decrease as the baby positions itself for birth, leaning against the uterine wall and turning its head towards the birth canal when ready to leave the uterus.
+        \nBy the 33rd week, the baby is fully developed, with all organs and senses functioning.The brain undergoes rapid development, leading to an increase in head size, growing approximately 1.3cm during the 33rd week. Hearing significantly improves by the 34th week, and the baby can perceive high-pitched sounds, recognizing voices and music heard in the womb for a sense of comfort.
+\nAround four weeks before delivery, the baby assumes the final position for birth. As the 35th week approaches, the space for the baby's movements decreases. Reflex behaviors continue to develop steadily, and respiratory reflexes are fully prepared for the baby's first breath at birth.
+\nDigestive organs like the kidneys and liver are already functioning, and meconium begins to accumulate in the baby's intestines. Premature babies born at 35 weeks have a very high likelihood of adapting well to the outside world and growing normally and healthily.</string>
+
+    <string name="BDweek36_40">Weeks 36-40</string>
+    <string name="BDweek36_40_content">
+The baby has completed most of its major development and possesses all the sensory functions it will use after birth. During the last few weeks of pregnancy, the baby accumulates a significant amount of fat, allowing it to regulate its body temperature to some extent after birth. However, maintaining an appropriate external temperature is crucial even after birth.
+\nIn the case of a multiple pregnancy, the first baby should be in a position similar to that in a singleton pregnancy, with the second baby positioned beside it. About 45% of twin pregnancies have both babies in the normal birthing position.
+\nThe baby is expected to show a daily weight gain of approximately 20-30g. The size and weight of the baby vary based on genetic factors and the time of birth.</string>
+
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="calendar_year_month_format">y년M월</string>
     <string name="terms_of_service">이용약관 동의</string>
     <string name="terms_of_service_content">서비스이용약관\n\n제1조(목적)\n
 \nTO BE MOM 서비스 이용약관은 TO BE MOM 서비스의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임 사항 등을 규정함을 목적으로 합니다.
