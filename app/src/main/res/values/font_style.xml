@@ -21,7 +21,7 @@
     </style>
 
     <style name="BottomNavStyle" parent="Widget.Design.BottomNavigationView">
-        <item name="fontFamily">@font/font_custom</item>
+        <item name="android:fontFamily">@font/font_custom</item>
     </style>
 
 </resources>

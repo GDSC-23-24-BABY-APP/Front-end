@@ -26,8 +26,9 @@
             android:id="@+id/app_explain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="임산부를 위한 건강 관리 앱, TO BE MOM"
-            android:layout_marginTop="20dp" />
+            android:text="A Health Management App For Pregnant Women, \nTO BE MOM"
+            android:layout_marginTop="20dp"
+            android:gravity="center" />
 
     </LinearLayout>
 

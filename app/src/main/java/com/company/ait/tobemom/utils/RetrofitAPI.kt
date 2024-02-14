@@ -7,7 +7,12 @@ import retrofit2.http.POST
 
 interface RetrofitAPI {
     @GET("/login/oauth2/code/kakao")
-    fun kakaoLogin(@Body request: RetrofitClient2.RequestLogin): Call<RetrofitClient2.ResponseLogin>
-//    @POST("/auth/signup")
-//    fun signup(@Body request: RetrofitClient2.RequestSignup): Call<RetrofitClient2.ResponseSignup>
+    fun kakaoLogin(): Call<RetrofitClient2.ResponseKakaoLogin>
+
+    @POST("/api/user/login")
+    fun login(@Body request: RetrofitClient2.RequestLogin): Call<RetrofitClient2.ResponseLogin>
+
+    @POST("/api/user/join")
+    fun signup(@Body request: RetrofitClient2.SignupRequest): Call<Void>
+
 }
