@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.checkFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, Checklist())
+                        .replace(R.id.main_frm, ChecklistFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

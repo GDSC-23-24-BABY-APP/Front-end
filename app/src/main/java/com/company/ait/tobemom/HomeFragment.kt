@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.company.ait.tobemom.databinding.FragmentHomeBinding
 
+
 class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
@@ -64,8 +65,8 @@ class HomeFragment : Fragment() {
     private fun goCheck() {
         binding.homeGocheckBtn.setOnClickListener {
             childFragmentManager.beginTransaction().apply {
-                val fragment = Checklist.newInstance() // newInstance 메서드 호출
-                replace(R.id.fragment_container, fragment) // fragment_container 사용
+                val fragment = ChecklistFragment.newInstance() // newInstance 메서드 호출
+                replace(R.id.checklist_fragment, fragment) // fragment_container 사용
                 addToBackStack(null)
             }.commit()
         }

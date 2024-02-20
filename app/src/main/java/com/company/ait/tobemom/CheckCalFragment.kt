@@ -46,7 +46,7 @@ class CheckCalFragment : Fragment() {
 
         val startDate = Calendar.getInstance()
         val endDate = Calendar.getInstance()
-        endDate.add(Calendar.DAY_OF_MONTH,280)
+        endDate.add(Calendar.DAY_OF_MONTH,300)
 
         // RecyclerView 어댑터 설정
         checkAdapter = CheckCalendarAdapter(generateDateList(startDate, endDate))

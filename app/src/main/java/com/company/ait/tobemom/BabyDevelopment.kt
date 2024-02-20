@@ -1,12 +1,13 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.fragment.app.Fragment
+import org.w3c.dom.Text
 
 class BabyDevelopment : Fragment() {
 
@@ -15,6 +16,7 @@ class BabyDevelopment : Fragment() {
     private lateinit var weekBabyDescriptionTextView : TextView
     private lateinit var previousWeekBtn: ImageButton
     private lateinit var nextWeekBtn: ImageButton
+    private lateinit var bdVolumeBtn: ImageButton
 
     private var currentWeekIndex: Int = 1
 
@@ -31,10 +33,15 @@ class BabyDevelopment : Fragment() {
         weekBabyDescriptionTextView = view.findViewById(R.id.week_baby_description) //Content
         previousWeekBtn = view.findViewById(R.id.previous_week_button)
         nextWeekBtn = view.findViewById(R.id.next_week_button)
-
+        bdVolumeBtn = view.findViewById(R.id.bd_btn_volume)
 
         //초기 값 설정
         updateUIForCurrentWeek()
+
+        //Text to Speech
+        bdVolumeBtn.setOnClickListener {
+            //TODO BackEnd 연결 필요
+        }
 
         babyDevelopBackBtn.setOnClickListener{
             navigateToOtherFragment()
@@ -72,41 +79,40 @@ class BabyDevelopment : Fragment() {
     }
     private fun updateUIForCurrentWeek(){
         // 임신 시기에 따라 UI 업데이트
-//        when (currentWeekIndex) {
-//            1 -> {
-//                weekOfBabyTextView.text = getString(R.string.BDweek0_5)
-//                weekBabyDescriptionTextView.text = getString(R.string.BDweek0_5_content)
-//            }
-//            2 -> {
-//                weekOfBabyTextView.text = getString(R.string.BDweek6_10)
-//                weekBabyDescriptionTextView.text = getString(R.string.BDweek6_10_content)
-//            }
-//            3 -> {
-//                weekOfBabyTextView.text = getString(R.string.BDweek11_15)
-//                weekBabyDescriptionTextView.text = getString(R.string.BDweek11_15_content)
-//            }
-//            4 -> {
-//                weekOfBabyTextView.text = getString(R.string.BDweek16_20)
-//                weekBabyDescriptionTextView.text = getString(R.string.BDweek16_20_content)
-//            }
-//            5 -> {
-//                weekOfBabyTextView.text = getString(R.string.BDweek21_25)
-//                weekBabyDescriptionTextView.text = getString(R.string.BDweek21_25_content)
-//            }
-//            6 -> {
-//                weekOfBabyTextView.text = getString(R.string.BDweek26_30)
-//                weekBabyDescriptionTextView.text = getString(R.string.BDweek26_30_content)
-//            }
-//            7 -> {
-//                weekOfBabyTextView.text = getString(R.string.BDweek31_35)
-//                weekBabyDescriptionTextView.text = getString(R.string.BDweek31_35_content)
-//
-//            }
-//            8 -> {
-//                weekOfBabyTextView.text = getString(R.string.BDweek36_40)
-//                weekBabyDescriptionTextView.text = getString(R.string.BDweek36_40_content)
-//            }
-//        }
+        when (currentWeekIndex) {
+            1 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek0_5)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek0_5_content)
+            }
+            2 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek6_10)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek6_10_content)
+            }
+            3 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek11_15)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek11_15_content)
+            }
+            4 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek16_20)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek16_20_content)
+            }
+            5 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek21_25)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek21_25_content)
+            }
+            6 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek26_30)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek26_30_content)
+            }
+            7 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek31_35)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek31_35_content)
+            }
+            8 -> {
+                weekOfBabyTextView.text = getString(R.string.BDweek36_40)
+                weekBabyDescriptionTextView.text = getString(R.string.BDweek36_40_content)
+            }
+        }
 
     }
 }

@@ -15,6 +15,7 @@ class FrequentlyAskedQuestions : Fragment() {
     private lateinit var previousWeekButton: ImageButton
     private lateinit var nextWeekButton: ImageButton
     private lateinit var PregnancyWeek: TextView
+    private lateinit var FaqVolumeBtn: ImageButton
 
     private var currentWeek: Int = 1
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +35,15 @@ class FrequentlyAskedQuestions : Fragment() {
         previousWeekButton = view.findViewById(R.id.previous_week_button)
         nextWeekButton = view.findViewById(R.id.next_week_button)
         PregnancyWeek = view.findViewById(R.id.pregnancy_week)
+        FaqVolumeBtn = view.findViewById(R.id.faq_btn_volume)
 
         //초기 값 설정
         updateUIForCurrentWeek()
+
+        //Text To Speech
+        FaqVolumeBtn.setOnClickListener {
+            //TODO : Backend랑 연결 필요
+        }
 
         faqBackBtn.setOnClickListener{
             navigateToOtherFragment()

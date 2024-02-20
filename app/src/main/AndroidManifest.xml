@@ -24,6 +24,9 @@
         android:theme="@style/Theme.TOBEMOM"
         tools:targetApi="31">
         <activity
+            android:name=".CheckHealthResult"
+            android:exported="false" />
+        <activity
             android:name=".DiaryEmoji"
             android:exported="false" />
         <activity
@@ -51,10 +54,6 @@
             android:value="AIzaSyCVZftl7Ka0UEsOnSJRnchSSb1Mu_Y7Vrc" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
-
-        <meta-data
-            android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
@@ -66,78 +65,78 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
-                <data android:host="oauth"
+                <data
+                    android:host="oauth"
                     android:scheme="kakao612da977c6ea46f65349319262a190e9" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="false" />
-
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:exported="false" />
-
-        <activity android:name=".SignUpAgreeActivity"
+        <activity
+            android:name=".SignUpAgreeActivity"
             android:exported="false" />
-
-        <activity android:name=".SignUpMakeidpwActivity"
+        <activity
+            android:name=".SignUpMakeidpwActivity"
             android:exported="false" />
-
-        <activity android:name=".SignUpFinActivity"
+        <activity
+            android:name=".SignUpFinActivity"
             android:exported="false" />
-
-        <activity android:name=".ChangeBabyActivity"
+        <activity
+            android:name=".ChangeBabyActivity"
             android:exported="false" />
-
-        <activity android:name=".ChatActivity"
+        <activity
+            android:name=".ChatActivity"
             android:exported="false" />
-
-        <activity android:name=".SignUpFindidActivity"
+        <activity
+            android:name=".SignUpFindidActivity"
             android:exported="false" />
-
-        <activity android:name=".SignUpFindpwActivity"
+        <activity
+            android:name=".SignUpFindpwActivity"
             android:exported="false" />
-
-        <activity android:name=".DiaryViewActivity"
+        <activity
+            android:name=".DiaryViewActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPageMyinfoActivity"
+        <activity
+            android:name=".MyPageMyinfoActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPageBabyinfoActivity"
+        <activity
+            android:name=".MyPageBabyinfoActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPageLinkActivity"
+        <activity
+            android:name=".MyPageLinkActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPageSettingsActivity"
+        <activity
+            android:name=".MyPageSettingsActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPagePhonesetActivity"
+        <activity
+            android:name=".MyPagePhonesetActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPageCalendarsetActivity"
+        <activity
+            android:name=".MyPageCalendarsetActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPageHowtouseActivity"
+        <activity
+            android:name=".MyPageHowtouseActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPageNoticeActivity"
+        <activity
+            android:name=".MyPageNoticeActivity"
             android:exported="false" />
-
-        <activity android:name=".MyPageNoticeboardActivity"
+        <activity
+            android:name=".MyPageNoticeboardActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>
