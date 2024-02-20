@@ -1,11 +1,11 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 
 
@@ -14,7 +14,6 @@ class NewsFragment : Fragment(), View.OnClickListener {
     private lateinit var BabyDevelopment: TextView
     private lateinit var PregnancyTip: TextView
     private lateinit var FrequentlyAskedQuestions: TextView
-    private lateinit var HealthIssues: TextView
     private lateinit var NearbyHospitals: TextView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +24,6 @@ class NewsFragment : Fragment(), View.OnClickListener {
         BabyDevelopment = view.findViewById(R.id.BabyDevelopment)
         PregnancyTip = view.findViewById(R.id.PregnancyTip)
         FrequentlyAskedQuestions = view.findViewById(R.id.FrequentlyAskedQuestions)
-        HealthIssues = view.findViewById(R.id.HealthIssues)
         NearbyHospitals = view.findViewById(R.id.NearbyHospitals)
 
         return view
@@ -38,7 +36,6 @@ class NewsFragment : Fragment(), View.OnClickListener {
         BabyDevelopment.setOnClickListener(this)
         PregnancyTip.setOnClickListener(this)
         FrequentlyAskedQuestions.setOnClickListener(this)
-        HealthIssues.setOnClickListener(this)
         NearbyHospitals.setOnClickListener(this)
     }
 
@@ -48,7 +45,6 @@ class NewsFragment : Fragment(), View.OnClickListener {
             R.id.BabyDevelopment -> replaceFragment(BabyDevelopment())
             R.id.PregnancyTip -> replaceFragment(PregnancyTip())
             R.id.FrequentlyAskedQuestions -> replaceFragment(FrequentlyAskedQuestions())
-            //R.id.HealthIssues -> replaceFragment(HealthIssues())
             R.id.NearbyHospitals -> replaceFragment(HospitalMap())
         }
     }

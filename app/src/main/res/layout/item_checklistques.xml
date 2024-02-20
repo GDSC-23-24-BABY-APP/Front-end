@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <CheckedTextView
+        android:id="@+id/ckdTv1"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:checkMarkTint="@color/subColor"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:fontFamily="@font/leeseoyun"
+        android:textColor="@color/mainText"
+        android:text="Q1. First Question"
+        android:checked="false"/>
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="360dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@color/mainColor" />
+
+</LinearLayout>

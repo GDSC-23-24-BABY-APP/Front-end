@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
-    android:id="@+id/checkFragment"
-    tools:context=".CheckFragment">
+    android:id="@+id/checkCalFragment"
+    tools:context=".CheckCalFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Check_topbar_cl"

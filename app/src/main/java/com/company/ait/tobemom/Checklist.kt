@@ -6,7 +6,6 @@ import android.content.res.Resources
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +16,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -27,8 +27,7 @@ class Checklist : Fragment() {
     private lateinit var dateTextView: TextView
     private lateinit var checklistcalbtn: ImageButton
     private lateinit var noticeChecklist: TextView
-    private lateinit var scrollView: RecyclerView
-    private lateinit var numQues: LinearLayout
+    private lateinit var checklistQuesListRv: RecyclerView
     private lateinit var resultButton: AppCompatButton
 
     private lateinit var questionList : List<String>
@@ -49,8 +48,7 @@ class Checklist : Fragment() {
         dateTextView = view.findViewById(R.id.dateTextView)
         checklistcalbtn = view.findViewById(R.id.checklist_cal_btn)
         noticeChecklist = view.findViewById(R.id.notice_checklist)
-        scrollView = view.findViewById(R.id.scrollView)
-        numQues = view.findViewById(R.id.numQues)
+        checklistQuesListRv = view.findViewById(R.id.checklistques_list_rv)
         resultButton = view.findViewById(R.id.resultBtn)
 
         //날짜 표시
@@ -59,14 +57,14 @@ class Checklist : Fragment() {
 
         //ImageButton 클릭 리스너 설정 (다른 화면으로 이동하는 기능)
         checklistcalbtn.setOnClickListener{
-            val checkFragment = CheckFragment()
+            val checkCalFragment = CheckCalFragment()
 
             //FragmentManager를 통해 트랜젝션 시작
             val fragmentManager = childFragmentManager
             val transaction = fragmentManager.beginTransaction()
 
             //R.id.fragment_container는 checkFragment가 표시할 레이아웃 컨네이너의 id
-            transaction.replace(R.id.checkFragment, checkFragment)
+            transaction.replace(R.id.checkFragment, checkCalFragment)
             transaction.addToBackStack(null) //뒤로 가기 버튼을 눌렀을 대 이전 fragment로 이동
             transaction.commit()
         }
@@ -132,8 +130,6 @@ class Checklist : Fragment() {
             )
         )
 
-        numQues.addView(checkedTextView)
-        numQues.addView(separatorView)
     }
 
 }

@@ -5,25 +5,6 @@ import java.util.Date
 
 class RetrofitClient2 {
 
-    data class ResponseKakaoLogin(
-        @SerializedName("status")
-        val status: String,
-        @SerializedName("data")
-        val data: KakaoData,
-        @SerializedName("message")
-        val message: String
-    )
-
-    data class KakaoData(
-        @SerializedName("userId")
-        val userId: Int,
-        @SerializedName("token")  //jwt 토큰
-        val token: String,
-        @SerializedName("email")
-        val email: String,
-        @SerializedName("username")
-        val username: String
-    )
     data class SignupRequest(
         @SerializedName("email")
         val email: String,
@@ -60,6 +41,26 @@ class RetrofitClient2 {
 //        val userid: Long
 //    )
 
+    data class ResponseGoogleLogin(
+        @SerializedName("status")  //성공여부
+        val status: String,
+        @SerializedName("data")
+        val data: GoogleData,
+        @SerializedName("message")
+        val message: String
+    )
+
+    data class GoogleData(
+        @SerializedName("userId")
+        val userId: Int,
+        @SerializedName("token")  //jwt 토큰
+        val token: String,
+        @SerializedName("email")
+        val email: String,
+        @SerializedName("username")
+        val username: String
+    )
+
     data class RequestLogin(
         @SerializedName("email")
         val email: String,
@@ -85,5 +86,12 @@ class RetrofitClient2 {
         val id: String,
         @SerializedName("username")
         val username: String
+    )
+
+    data class BabyInfoRequest(
+        @SerializedName("babyName")
+        val babyName: String,
+        @SerializedName("babyBirthDate")
+        val babyBirthDate: Date
     )
 }

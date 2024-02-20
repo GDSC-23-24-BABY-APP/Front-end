@@ -1,12 +1,12 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 
 class FrequentlyAskedQuestions : Fragment() {
 
@@ -73,20 +73,20 @@ class FrequentlyAskedQuestions : Fragment() {
 
     private fun updateUIForCurrentWeek(){
         // 임신 시기에 따라 UI 업데이트
-        when (currentWeek) {
-            1 -> {
-                PregnancyWeek.text = getString(R.string.early_pregnancy_title)
-                questionContent.text = getString(R.string.early_pregnancy_content)
-            }
-            2 -> {
-                PregnancyWeek.text = getString(R.string.mid_pregnancy_title)
-                questionContent.text = getString(R.string.mid_pregnancy_content)
-            }
-            3 -> {
-                PregnancyWeek.text = getString(R.string.late_pregnancy_title)
-                questionContent.text = getString(R.string.late_pregnancy_content)
-            }
-        }
+//        when (currentWeek) {
+//            1 -> {
+//                PregnancyWeek.text = getString(R.string.early_pregnancy_title)
+//                questionContent.text = getString(R.string.early_pregnancy_content)
+//            }
+//            2 -> {
+//                PregnancyWeek.text = getString(R.string.mid_pregnancy_title)
+//                questionContent.text = getString(R.string.mid_pregnancy_content)
+//            }
+//            3 -> {
+//                PregnancyWeek.text = getString(R.string.late_pregnancy_title)
+//                questionContent.text = getString(R.string.late_pregnancy_content)
+//            }
+//        }
 
     }
 

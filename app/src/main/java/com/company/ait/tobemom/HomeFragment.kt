@@ -22,6 +22,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -35,7 +36,7 @@ class HomeFragment : Fragment() {
         binding.homeDaycountMonthcntTv.text = ddaymonth.toString()  //추후 수정 예정
 
         //현재 주수에서의 아기 상태 사진
-        binding.homeBabygrowthIv.setBackgroundResource(R.drawable.demo_babygrowth)
+        binding.homeBabygrowthIv.setImageResource(R.drawable.demo_babygrowth)
 
         //챗봇으로 이동
         goBard()

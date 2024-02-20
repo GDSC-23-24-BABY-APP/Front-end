@@ -8,6 +8,9 @@
     <!-- 인터넷 사용 권한 설정-->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".utils.GlobalApplication"
         android:allowBackup="false"
@@ -49,6 +52,10 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".SplashActivity"
@@ -130,7 +137,6 @@
 
         <activity android:name=".MyPageNoticeboardActivity"
             android:exported="false" />
-
 
     </application>
 

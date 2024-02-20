@@ -20,11 +20,16 @@ class GlobalApplication : Application() {
 
     class MySharedPreference (context: Context) {
 
-        private val spf = context.getSharedPreferences("user", Context.MODE_PRIVATE)
+        private val spf = context.getSharedPreferences("TOBEMOM", Context.MODE_PRIVATE)
 
+        var token:String?
+            get() = spf.getString("token",null)
+            set(value) {
+                spf.edit().putString("token", value).apply()
+            }
         var accessToken: String?
             get() = spf.getString("accesstoekn", "")
-            set(value) = spf.edit().putString("accesstoekn", value).apply()
+            set(value) = spf.edit().putString("accesstoken", value).apply()
         var Jwt: String?
             get() = spf.getString("jwt", "")
             set(value) = spf.edit().putString("jwt", value).apply()

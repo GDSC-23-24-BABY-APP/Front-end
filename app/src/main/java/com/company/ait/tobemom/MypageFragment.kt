@@ -1,17 +1,34 @@
 package com.company.ait.tobemom
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.company.ait.tobemom.databinding.FragmentHomeBinding
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import com.company.ait.tobemom.databinding.FragmentMypageBinding
 
 class MypageFragment : Fragment() {
 
     lateinit var binding: FragmentMypageBinding
+
+    val pickImage = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+        // Callback is invoked after the user selects a media item or closes the photo picker.
+        if (uri != null) {
+            Log.d("PhotoPicker", "Selected URI: $uri")
+            // 권한 부여
+            val flag = Intent.FLAG_GRANT_READ_URI_PERMISSION
+            requireContext().contentResolver.takePersistableUriPermission(uri, flag)
+            // 이미지뷰에 선택한 이미지 설정
+            changeProfileImage(uri)
+        } else {
+            Log.d("PhotoPicker", "No media selected")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,13 +40,15 @@ class MypageFragment : Fragment() {
 
         //사용자 정보 설정
         binding.mypageProfileIv.setImageResource(R.drawable.ic_user_iv)  //추후 수정 예정
-        binding.mypageNameTv.text = "홍지현"  //추후 수정 예정
-        binding.mypageIdTv.text = "ASTER03"  //추후 수정 예정
+        binding.mypageNameTv.text = "Jihyun Hong"  //추후 수정 예정
+        binding.mypageIdTv.text = "aster03"  //추후 수정 예정
         binding.mypageBirthnameTv.text = "꿈틀이"  //추후 수정 예정
         binding.mypageDdaycntTv.text = "23"  //추후 수정 예정
 
         //버튼 클릭 이벤트 처리
         clickBtn()
+        //프로필 사진 변경
+        changeProfileImage()
 
         return view
     }
@@ -69,6 +88,36 @@ class MypageFragment : Fragment() {
         binding.mypageNotionBtn.setOnClickListener {
             val intent = Intent(activity, MyPageNoticeActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun changeProfileImage() {
+        binding.mypageProfileIv.setOnClickListener {
+            val context = context
+            val dialog = CustomChangeImageDialog(
+                context!!,
+                {
+                    // 확인 버튼 클릭 시 동작
+                    viewImgPicker() // 프로필 사진 변경 메서드 호출
+                },
+                {
+                    // 취소 버튼 클릭 시 동작
+                }
+            )
+            dialog.show()
+        }
+    }
+
+    private fun changeProfileImage(uri: Uri) {
+        // 선택한 이미지를 프로필 이미지뷰에 설정
+        binding.mypageProfileIv.setImageURI(uri)
+    }
+
+    private fun viewImgPicker() {
+        binding.mypageProfileIv.setOnClickListener {
+            //커스텀 갤러리 화면
+            // Launch the photo picker and let the user choose images and videos.
+            pickImage.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
         }
     }
 }

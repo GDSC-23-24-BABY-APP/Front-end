@@ -2,11 +2,11 @@ package com.company.ait.tobemom
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class CheckFragment : Fragment() {
+class CheckCalFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var checkAdapter: CheckCalendarAdapter
@@ -24,7 +24,7 @@ class CheckFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_check, container, false)
+        val view = inflater.inflate(R.layout.fragment_check_cal, container, false)
 
         checkHealthBtn = view.findViewById(R.id.checklist_cal_btn)
         checkHealthBtn.setOnClickListener{
