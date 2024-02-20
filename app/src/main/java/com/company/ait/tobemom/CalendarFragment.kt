@@ -58,7 +58,7 @@ class CalendarFragment : Fragment() {
     }
     fun initView(view: View){
         pageIndex -= (Int.MAX_VALUE/2)
-        Log.e(TAG, "Calendar Index: $pageIndex")
+        Log.d(TAG, "Calendar Index: $pageIndex")
         calendarYearMonthText = view.findViewById(R.id.calendar_year_month_text)
         calendarLayout = view.findViewById(R.id.calendar_layout)
         calendarView = view.findViewById(R.id.calendar_view)
@@ -68,7 +68,7 @@ class CalendarFragment : Fragment() {
             time
         }
         currentDate = date
-        Log.e(TAG, "$date")
+        Log.d(TAG, "$date")
         //포맷 적용
         var datetime: String = SimpleDateFormat(
             mContext.getString(R.string.calendar_year_month_format),

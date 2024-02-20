@@ -16,6 +16,7 @@ class PregnancyTip : Fragment() {
     private lateinit var pregnancyTips : TextView
     private lateinit var previousWeekBtn: ImageButton
     private lateinit var nextWeekBtn: ImageButton
+    private lateinit var ptVolumeBtn: ImageButton
 
     private var currentWeekIndex: Int = 1
 
@@ -31,10 +32,16 @@ class PregnancyTip : Fragment() {
         pregnancyTips = view.findViewById(R.id.pregnancy_tips) //Content
         previousWeekBtn = view.findViewById(R.id.previous_week_button)
         nextWeekBtn = view.findViewById(R.id.next_week_button)
-
+        ptVolumeBtn = view.findViewById(R.id.pt_btn_volume)
 
         //초기 값 설정
         updateUIForCurrentWeek()
+
+        //Text to Speech
+        ptVolumeBtn.setOnClickListener {
+            //TODO : Backend랑 연결 필요
+            //Text To Speech
+        }
 
         pregnancyTipBackBtn.setOnClickListener{
             navigateToOtherFragment()
