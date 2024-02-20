@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class CheckFragment : Fragment() {
+class CheckCalFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var checkAdapter: CheckCalendarAdapter
@@ -24,7 +24,7 @@ class CheckFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_check, container, false)
+        val view = inflater.inflate(R.layout.fragment_check_cal, container, false)
 
         checkHealthBtn = view.findViewById(R.id.checklist_cal_btn)
         checkHealthBtn.setOnClickListener{
@@ -46,7 +46,7 @@ class CheckFragment : Fragment() {
 
         val startDate = Calendar.getInstance()
         val endDate = Calendar.getInstance()
-        endDate.add(Calendar.DAY_OF_MONTH,280)
+        endDate.add(Calendar.DAY_OF_MONTH,300)
 
         // RecyclerView 어댑터 설정
         checkAdapter = CheckCalendarAdapter(generateDateList(startDate, endDate))

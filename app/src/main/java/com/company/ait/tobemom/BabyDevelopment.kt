@@ -16,6 +16,7 @@ class BabyDevelopment : Fragment() {
     private lateinit var weekBabyDescriptionTextView : TextView
     private lateinit var previousWeekBtn: ImageButton
     private lateinit var nextWeekBtn: ImageButton
+    private lateinit var bdVolumeBtn: ImageButton
 
     private var currentWeekIndex: Int = 1
 
@@ -32,10 +33,15 @@ class BabyDevelopment : Fragment() {
         weekBabyDescriptionTextView = view.findViewById(R.id.week_baby_description) //Content
         previousWeekBtn = view.findViewById(R.id.previous_week_button)
         nextWeekBtn = view.findViewById(R.id.next_week_button)
-
+        bdVolumeBtn = view.findViewById(R.id.bd_btn_volume)
 
         //초기 값 설정
         updateUIForCurrentWeek()
+
+        //Text to Speech
+        bdVolumeBtn.setOnClickListener {
+            //TODO BackEnd 연결 필요
+        }
 
         babyDevelopBackBtn.setOnClickListener{
             navigateToOtherFragment()
@@ -101,7 +107,6 @@ class BabyDevelopment : Fragment() {
             7 -> {
                 weekOfBabyTextView.text = getString(R.string.BDweek31_35)
                 weekBabyDescriptionTextView.text = getString(R.string.BDweek31_35_content)
-
             }
             8 -> {
                 weekOfBabyTextView.text = getString(R.string.BDweek36_40)

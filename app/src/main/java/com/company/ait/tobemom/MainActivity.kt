@@ -1,8 +1,8 @@
 package com.company.ait.tobemom
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.company.ait.tobemom.databinding.ActivityMainBinding
 import com.kakao.sdk.common.util.Utility
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.checkFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, CheckFragment())
+                        .replace(R.id.main_frm, ChecklistFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

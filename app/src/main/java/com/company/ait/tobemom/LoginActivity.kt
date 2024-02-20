@@ -1,5 +1,6 @@
 package com.company.ait.tobemom
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -154,6 +155,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
                     if (responseData != null) {
                         // 사용자 정보가 존재하면 MainActivity 시작
                         startMainActivity()
+                        val jwtToken = responseData.data.token // 실제 받아온 토큰 값으로 대체
+                        saveTokenInfo(this@LoginActivity, jwtToken)
+                        //saveJwt2(jwtToken)
+                        Log.d("SignUpResponseToken", "token값: $jwtToken")
                     } else {
                         // 사용자 정보가 존재하지 않으면 토스트 메시지 표시
                         Toast.makeText(this@LoginActivity, "회원 정보가 존재하지 않습니다.", Toast.LENGTH_SHORT).show()
@@ -178,6 +183,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         editor.putString("jwt", jwt)
         editor.apply()
+
+        Log.d("TokenSave", "Token saved successful")
     }
 
     private fun startMainActivity() {
@@ -227,13 +234,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-//    private fun saveTokenInfo(context: Context, accessToken: String?, refreshtoken:String?) {
-//        val sharedPref = context.getSharedPreferences("TOBEMOM", Context.MODE_PRIVATE)
-//        with(sharedPref.edit()) {
-//            accessToken?.let { putString("accessToken", it) }
-//            Log.d("loginToken",accessToken.toString())
-//            refreshtoken?.let { putString("refreshtoken", it) }
-//            apply()
-//        }
-//    }
+    private fun saveTokenInfo(context: Context, token: String?) {
+        val sharedPref = context.getSharedPreferences("TOBEMOM", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            token?.let { putString("token", it) }
+            Log.d("loginToken",token.toString())
+            apply()
+        }
+    }
 }
