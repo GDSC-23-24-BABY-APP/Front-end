@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -66,6 +67,15 @@ dependencies {
     // 카카오 로그인
     implementation ("com.kakao.sdk:v2-user:2.0.1")
 
+    //구글 로그인
+    //implementation ("com.google.android.gms:play-services-auth:20.1.0")
+
+    // Google Play services
+    implementation ("com.google.gms:google-services:4.3.15")
+    implementation ("com.google.firebase:firebase-auth:22.0.0")
+    implementation ("com.google.firebase:firebase-bom:32.0.0")
+    implementation ("com.google.android.gms:play-services-auth:20.5.0")
+
     //Gson
     implementation("com.google.code.gson:gson:2.8.7")
 
@@ -82,4 +92,11 @@ dependencies {
     //okHttp
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
+    //사진 선택 도구
+    implementation ("androidx.activity:activity-ktx:1.6.0")
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+    implementation("com.google.firebase:firebase-analytics")
 }

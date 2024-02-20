@@ -213,15 +213,7 @@
             android:id="@+id/login_google_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/google_btn"
-            android:background="@android:color/transparent" />
-
-        <ImageButton
-            android:id="@+id/login_kakao_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="57dp"
-            android:src="@drawable/kakao_btn"
+            android:src="@drawable/android_light_sq_si"
             android:background="@android:color/transparent" />
 
     </LinearLayout>

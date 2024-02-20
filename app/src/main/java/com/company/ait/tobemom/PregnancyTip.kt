@@ -1,12 +1,12 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 
 
 class PregnancyTip : Fragment() {
@@ -78,40 +78,40 @@ class PregnancyTip : Fragment() {
 
     private fun updateUIForCurrentWeek(){
         // 임신 시기에 따라 UI 업데이트
-        when (currentWeekIndex) {
-            1 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek0_5)
-                pregnancyTips.text = getString(R.string.PTweek0_5_content)
-            }
-            2 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek6_10)
-                pregnancyTips.text = getString(R.string.PTweek6_10_content)
-            }
-            3 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek11_15)
-                pregnancyTips.text = getString(R.string.PTweek11_15_content)
-            }
-            4 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek16_20)
-                pregnancyTips.text = getString(R.string.PTweek16_20_content)
-            }
-            5 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek21_25)
-                pregnancyTips.text = getString(R.string.PTweek21_25_content)
-            }
-            6 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek26_30)
-                pregnancyTips.text = getString(R.string.PTweek26_30_content)
-            }
-            7 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek31_35)
-                pregnancyTips.text = getString(R.string.PTweek31_35_content)
-            }
-            8 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek36_40)
-                pregnancyTips.text = getString(R.string.PTweek36_40_content)
-            }
-        }
+//        when (currentWeekIndex) {
+//            1 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek0_5)
+//                pregnancyTips.text = getString(R.string.PTweek0_5_content)
+//            }
+//            2 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek6_10)
+//                pregnancyTips.text = getString(R.string.PTweek6_10_content)
+//            }
+//            3 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek11_15)
+//                pregnancyTips.text = getString(R.string.PTweek11_15_content)
+//            }
+//            4 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek16_20)
+//                pregnancyTips.text = getString(R.string.PTweek16_20_content)
+//            }
+//            5 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek21_25)
+//                pregnancyTips.text = getString(R.string.PTweek21_25_content)
+//            }
+//            6 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek26_30)
+//                pregnancyTips.text = getString(R.string.PTweek26_30_content)
+//            }
+//            7 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek31_35)
+//                pregnancyTips.text = getString(R.string.PTweek31_35_content)
+//            }
+//            8 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek36_40)
+//                pregnancyTips.text = getString(R.string.PTweek36_40_content)
+//            }
+//        }
 
     }
 }

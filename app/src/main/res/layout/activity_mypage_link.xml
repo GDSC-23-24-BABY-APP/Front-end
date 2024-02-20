@@ -78,7 +78,7 @@
         android:layout_marginTop="21dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/link_topbar_cl"
+        app:layout_constraintTop_toBottomOf="@id/link_invitecode_tv"
         android:visibility="gone" />
 
     <EditText
