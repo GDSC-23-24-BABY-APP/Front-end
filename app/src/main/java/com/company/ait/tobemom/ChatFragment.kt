@@ -28,11 +28,7 @@ class ChatFragment : Fragment() {
     private lateinit var binding: FragmentChatBinding
     private lateinit var generativeModel: GenerativeModel
     private lateinit var messageAdapter: MessageAdapter
-    companion object {
-        fun newInstance(): ChatFragment {
-            return ChatFragment()
-        }
-    }
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,7 +51,7 @@ class ChatFragment : Fragment() {
         binding.rvChat.layoutManager = LinearLayoutManager(requireContext())
         binding.rvChat.adapter = messageAdapter
 
-        val firstMessage = arguments?.getString("firstm") ?: ""
+        val firstMessage = arguments?.getString("firstm") ?: "Hello, I'm Dr. Gemini.\nFeel free to ask me any questions about pregnancy!"
         messageAdapter.apply {
             addItem(MessageModel.ReceiverMessage(firstMessage))
         }
@@ -72,10 +68,13 @@ class ChatFragment : Fragment() {
     }
 
     private suspend fun processWithGemini(userMessage: String, roomId: Int) {
-        val prompt = "사용자 메시지에 응답: '$userMessage'"
+        // 사용자의 메시지를 보내고 서버 응답을 처리
+        val sendReq = SendChatReq(roomId, userMessage)
+        send(sendReq)
 
         try {
             // Coroutine을 사용하여 비동기로 호출
+            val prompt = "사용자 메시지에 응답: '$userMessage'"
             val generatedResponse = withContext(Dispatchers.IO) {
                 generativeModel.generateContent(prompt)
             }
@@ -92,23 +91,18 @@ class ChatFragment : Fragment() {
                 Log.d("GEMINI_GENERATE", "응답이 없거나 text가 null입니다.")
             }
 
-            // 사용자의 메시지를 보내고 서버 응답을 처리
-            val sendReq = SendChatReq(roomId, userMessage)
-            send(sendReq)
         } catch (e: Exception) {
             Log.d("GEMINI_GENERATE", "API 호출 실패: ${e.message}")
         }
     }
 
     private fun send(sendReq: SendChatReq) {
-        messageAdapter.apply {
-            // null 체크를 위해 안전한 호출 연산자 ?. 사용
-            val message = sendReq.message ?: "기본 메시지"
-
-            addItem(MessageModel.SenderMessage(message))
-        }
-
         try {
+            // 사용자의 메시지를 즉시 어댑터에 추가
+            messageAdapter.apply {
+                addItem(MessageModel.SenderMessage(sendReq.message ?: ""))
+            }
+
             val jwt = GlobalApplication.spf.Jwt
             if (jwt != null) {
                 RetrofitObject.chatApi.sendChat(jwt, sendReq)
@@ -116,7 +110,14 @@ class ChatFragment : Fragment() {
                         override fun onResponse(call: Call<SendChatRes>, response: Response<SendChatRes>) {
                             if (response.isSuccessful) {
                                 val sendChatResult: SendChatRes? = response.body()
-                                Log.d("SENDCHAT", "onResponse 성공: " + sendChatResult?.toString())
+
+                                // 답변을 얻은 후에 어댑터에 추가
+                                val reply = sendChatResult?.result?.firstMessage ?: "기본 답변"
+                                messageAdapter.apply {
+                                    addItem(MessageModel.ReceiverMessage(reply))
+                                }
+
+                                Log.d("SENDCHAT", "onResponse 성공: $sendChatResult")
                             } else {
                                 Log.d("SENDCHAT", "onResponse 실패")
                             }

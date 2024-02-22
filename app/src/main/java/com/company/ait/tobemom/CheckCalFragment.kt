@@ -24,6 +24,7 @@ import java.util.Locale
 
 class CheckCalFragment : Fragment() {
 
+    private lateinit var checkCalBtn : ImageButton
     private lateinit var recyclerView: RecyclerView
     private lateinit var checkAdapter: CheckCalendarAdapter
     private lateinit var checkHealthBtn : ImageButton
@@ -44,8 +45,20 @@ class CheckCalFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_check_cal, container, false)
 
+        checkCalBtn = view.findViewById(R.id.checkCal_back_btn)
         checkHealthBtn = view.findViewById(R.id.checklist_cal_btn)
         recyclerView = view.findViewById(R.id.recyclerViewCalendar)
+
+        checkCalBtn.setOnClickListener {
+            // 이동하고 싶은 Fragment를 생성
+            val checklistFragment = ChecklistFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+
+            // 다른 Fragment로 교체하고 back stack에 추가
+            transaction.replace(R.id.checkCalFragment, checklistFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         checkHealthBtn.setOnClickListener{
             val intent = Intent(requireContext(), CheckHealth::class.java)
