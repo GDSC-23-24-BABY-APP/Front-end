@@ -29,11 +29,7 @@ class ChatFragment : Fragment() {
     private lateinit var binding: FragmentChatBinding
     private lateinit var generativeModel: GenerativeModel
     private lateinit var messageAdapter: MessageAdapter
-    companion object {
-        fun newInstance(): ChatFragment {
-            return ChatFragment()
-        }
-    }
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
