@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="354dp"
+    android:layout_height="144dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:id="@+id/dialog_option_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/border_diarybtn"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_profileset_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="프로필 사진 설정하기"
+            android:textSize="20sp"
+            android:textColor="@color/mainText"
+            android:paddingVertical="26dp"
+            android:gravity="center" />
+
+        <View
+            android:id="@+id/dialog_division_btn"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/mainColor" />
+
+        <TextView
+            android:id="@+id/dialog_cancel_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="26dp"
+            android:text="취소"
+            android:textColor="@color/highlight"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

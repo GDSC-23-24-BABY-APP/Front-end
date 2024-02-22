@@ -1,4 +1,23 @@
 <resources>
+
+    <string name="googleClientID">618308615209-mkqjmattq49db2pvcopejnehahgu7dku.apps.googleusercontent.com</string>
+
+    <!--FAQ Context-->
+<!--    <string name="early_pregnancy_title">Early Pregnancy</string>-->
+<!--    <string name="early_pregnancy_content"> Q1.In Case, you have experienced two or more miscarriages,\n\n A1. The probability of miscarriage increases dramatically to 30%.-->
+<!--        \n Therefore, women with miscarriage experience should consult an obstetrician and get an ultrasound examination consistently.-->
+<!--\n\n Q2. What are some dangerous conditions for pregnancy\?-->
+<!--        \n\n A2. Continuous exposure to radiation, such as X-rays and gamma rays, or handling chemicals such as lead, mercury, arsenic, or drugs such as anticancer drugs,-->
+<!--\n Work concerned about infection with hepatitis B virus or rubella virus,standing for a long time or carrying heavy loads-->
+<!--\n The work mentioned above poses a risk of miscarriage as well as premature birth, deformity, and low birth weight.-->
+<!--\n\n Q3. Exercise during pregnancy \n\n A3. If you go to a swimming pool, strong chemicals such as chlorine are unhealthy because the pH balance in the vagina collapses.-->
+<!--\nPlease find out more about the right exercise for you during pregnancy through consultation with a medical institution. </string>-->
+<!--    -->
+<!--    <string name="mid_pregnancy_title">Mid Pregnancy</string>-->
+<!--    <string name="mid_pregnancy_content"></string>-->
+
+<!--    <string name="late_pregnancy_title">Late Pregnancy</string>-->
+<!--    <string name="late_pregnancy_content"></string>-->
     <!-- TODO: Remove or change this placeholder text -->
     <!-- FAQ Context -->
     <string name="early_pregnancy_title">Early Pregnancy</string>

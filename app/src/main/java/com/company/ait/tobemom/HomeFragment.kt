@@ -23,6 +23,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -36,10 +37,7 @@ class HomeFragment : Fragment() {
         binding.homeDaycountMonthcntTv.text = ddaymonth.toString()  //추후 수정 예정
 
         //현재 주수에서의 아기 상태 사진
-        binding.homeBabygrowthIv.setBackgroundResource(R.drawable.demo_babygrowth)
-
-        //챗봇으로 이동
-        goBard()
+        binding.homeBabygrowthIv.setImageResource(R.drawable.demo_babygrowth)
 
         //체크리스트로 이동
         goCheck()
@@ -51,17 +49,6 @@ class HomeFragment : Fragment() {
         binding.homeLogoBtn.setOnClickListener {
             val intent = Intent(activity, ChangeBabyActivity::class.java)
             startActivity(intent)
-        }
-    }
-
-    private fun goBard() {
-        binding.homeGobardBtn.setOnClickListener {
-            activity?.let {
-                val transaction = it.supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, ChatFragment(), "chatFragmentTag")
-                transaction.addToBackStack(null)
-                transaction.commit()
-            }
         }
     }
 

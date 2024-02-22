@@ -1,10 +1,8 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.company.ait.tobemom.databinding.ActivityMypageMyinfoBinding
@@ -20,6 +18,18 @@ class MyPageMyinfoActivity : AppCompatActivity() {
         binding = ActivityMypageMyinfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Intent에서 jwt 값을 받아옴
+        val jwt = intent.getStringExtra("jwt")
+
+        // 받아온 jwt 값 사용 예시
+        if (jwt != null) {
+            // jwt 값이 null이 아닌 경우 처리
+
+        } else {
+            Log.d("Myinfo", "jwt 값 null임")
+        }
+
+
         //뒤로가기
         goBack()
 
@@ -28,7 +38,6 @@ class MyPageMyinfoActivity : AppCompatActivity() {
 
         //이름, 아이디, 비밀번호, 혈액형, 키, 몸무게 저장
         saveInfo()
-
         //수정하기 버튼 클릭 이벤트
         editBtn()
     }

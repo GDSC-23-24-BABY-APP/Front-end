@@ -13,7 +13,6 @@ import com.company.ait.tobemom.dto.MessageAdapter
 import com.company.ait.tobemom.dto.MessageModel
 import com.company.ait.tobemom.dto.SendChatReq
 import com.company.ait.tobemom.dto.SendChatRes
-import com.company.ait.tobemom.dto.UserMessage
 import com.company.ait.tobemom.utils.GlobalApplication
 import com.company.ait.tobemom.utils.RetrofitObject
 import com.google.ai.client.generativeai.GenerativeModel

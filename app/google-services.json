@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "366961644008",
+    "project_id": "to-be-mom-ef853",
+    "storage_bucket": "to-be-mom-ef853.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366961644008:android:c66d8914432540e8a4545d",
+        "android_client_info": {
+          "package_name": "com.company.ait.tobemom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEbHyhNQts3U9MT1yun8ehfSb8nTvArko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

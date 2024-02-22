@@ -1,15 +1,17 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import org.w3c.dom.Text
+import androidx.fragment.app.Fragment
+import java.util.Locale
 
-class BabyDevelopment : Fragment() {
+class BabyDevelopment : Fragment(), TextToSpeech.OnInitListener {
 
     private lateinit var babyDevelopBackBtn: ImageButton
     private lateinit var weekOfBabyTextView: TextView
@@ -19,6 +21,8 @@ class BabyDevelopment : Fragment() {
     private lateinit var bdVolumeBtn: ImageButton
 
     private var currentWeekIndex: Int = 1
+
+    private var tts: TextToSpeech? = null
 
 
     override fun onCreateView(
@@ -40,7 +44,10 @@ class BabyDevelopment : Fragment() {
 
         //Text to Speech
         bdVolumeBtn.setOnClickListener {
-            //TODO BackEnd 연결 필요
+            bdVolumeBtn!!.isEnabled = false
+            tts = TextToSpeech(requireContext(), this)
+
+            bdVolumeBtn!!.setOnClickListener { speakOut() }
         }
 
         babyDevelopBackBtn.setOnClickListener{
@@ -114,5 +121,33 @@ class BabyDevelopment : Fragment() {
             }
         }
 
+    }
+
+    //TTS
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.US)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The Language specified is not supported!")
+            } else {
+                bdVolumeBtn!!.isEnabled = true
+            }
+        } else {
+            Log.e("TTS", "Initialization Failed!")
+        }
+    }
+
+    private fun speakOut() {
+        val text = weekBabyDescriptionTextView!!.text.toString()
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        super.onDestroy()
     }
 }

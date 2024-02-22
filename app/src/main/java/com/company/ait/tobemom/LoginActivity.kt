@@ -9,10 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.company.ait.tobemom.databinding.ActivityLoginBinding
 import com.company.ait.tobemom.utils.RetrofitClient2
 import com.company.ait.tobemom.utils.RetrofitObject
-import com.kakao.sdk.auth.LoginClient
-import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.model.AuthErrorCause
-import com.kakao.sdk.user.UserApiClient
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.Scope
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +21,12 @@ import retrofit2.Response
 class LoginActivity : AppCompatActivity(), LoginView {
 
     lateinit var binding: ActivityLoginBinding
+
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+//    private lateinit var googleAuth: FirebaseAuth
+//    private lateinit var googleLoginModule: GoogleSignInClient
+//    private lateinit var retrofit: Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,84 +49,23 @@ class LoginActivity : AppCompatActivity(), LoginView {
         goFindid()
         goResetpw()
 
-        // 카카오 로그인 정보 확인
-        checkLoginInfo()
-
-        // 카카오 로그인
-        val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
-            if (error != null) {
-                when {
-                    error.toString() == AuthErrorCause.AccessDenied.toString() -> {
-                        Toast.makeText(this, "접근이 거부 됨(동의 취소)", Toast.LENGTH_SHORT).show()
-                    }
-
-                    error.toString() == AuthErrorCause.InvalidClient.toString() -> {
-                        Toast.makeText(this, "유효하지 않은 앱", Toast.LENGTH_SHORT).show()
-                    }
-
-                    error.toString() == AuthErrorCause.InvalidGrant.toString() -> {
-                        Toast.makeText(this, "인증 수단이 유효하지 않아 인증할 수 없는 상태", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-
-                    error.toString() == AuthErrorCause.InvalidRequest.toString() -> {
-                        Toast.makeText(this, "요청 파라미터 오류", Toast.LENGTH_SHORT).show()
-                    }
-
-                    error.toString() == AuthErrorCause.InvalidScope.toString() -> {
-                        Toast.makeText(this, "유효하지 않은 scope ID", Toast.LENGTH_SHORT).show()
-                    }
-
-                    error.toString() == AuthErrorCause.Misconfigured.toString() -> {
-                        Toast.makeText(this, "설정이 올바르지 않음(android key hash)", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-
-                    error.toString() == AuthErrorCause.ServerError.toString() -> {
-                        Toast.makeText(this, "서버 내부 에러", Toast.LENGTH_SHORT).show()
-                    }
-
-                    error.toString() == AuthErrorCause.Unauthorized.toString() -> {
-                        Toast.makeText(this, "앱이 요청 권한이 없음", Toast.LENGTH_SHORT).show()
-                    }
-
-                    else -> { // Unknown
-                        Toast.makeText(this, "기타 에러", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            } else if (token != null) {
-                Toast.makeText(this, "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show()
-                //로그인 했으니 여기서 이메일 이름을 받아옴
-                UserApiClient.instance.me { user, error ->
-                    if (error != null) {
-                        Log.e("login", "사용자 정보 요청 실패", error)
-                    } else if (user != null) {
-                        Log.d("login", "사용자 정보 요청 성공")
-                        val email = user.kakaoAccount?.email
-                        val name = user.kakaoAccount?.profile?.nickname
-                        //이메일 이름 보내서 서버와 연결
-                        //loginServer(email!!, name!!)
-                    }
-                }
-
-                val intent = Intent(this, SignUpAgreeActivity::class.java)
-                startActivity(intent)
-            }
-
-        }
-
-        binding.loginKakaoBtn.setOnClickListener {
-            if (LoginClient.instance.isKakaoTalkLoginAvailable(this)) {
-                LoginClient.instance.loginWithKakaoTalk(this, callback = callback)
-            } else {
-                LoginClient.instance.loginWithKakaoAccount(this, callback = callback)
-            }
-
-            binding.loginKakaoBtn.setOnClickListener {
-                val intent = Intent(this, SignUpAgreeActivity::class.java)
-                startActivity(intent)
-            }
-        }
+        //구글 로그인
+        Log.d("GoogleLogin", "start")
+        setupGoogleSignInClient()
+        Log.d("GoogleLogin", "setupGoogleSignInClient 끝")
+        addListener()
+//        //data init
+//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//            .requestIdToken(getString(R.string.googleClientID))
+//            .requestEmail()
+//            .build()
+//
+//        googleLoginModule = GoogleSignIn.getClient(this, gso)
+//        googleAuth = Firebase.auth
+//
+//        retrofit = RetrofitObject.getRetrofit
+//        initView()
+//        hasSocialSession()
     }
 
     private fun login() {
@@ -156,8 +102,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
                         // 사용자 정보가 존재하면 MainActivity 시작
                         startMainActivity()
                         val jwtToken = responseData.data.token // 실제 받아온 토큰 값으로 대체
-                        saveTokenInfo(this@LoginActivity, jwtToken)
-                        //saveJwt2(jwtToken)
+                        saveJwt2(jwtToken)
                         Log.d("SignUpResponseToken", "token값: $jwtToken")
                     } else {
                         // 사용자 정보가 존재하지 않으면 토스트 메시지 표시
@@ -183,8 +128,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         editor.putString("jwt", jwt)
         editor.apply()
-
-        Log.d("TokenSave", "Token saved successful")
     }
 
     private fun startMainActivity() {
@@ -221,17 +164,188 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-    private fun checkLoginInfo() {
-        UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
-            if (error != null) {
-                Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
-            } else if (tokenInfo != null) {
-                Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this, MainActivity::class.java)
-//                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+//    // Google Login
+//    private fun initView() {
+//        binding.loginGoogleBtn.setOnClickListener(this)
+//    }
+//
+//    private fun hasSocialSession() {
+//        when {
+//            hasGoogleSession() -> {
+//                val intent = Intent(this@LoginActivity, MainActivity::class.java).apply {
+//                    putExtra("email", googleAuth.currentUser!!.email)
+//                }
+//                Log.d(TAG, "googleAuth currentUser email: ${googleAuth.currentUser?.email}")
+//                startActivity(intent)
 //                finish()
+//            }
+//            hasNaverSession() -> {
+//
+//            }
+//        }
+//    }
+//
+//    private fun hasGoogleSession(): Boolean {
+//        if (googleAuth.currentUser == null) {
+//            return false
+//        }
+//        return true
+//    }
+//
+//    override fun onClick(v: View) {
+//        when (v.id) {
+//            R.id.sign_in_google_btn -> signInGoogle()
+//            R.id.sign_in_naver_btn -> signInNaver()
+//        }
+//    }
+//
+//    private fun signInGoogle() {
+//        val signInIntent = googleLoginModule.signInIntent
+//        startActivityForResult(signInIntent, RC_SIGN_IN)
+//    }
+//
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == RC_SIGN_IN && resultCode == RESULT_OK) {
+//            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+//            try {
+//                val account = task.getResult(ApiException::class.java)!!
+//                firebaseAuthWithGoogle(account.idToken!!)
+//            } catch (e: ApiException) {
+//                Log.w(TAG, "Google sign in failed", e)
+//            }
+//        } else {
+//            Log.d(TAG, "onActivityResult: resultCode = $resultCode")
+//        }
+//    }
+//
+//    private fun firebaseAuthWithGoogle(idToken: String) {
+//        val credential = GoogleAuthProvider.getCredential(idToken, null)
+//        googleAuth.signInWithCredential(credential)
+//            .addOnCompleteListener(this) { task ->
+//                if (task.isSuccessful) {
+//                    Log.d(TAG, "signInWithCredential:success")
+//                    val intent = Intent(this, MainActivity::class.java).apply {
+//                        putExtra("email", googleAuth.currentUser!!.email)
+//                    }
+//                    startActivity(intent)
+//                    finish()
+//                } else {
+//                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+//                    val view = binding.root
+//                    Snackbar.make(view, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
+//                }
+//            }
+//    }
+
+
+    // 구글 로그인
+    private fun setupGoogleSignInClient() {
+        val googleSignInOption = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestScopes(Scope("https://www.googleapis.com/auth/userinfo.profile"))
+            .requestScopes(Scope("https://www.googleapis.com/auth/userinfo.email"))
+            .requestServerAuthCode(getString(R.string.googleClientID))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOption)
+    }
+
+    private fun addListener() {
+        binding.loginGoogleBtn.setOnClickListener {
+            requestGoogleLogin()
+            Log.d("GoogleLogin", "addListener - 구글 로그인 버튼 눌림")
+        }
+    }
+
+    private fun requestGoogleLogin() {
+        googleSignInClient.signOut()
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, GOOGLE_SIGN_IN_REQUEST_CODE)
+        Log.d("GoogleLogin", "requestGoogleLogin - 오")
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d("GoogleLogin", "onActivityResult 불려짐")
+        if (requestCode == GOOGLE_SIGN_IN_REQUEST_CODE) {
+            Log.d("GoogleLogin", "if문 처음")
+            if (data != null) {
+                Log.d("GoogleLogin", "${data}")
+                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+                Log.d("GoogleLogin", "${task}")
+                try {
+                    Log.d("GoogleLogin", "try문 처음")
+                    val account = task.getResult(ApiException::class.java)!!
+                    Log.d("GoogleLogin", "account 지남")
+                    //val userName = account?.displayName
+                    val userEmail = account?.email
+                    val authCode = account?.serverAuthCode // 구글에서 받은 인증 코드 가져오기
+                    val registrationId = account?.id // 등록 ID 가져오기 (구글 계정의 고유 ID로 대체 가능)
+
+                    Log.d("GoogleLogin", "onActivityResult - $userEmail, $authCode, $registrationId")
+
+                    // Google 로그인 결과를 처리한 후 SignUpAgreeActivity로 이동
+                    val intent = Intent(this, SignUpAgreeActivity::class.java)
+                    // 사용자 정보를 SignUpAgreeActivity에 전달
+                    //intent.putExtra("userName", userName)
+                    intent.putExtra("userEmail", userEmail)
+                    startActivity(intent)
+
+                    // 백엔드 서버로 사용자 정보와 구글에서 받은 인증 코드 및 등록 ID 전송
+                    sendUserInfoToServer(userEmail, authCode, registrationId)
+                } catch (e: ApiException) {
+                    Log.e("GoogleLogin", "Google sign in failed with ApiException: ${e.statusCode}")
+                    e.printStackTrace()
+                }
+            } else {
+                Log.e("GoogleLogin", "Google sign in failed: Intent data is null")
             }
         }
+    }
+//    userName: String?,
+    private fun sendUserInfoToServer(userEmail: String?, authCode: String?, registrationId: String?) {
+        // 사용자 정보를 서버로 전송하는 API 호출
+        // Retrofit 등을 사용하여 서버에 POST 요청 등을 보낼 수 있습니다.
+        val retrofitService = RetrofitObject.getRetrofitService
+        if (authCode != null && registrationId != null) {
+            val call = retrofitService.googleLogin(authCode, registrationId)
+
+            call.enqueue(object : Callback<RetrofitClient2.ResponseGoogleLogin> {
+                override fun onResponse(call: Call<RetrofitClient2.ResponseGoogleLogin>, response: Response<RetrofitClient2.ResponseGoogleLogin>) {
+                    Log.d("GoogleLogin", "${response.toString()}}")
+                    if (response.isSuccessful) {
+                        // 응답 성공 처리
+                        val responseData = response.body()
+                        Log.d("GoogleLogin", "sendUserInfoToServer - ${responseData.toString()}")
+                        if (responseData != null) {
+                            if (responseData.status == "success") {
+                                val token = responseData.data.token
+                                saveTokenInfo(this@LoginActivity,token)
+                                val intent = Intent(this@LoginActivity, SignUpAgreeActivity::class.java)
+                                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                                finish()
+                            } else {
+                                Toast.makeText(this@LoginActivity, responseData.message, Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<RetrofitClient2.ResponseGoogleLogin>, t: Throwable) {
+                    // 네트워크 요청 실패 처리
+                    val errorMessage = "Call Failed: ${t.message}"
+                    Log.e("GoogleLogin", errorMessage)
+                }
+            })
+        } else {
+            // authCode나 registrationId가 null인 경우 처리
+            Log.e("GoogleLogin", "Failed to retrieve authCode or registrationId")
+        }
+    }
+
+    companion object {
+        private const val GOOGLE_SIGN_IN_REQUEST_CODE = 1001
     }
 
     private fun saveTokenInfo(context: Context, token: String?) {

@@ -20,8 +20,8 @@
         <item name="android:fontFamily">@font/font_custom</item>
     </style>
 
-    <style name="BottomNavStyle" parent="Widget.Design.BottomNavigationView">
-        <item name="android:fontFamily">@font/font_custom</item>
+    <style name="CustomBottomNavStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="android:itemTextAppearance">@font/font_custom</item>
     </style>
 
 </resources>

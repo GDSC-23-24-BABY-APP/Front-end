@@ -27,7 +27,6 @@ class NewsFragment : Fragment(), View.OnClickListener {
         PregnancyTip = view.findViewById(R.id.PregnancyTip)
         FrequentlyAskedQuestions = view.findViewById(R.id.FrequentlyAskedQuestions)
         NearbyHospitals = view.findViewById(R.id.NearbyHospitals)
-        GoToChat = view.findViewById(R.id.home_gobard_btn)
 
         return view
 
@@ -50,7 +49,6 @@ class NewsFragment : Fragment(), View.OnClickListener {
             R.id.PregnancyTip -> replaceFragment(PregnancyTip())
             R.id.FrequentlyAskedQuestions -> replaceFragment(FrequentlyAskedQuestions())
             R.id.NearbyHospitals -> replaceFragment(HospitalMap())
-            R.id.home_gobard_btn -> replaceFragment(ChatFragment())
         }
     }
 

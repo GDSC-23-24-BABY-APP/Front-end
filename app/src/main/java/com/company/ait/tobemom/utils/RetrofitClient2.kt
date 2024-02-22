@@ -3,30 +3,10 @@ package com.company.ait.tobemom.utils
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.google.maps.android.data.Geometry
 import java.util.Date
 
 class RetrofitClient2 {
 
-    data class ResponseKakaoLogin(
-        @SerializedName("status")
-        val status: String,
-        @SerializedName("data")
-        val data: KakaoData,
-        @SerializedName("message")
-        val message: String
-    )
-
-    data class KakaoData(
-        @SerializedName("userId")
-        val userId: Int,
-        @SerializedName("token")  //jwt 토큰
-        val token: String,
-        @SerializedName("email")
-        val email: String,
-        @SerializedName("username")
-        val username: String
-    )
     data class SignupRequest(
         @SerializedName("email")
         val email: String,
@@ -63,6 +43,26 @@ class RetrofitClient2 {
 //        val userid: Long
 //    )
 
+    data class ResponseGoogleLogin(
+        @SerializedName("status")  //성공여부
+        val status: String,
+        @SerializedName("data")
+        val data: GoogleData,
+        @SerializedName("message")
+        val message: String
+    )
+
+    data class GoogleData(
+        @SerializedName("userId")
+        val userId: Int,
+        @SerializedName("token")  //jwt 토큰
+        val token: String,
+        @SerializedName("email")
+        val email: String,
+        @SerializedName("username")
+        val username: String
+    )
+
     data class RequestLogin(
         @SerializedName("email")
         val email: String,
@@ -88,6 +88,13 @@ class RetrofitClient2 {
         val id: String,
         @SerializedName("username")
         val username: String
+    )
+
+    data class BabyInfoRequest(
+        @SerializedName("babyName")
+        val babyName: String,
+        @SerializedName("babyBirthDate")
+        val babyBirthDate: Date
     )
 
     data class CheckHealth(
@@ -234,5 +241,19 @@ class RetrofitClient2 {
     data class Location(
         val lat: Double,
         val lng: Double
+    )
+
+    data class sttResponse(
+        @SerializedName("audioFile")
+        val audioFile: ByteArray
+    )
+
+    data class FcmResponse(
+        @SerializedName("status")
+        val status: String,
+        @SerializedName("data")
+        val data: String,
+        @SerializedName("message")
+        val message: String
     )
 }

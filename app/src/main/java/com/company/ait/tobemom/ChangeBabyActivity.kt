@@ -1,10 +1,6 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.company.ait.tobemom.databinding.ActivityChangeBabyBinding
 
@@ -17,6 +13,9 @@ class ChangeBabyActivity : AppCompatActivity() {
         binding= ActivityChangeBabyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        //뒤로 가기
+        binding.changebabyBackBtn.setOnClickListener {
+            finish()
+        }
     }
 }

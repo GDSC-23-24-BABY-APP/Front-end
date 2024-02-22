@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AddbabyFragment"
+    tools:context=".AddbabyActivity"
     android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@id/addbaby_topbar_cl" />
 
     <EditText
-        android:id="@+id/addbaby_birthname_tv"
+        android:id="@+id/addbaby_birthname_et"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Sweety"
@@ -80,14 +80,13 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="21dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addbaby_birthname_tv" />
+        app:layout_constraintTop_toBottomOf="@id/addbaby_birthname_et" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/addbaby_datepicker_btn"
+    <EditText
+        android:id="@+id/addbaby_birthdate_et"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="YYYY/MM/DD"
-        android:text=""
         android:textSize="20sp"
         android:textColor="@color/mainText"
         android:background="@drawable/edge_2dp"

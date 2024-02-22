@@ -1,10 +1,6 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.company.ait.tobemom.databinding.ActivityMypageBabyinfoBinding
 
@@ -21,7 +17,7 @@ class MyPageBabyinfoActivity : AppCompatActivity() {
         goBack()
 
         //아기 태명, 출산예정일 출력
-        binding.babyinfoBirthnameTv.text = "꿈틀이"  //태명 보여주기 -> 추후 텍스트 수정
+        binding.babyinfoBirthnameTv.text = "Sweety"  //태명 보여주기 -> 추후 텍스트 수정
         binding.babyinfoBirthdateTv.text = "2024/02/08"  //출산예정일 보여주기 -> 추후 텍스트 수정
     }
 

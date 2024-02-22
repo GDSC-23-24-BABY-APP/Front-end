@@ -1,15 +1,18 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import java.util.Locale
 
 
-class PregnancyTip : Fragment() {
+class PregnancyTip : Fragment(), TextToSpeech.OnInitListener {
 
     private lateinit var pregnancyTipBackBtn: ImageButton
     private lateinit var weekOfPregnancy: TextView
@@ -19,6 +22,8 @@ class PregnancyTip : Fragment() {
     private lateinit var ptVolumeBtn: ImageButton
 
     private var currentWeekIndex: Int = 1
+
+    private var tts: TextToSpeech? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,8 +44,10 @@ class PregnancyTip : Fragment() {
 
         //Text to Speech
         ptVolumeBtn.setOnClickListener {
-            //TODO : Backend랑 연결 필요
-            //Text To Speech
+            ptVolumeBtn!!.isEnabled = false
+            tts = TextToSpeech(requireContext(), this)
+
+            ptVolumeBtn!!.setOnClickListener { speakOut() }
         }
 
         pregnancyTipBackBtn.setOnClickListener{
@@ -78,40 +85,69 @@ class PregnancyTip : Fragment() {
 
     private fun updateUIForCurrentWeek(){
         // 임신 시기에 따라 UI 업데이트
-        when (currentWeekIndex) {
-            1 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek0_5)
-                pregnancyTips.text = getString(R.string.PTweek0_5_content)
-            }
-            2 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek6_10)
-                pregnancyTips.text = getString(R.string.PTweek6_10_content)
-            }
-            3 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek11_15)
-                pregnancyTips.text = getString(R.string.PTweek11_15_content)
-            }
-            4 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek16_20)
-                pregnancyTips.text = getString(R.string.PTweek16_20_content)
-            }
-            5 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek21_25)
-                pregnancyTips.text = getString(R.string.PTweek21_25_content)
-            }
-            6 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek26_30)
-                pregnancyTips.text = getString(R.string.PTweek26_30_content)
-            }
-            7 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek31_35)
-                pregnancyTips.text = getString(R.string.PTweek31_35_content)
-            }
-            8 -> {
-                weekOfPregnancy.text = getString(R.string.PTweek36_40)
-                pregnancyTips.text = getString(R.string.PTweek36_40_content)
-            }
-        }
+//        when (currentWeekIndex) {
+//            1 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek0_5)
+//                pregnancyTips.text = getString(R.string.PTweek0_5_content)
+//            }
+//            2 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek6_10)
+//                pregnancyTips.text = getString(R.string.PTweek6_10_content)
+//            }
+//            3 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek11_15)
+//                pregnancyTips.text = getString(R.string.PTweek11_15_content)
+//            }
+//            4 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek16_20)
+//                pregnancyTips.text = getString(R.string.PTweek16_20_content)
+//            }
+//            5 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek21_25)
+//                pregnancyTips.text = getString(R.string.PTweek21_25_content)
+//            }
+//            6 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek26_30)
+//                pregnancyTips.text = getString(R.string.PTweek26_30_content)
+//            }
+//            7 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek31_35)
+//                pregnancyTips.text = getString(R.string.PTweek31_35_content)
+//            }
+//            8 -> {
+//                weekOfPregnancy.text = getString(R.string.PTweek36_40)
+//                pregnancyTips.text = getString(R.string.PTweek36_40_content)
+//            }
+//        }
+    }
 
+    //TTS
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.US)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The Language specified is not supported!")
+            } else {
+                ptVolumeBtn!!.isEnabled = true
+            }
+        } else {
+            Log.e("TTS", "Initialization Failed!")
+        }
+    }
+
+    private fun speakOut() {
+        val qtext = weekOfPregnancy!!.text.toString()
+        val atext = pregnancyTips!!.text.toString()
+        tts!!.speak(qtext, TextToSpeech.QUEUE_FLUSH, null, "")
+        tts!!.speak(atext, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        super.onDestroy()
     }
 }
