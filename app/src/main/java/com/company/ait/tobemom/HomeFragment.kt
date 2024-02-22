@@ -15,8 +15,8 @@ class HomeFragment : Fragment() {
 
     var birthname: String = "Sweety"
     var ddaymonth: Int = 0
-    var ddayweek: Int = 0
-    var ddayday: Int = 0
+    var ddayweek: Int = 2
+    var ddayday: Int = 260
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,8 +36,8 @@ class HomeFragment : Fragment() {
         binding.homeDaycountWeekcntTv.text = ddayweek.toString()  //추후 수정 예정
         binding.homeDaycountMonthcntTv.text = ddaymonth.toString()  //추후 수정 예정
 
-        //현재 주수에서의 아기 상태 사진
-        binding.homeBabygrowthIv.setImageResource(R.drawable.demo_babygrowth)
+//        //현재 주수에서의 아기 상태 사진
+//        binding.homeBabygrowthIv.setImageResource(R.drawable.demo_babygrowth)
 
         //체크리스트로 이동
         goCheck()
@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
         binding.homeGocheckBtn.setOnClickListener {
             childFragmentManager.beginTransaction().apply {
                 val fragment = ChecklistFragment.newInstance() // newInstance 메서드 호출
-                replace(R.id.checklist_fragment, fragment) // fragment_container 사용
+                replace(R.id.fragment_container, fragment) // fragment_container 사용
                 addToBackStack(null)
             }.commit()
         }

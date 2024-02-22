@@ -9,15 +9,15 @@ class RetrofitClient2 {
 
     data class SignupRequest(
         @SerializedName("email")
-        val email: String,
+        val id: String,
         @SerializedName("password")
         val password: String,
 //        @SerializedName("birthDate")
 //        val birthDate: Date,
-//        @SerializedName("username")
-//        val username: String,
-        @SerializedName("nickname")
-        val nickname: String,
+        @SerializedName("username")
+        val username: String,
+//        @SerializedName("nickname")
+//        val nickname: String,
 //        @SerializedName("role")
 //        val role: String,
 //        @SerializedName("isSocialLogin")
@@ -28,20 +28,15 @@ class RetrofitClient2 {
 //        val ageRange: String,
 //        @SerializedName("birthYear")
 //        val birthYear: String,
-        @SerializedName("phoneNumber")
-        val phoneNumber: String,
-        @SerializedName("familyType")
-        val familyType: String,
+//        @SerializedName("phoneNumber")
+//        val phoneNumber: String,
+//        @SerializedName("familyType")
+//        val familyType: String,
         @SerializedName("babyName")
         val babyName: String,
         @SerializedName("babyBirthDate")
-        val babyBirthDate: Date
+        val babyBirthDate: String
     )
-
-//    data class SignupResponse (
-//        @SerializedName("")
-//        val userid: Long
-//    )
 
     data class ResponseGoogleLogin(
         @SerializedName("status")  //성공여부
