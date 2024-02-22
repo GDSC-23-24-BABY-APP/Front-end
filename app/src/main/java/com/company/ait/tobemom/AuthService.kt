@@ -53,7 +53,7 @@ class AuthService {
             }
 
             override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
-                Log.d("LOGIN/FAILURE", t.message.toString())
+                Log.e("LOGIN/FAILURE", t.message.toString())
             }
         })
         Log.d("SIGNUP", "HELLO")

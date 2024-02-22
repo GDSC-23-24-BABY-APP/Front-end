@@ -5,11 +5,17 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
+
 interface RetrofitAPI {
-    @GET("/login/oauth2/code/kakao")
-    fun kakaoLogin(): Call<RetrofitClient2.ResponseKakaoLogin>
+
+    @GET("/login/oauth2/code/google")
+    fun googleLogin(
+        @Query("code") code: String,
+        @Path("registrationId") registrationId: String
+    ): Call<RetrofitClient2.ResponseGoogleLogin>
 
     @POST("/api/user/login")
     fun login(@Body request: RetrofitClient2.RequestLogin): Call<RetrofitClient2.ResponseLogin>
@@ -27,6 +33,11 @@ interface RetrofitAPI {
     fun checkHealth(
         @Header("Authorization") token: String, @Body request: RetrofitClient2.CheckHealth): Call<RetrofitClient2.ResponseCheckHealth>
 
+
     @GET("/health/list")
     fun getHealthList(@Header("Authorization") token: String): Call<RetrofitClient2.HealthListResponse>
+
+    @POST("/api/user/family/create")
+    fun babyAdd(@Body request: RetrofitClient2.BabyInfoRequest): Call<String>
+
 }
