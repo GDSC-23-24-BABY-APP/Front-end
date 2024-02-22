@@ -43,7 +43,7 @@ class MypageFragment : Fragment() {
         binding.mypageProfileIv.setImageResource(R.drawable.ic_user_iv)  //추후 수정 예정
         binding.mypageNameTv.text = "Jihyun Hong"  //추후 수정 예정
         binding.mypageIdTv.text = "aster03"  //추후 수정 예정
-        binding.mypageBirthdateTv.text = "2"
+        binding.mypageBirthdateTv.text = "20"
         if (binding.mypageBirthdateTv.text == "1") {
             binding.mypageStndrdthTv.text = "st"
         } else if (binding.mypageBirthdateTv.text == "2") {

@@ -21,7 +21,7 @@ interface RetrofitAPI {
     fun login(@Body request: RetrofitClient2.RequestLogin): Call<RetrofitClient2.ResponseLogin>
 
     @POST("/api/user/join")
-    fun signup(@Body request: RetrofitClient2.SignupRequest): Call<Void>
+    fun signup(@Body request: RetrofitClient2.SignupRequest): Call<Int>
 
     @GET("/api/checklist/num")
     fun getChecklist(@Query("num") num: Int): Call<RetrofitClient2.ChecklistResponse>

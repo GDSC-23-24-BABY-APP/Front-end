@@ -7,6 +7,7 @@
     android:paddingTop="23dp">
     
     <LinearLayout
+        android:id="@+id/item_background_ll"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"

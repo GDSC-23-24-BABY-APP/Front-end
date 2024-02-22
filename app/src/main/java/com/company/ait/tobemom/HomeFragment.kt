@@ -36,8 +36,8 @@ class HomeFragment : Fragment() {
         binding.homeDaycountWeekcntTv.text = ddayweek.toString()  //추후 수정 예정
         binding.homeDaycountMonthcntTv.text = ddaymonth.toString()  //추후 수정 예정
 
-        //현재 주수에서의 아기 상태 사진
-        binding.homeBabygrowthIv.setImageResource(R.drawable.demo_babygrowth)
+//        //현재 주수에서의 아기 상태 사진
+//        binding.homeBabygrowthIv.setImageResource(R.drawable.demo_babygrowth)
 
         //체크리스트로 이동
         goCheck()
