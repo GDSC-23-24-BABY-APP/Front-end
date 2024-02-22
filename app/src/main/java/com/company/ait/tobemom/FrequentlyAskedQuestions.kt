@@ -84,20 +84,20 @@ class FrequentlyAskedQuestions : Fragment(), TextToSpeech.OnInitListener {
 
     private fun updateUIForCurrentWeek(){
         // 임신 시기에 따라 UI 업데이트
-//        when (currentWeek) {
-//            1 -> {
-//                PregnancyWeek.text = getString(R.string.early_pregnancy_title)
-//                questionContent.text = getString(R.string.early_pregnancy_content)
-//            }
-//            2 -> {
-//                PregnancyWeek.text = getString(R.string.mid_pregnancy_title)
-//                questionContent.text = getString(R.string.mid_pregnancy_content)
-//            }
-//            3 -> {
-//                PregnancyWeek.text = getString(R.string.late_pregnancy_title)
-//                questionContent.text = getString(R.string.late_pregnancy_content)
-//            }
-//        }
+        when (currentWeek) {
+            1 -> {
+                PregnancyWeek.text = getString(R.string.early_pregnancy_title)
+                questionContent.text = getString(R.string.early_pregnancy_content)
+            }
+            2 -> {
+                PregnancyWeek.text = getString(R.string.mid_pregnancy_title)
+                questionContent.text = getString(R.string.mid_pregnancy_content)
+            }
+            3 -> {
+                PregnancyWeek.text = getString(R.string.late_pregnancy_title)
+                questionContent.text = getString(R.string.late_pregnancy_content)
+            }
+        }
 
     }
 

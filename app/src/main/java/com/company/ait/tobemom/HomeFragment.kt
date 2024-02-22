@@ -15,8 +15,8 @@ class HomeFragment : Fragment() {
 
     var birthname: String = "Sweety"
     var ddaymonth: Int = 0
-    var ddayweek: Int = 0
-    var ddayday: Int = 0
+    var ddayweek: Int = 2
+    var ddayday: Int = 260
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
         binding.homeGocheckBtn.setOnClickListener {
             childFragmentManager.beginTransaction().apply {
                 val fragment = ChecklistFragment.newInstance() // newInstance 메서드 호출
-                replace(R.id.checklist_fragment, fragment) // fragment_container 사용
+                replace(R.id.fragment_container, fragment) // fragment_container 사용
                 addToBackStack(null)
             }.commit()
         }

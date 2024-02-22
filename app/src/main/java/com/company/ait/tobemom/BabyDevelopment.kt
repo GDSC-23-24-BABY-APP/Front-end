@@ -85,7 +85,6 @@ class BabyDevelopment : Fragment(), TextToSpeech.OnInitListener {
         transaction.commit()
     }
     private fun updateUIForCurrentWeek(){
-        // 임신 시기에 따라 UI 업데이트
         when (currentWeekIndex) {
             1 -> {
                 weekOfBabyTextView.text = getString(R.string.BDweek0_5)
