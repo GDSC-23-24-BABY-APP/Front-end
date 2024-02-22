@@ -53,7 +53,7 @@ class ChecklistResult : AppCompatActivity() {
         checkResultBackBtn.setOnClickListener {
             val checklistFragment = ChecklistFragment()
 
-            transaction.replace(R.id.checklist_fragment, checklistFragment)
+            transaction.replace(R.id.checklistResultFragment, checklistFragment)
             transaction.addToBackStack(null)
             transaction.commit()
 
@@ -93,15 +93,16 @@ class ChecklistResult : AppCompatActivity() {
     private fun displayResults(result: Int, checkedQ: List<String>) {
         // 결과를 TextView 등에 표시하는 코드 작성
         when (result) {
-            0 -> resultCheck.text = "체크리스트를 분석해본 결과 \n\n 현재 산모는 건강한 상태입니다."
-            1 -> resultCheck.text = "체크리스트를 분석해본 결과 \n\n 현재 유산 위험이 의심됩니다."
-            2 -> resultCheck.text = "체크리스트를 분석해본 결과 \n\n 현재 유산의 확률이 높습니다.\n가까운 산부인과나 평소 다니는 산부인과에 방문해보세요."
-            3 -> resultCheck.text = "체크리스트를 분석해본 결과 \n\n 현재 사산 위험이 의심됩니다."
-            4 -> resultCheck.text = "체크리스트를 분석해본 결과 \n\n 현재 사산의 확률이 높습니다.\n가까운 산부인과나 평소 다니는 산부인과에 방문해보세요."
+            0 -> resultCheck.text = "After analyzing the checklist, \n\n the current expectant mother is in good health."
+            1 -> resultCheck.text = "After analyzing the checklist, \n\n there is a suspicion of a miscarriage risk."
+            2 -> resultCheck.text = "After analyzing the checklist, \n\nthe probability of a miscarriage is high. \n\nVisit a nearby obstetrics and gynecology clinic \nor the one you usually go to."
+            3 -> resultCheck.text = "After analyzing the checklist, \n\n there is a suspicion of a stillbirth risk."
+            4 -> resultCheck.text = "After analyzing the checklist, \n\nthe probability of a stillbirth is high. \n\nVisit a nearby obstetrics and gynecology clinic \nor the one you usually go to."
         }
 
         // checkedQ를 활용하여 증상을 화면에 표시
-        val symptomsText = "체크리스트를 기반으로 현재 산모가 가지고 있는 증상들을 \n알려드리겠습니다.\n"
+        val symptomsText =
+            "Based on the checklist,\n\ninform you of the symptoms that the current expectant mother has."
         val symptomsList = checkedQ.joinToString("\n")
 
         // symptomsText를 TextView에 설정

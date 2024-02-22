@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:orientation="vertical"
+    android:id="@+id/FAQfragment"
     tools:context=".FrequentlyAskedQuestions">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,7 +72,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="630dp"
+        android:layout_height="600dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@+id/FAQtv"
@@ -118,25 +119,23 @@
             android:layout_gravity="center_horizontal"
             android:background="#FF7272"/>
 
-        <TextView
-            android:id="@+id/question_content"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            android:textSize="16dp"
-            android:text="Content "
-            android:gravity="center"/>
+            android:layout_marginTop="47dp">
+            <TextView
+                android:id="@+id/question_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:textSize="16dp"
+                android:text="Content "
+                android:gravity="center"/>
+
+        </ScrollView>
+
 
     </FrameLayout>
 
-    <ImageButton
-        android:id="@+id/home_gobard_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_drbard"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="75dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,8 +12,6 @@ import android.widget.ImageButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-//import com.company.ait.tobemom.utils.PlacesApiClient
-import com.company.ait.tobemom.utils.RetrofitClient2
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -25,8 +23,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.libraries.places.api.Places
-import com.google.android.libraries.places.api.model.Place
-import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.material.snackbar.Snackbar
 
@@ -37,10 +33,7 @@ class HospitalMap : Fragment(), OnMapReadyCallback {
     private lateinit var placesClient: PlacesClient
     private lateinit var googleMap: GoogleMap
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private lateinit var hosInfoRv : RecyclerView
-    private lateinit var searchHospital : ImageButton
-    private lateinit var hospitalInfoAdapter: HospitalInfoAdapter
-    private lateinit var hospitalList: MutableList<RetrofitClient2.Hospital>
+
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1001
     }
@@ -52,7 +45,6 @@ class HospitalMap : Fragment(), OnMapReadyCallback {
         val rootView = inflater.inflate(R.layout.fragment_hospital_map,container,false)
 
         mapView = rootView.findViewById(R.id.mapFragment) as MapView
-        hosInfoRv = rootView.findViewById(R.id.hos_info_rv) as RecyclerView
 
         // Initialize Places SDK
         Places.initialize(requireContext(), "AIzaSyCVZftl7Ka0UEsOnSJRnchSSb1Mu_Y7Vrc")
@@ -66,8 +58,7 @@ class HospitalMap : Fragment(), OnMapReadyCallback {
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            mapView.onCreate(null)
-            mapView.getMapAsync(this)
+            initializeMap(rootView)
         } else {
             // 권한이 허용되어 있지 않음, 권한 요청
             ActivityCompat.requestPermissions(
@@ -123,65 +114,14 @@ class HospitalMap : Fragment(), OnMapReadyCallback {
             .addOnSuccessListener { location ->
                 if (location != null) {
                     val currentLatLng = LatLng(location.latitude, location.longitude)
-                    // 현재 위치로 마커를 추가하고 지도 이동 등의 작업 수행
+                    // 현재 위치로 마커를 추가하고 지도 이동 및 확대
                     googleMap.addMarker(MarkerOptions().position(currentLatLng).title("My Location"))
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng))
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18f)) // 15f는 확대 수준입니다.
                 } else {
                     Log.e("HospitalMap", "Error: lastLocation is null")
                 }
             }
     }
-
-//    private fun searchNearbyRestaurants() {
-//        val radius = 1000 // 1000m 반경 내의 음식점을 검색합니다.
-//        val type = "hospital"
-//        val apiKey = "AIzaSyA4Dm2lxSKbDk2jfdfE7u4FYhLcULZcX9A"
-//
-//        // Fused Location Provider를 사용하여 현재 위치 정보 가져오기
-//        fusedLocationProviderClient.lastLocation
-//            .addOnSuccessListener { location ->
-//                if (location != null) {
-//                    val currentLatLng = LatLng(location.latitude, location.longitude)
-//                    val locationString = "${currentLatLng.latitude},${currentLatLng.longitude}"
-//
-//                    // Places API로 병원 정보 가져오기
-//                    PlacesApiClient.getNearbyHospitals(locationString, radius, type, apiKey) { placesApiResponse ->
-//                        Log.e("병원개수",currentLatLng )
-//                        if (placesApiResponse != null ) {
-//                            // 가져온 병원 정보를 Hospital로 변환하여 리스트에 추가원
-//
-//                            hospitalList.clear()
-//                            // 여기서 hospitalList 초기화 추가
-//                            hospitalList = mutableListOf()
-//
-//
-//                            for (hospital in placesApiResponse) {
-//                                val hospitalLocation = LatLng(
-//                                    hospital.geometry.location.lat,
-//                                    hospital.geometry.location.lng
-//                                )
-//                                val hospitalInfo = RetrofitClient2.Hospital(
-//                                    hospital.name,
-//                                    hospital.address,
-//                                    hospital.vicinity,
-//                                    hospital.geometry
-//                                )
-//                                hospitalList.add(hospitalInfo)
-//                            }
-//                            // Notify the adapter that the data set has changed
-//                            hospitalInfoAdapter.notifyDataSetChanged()
-//
-//                            // Make the RecyclerView visible
-//                            hosInfoRv.visibility = View.VISIBLE
-//                        } else {
-//                            Log.e("HospitalMap", "Error getting nearby hospitals")
-//                        }
-//                    }
-//                } else {
-//                    Log.e("HospitalMap", "Error: lastLocation is null")
-//                }
-//            }
-//    }
 
     private fun navigateToOtherFragment() {
         // 이동하고 싶은 Fragment를 생성
@@ -189,7 +129,7 @@ class HospitalMap : Fragment(), OnMapReadyCallback {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
 
         // 다른 Fragment로 교체하고 back stack에 추가
-        transaction.replace(R.id.newsFragment, newsFragment)
+        transaction.replace(R.id.hospitalMap_fragment, newsFragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }

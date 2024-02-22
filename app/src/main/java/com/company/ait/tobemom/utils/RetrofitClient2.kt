@@ -103,8 +103,8 @@ class RetrofitClient2 {
         val weight: Float,
         @SerializedName("healthInfoList")
         val healthInfoList: IntArray,
-        @SerializedName("healthDiray")
-        val healthDiary: String,
+        @SerializedName("healthDiary")
+        val healthDiary: String
 //        @SerializedName("healthState")
 //        val healthState: Int
     )
@@ -116,6 +116,54 @@ class RetrofitClient2 {
         @SerializedName("message")
         val message: String
     )
+
+    data class HealthListResponse(
+        val status: String,
+        val data: List<HealthData>,
+        val message: String
+    )
+
+    data class HealthData(
+        val id: Int,
+        val weight: Int,
+        val healthInfoList: List<Int>,
+        val healthDiary: String,
+        val healthState: Int,
+        val createdDate: String
+    ) : Parcelable {
+        constructor(parcel: Parcel) : this(
+            parcel.readInt(),
+            parcel.readInt(),
+            parcel.createIntArray()?.toList() ?: emptyList(),
+            parcel.readString() ?: "",
+            parcel.readInt(),
+            parcel.readString() ?: ""
+        )
+
+        override fun writeToParcel(parcel: Parcel, flags: Int) {
+            parcel.writeInt(id)
+            parcel.writeInt(weight)
+            parcel.writeIntArray(healthInfoList.toIntArray())
+            parcel.writeString(healthDiary)
+            parcel.writeInt(healthState)
+            parcel.writeString(createdDate)
+        }
+
+        override fun describeContents(): Int {
+            return 0
+        }
+
+        companion object CREATOR : Parcelable.Creator<HealthData> {
+            override fun createFromParcel(parcel: Parcel): HealthData {
+                return HealthData(parcel)
+            }
+
+            override fun newArray(size: Int): Array<HealthData?> {
+                return arrayOfNulls(size)
+            }
+        }
+    }
+
 
     //Checklist Form Data
     data class ChecklistResponse(
@@ -181,11 +229,6 @@ class RetrofitClient2 {
             }
         }
     }
-
-
-    data class PlacesApiResponse(
-        @SerializedName("results") val hospitals: List<Hospital>
-    )
 
     // 병원 정보를 담는 데이터 클래스
     data class Hospital(

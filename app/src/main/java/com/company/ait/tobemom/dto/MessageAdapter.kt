@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.company.ait.tobemom.R
 import com.company.ait.tobemom.databinding.ItemChatmessageBinding
 import com.company.ait.tobemom.databinding.ItemUsermessageBinding
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-//data class Message(val text:String, val sendId: String?)
-//
+data class Message(val text:String, val sendId: String?)
+
 //class MessageAdapter(val context: Context, val chatList :ArrayList<Message>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 //
 //    private val receive = 1
@@ -22,7 +24,7 @@ import kotlin.collections.ArrayList
 //
 //    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 //        return if(viewType == 1){
-//            val view: View = LayoutInflater.from(context).inflate(R.layout.item_message, viewGroup, false)
+//            val view: View = LayoutInflater.from(context).inflate(R.layout.item_chatmessage, viewGroup, false)
 //            ReceiveViewHolder(view)
 //        }else{
 //            val view: View = LayoutInflater.from(context).inflate(R.layout.item_usermessage, viewGroup, false)
@@ -73,7 +75,7 @@ import kotlin.collections.ArrayList
 //        val receiveMessage: TextView = itemView.findViewById(R.id.tv_itemm_title)
 //    }
 //}
-
+//
 interface MessageModel {
     data class SenderMessage(
         val message: String

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -15,6 +16,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
     private lateinit var PregnancyTip: TextView
     private lateinit var FrequentlyAskedQuestions: TextView
     private lateinit var NearbyHospitals: TextView
+    private lateinit var GoToChat : ImageButton
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,6 +27,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
         PregnancyTip = view.findViewById(R.id.PregnancyTip)
         FrequentlyAskedQuestions = view.findViewById(R.id.FrequentlyAskedQuestions)
         NearbyHospitals = view.findViewById(R.id.NearbyHospitals)
+        GoToChat = view.findViewById(R.id.home_gobard_btn)
 
         return view
 
@@ -37,6 +40,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
         PregnancyTip.setOnClickListener(this)
         FrequentlyAskedQuestions.setOnClickListener(this)
         NearbyHospitals.setOnClickListener(this)
+        GoToChat.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -46,6 +50,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
             R.id.PregnancyTip -> replaceFragment(PregnancyTip())
             R.id.FrequentlyAskedQuestions -> replaceFragment(FrequentlyAskedQuestions())
             R.id.NearbyHospitals -> replaceFragment(HospitalMap())
+            R.id.home_gobard_btn -> replaceFragment(ChatFragment())
         }
     }
 
