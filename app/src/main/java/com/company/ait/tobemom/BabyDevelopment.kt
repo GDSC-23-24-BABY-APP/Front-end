@@ -80,7 +80,7 @@ class BabyDevelopment : Fragment(), TextToSpeech.OnInitListener {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
 
         // 다른 Fragment로 교체하고 back stack에 추가
-        transaction.replace(R.id.newsFragment, newsFragment)
+        transaction.replace(R.id.babyDvFragment, newsFragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }

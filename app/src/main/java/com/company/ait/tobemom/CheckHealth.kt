@@ -126,11 +126,10 @@ class CheckHealth : AppCompatActivity() {
             try {
                 val weight = WeightEdit.text.toString().toFloat()
                 val healthInfoList = getSelectedEmojis()
-                val healthDiary = ETWriteHealth.text.toString()
-                //val healthState =
+                val healthDiary = ETWriteHealth.text.toString().takeIf { it.isNotBlank() } ?: "No health diary provided"
+                Log.d("checkHealth-diary", "${healthDiary}")
 
                 // 사용자 입력 유효성 검사
-
                 val checkHealthData = RetrofitClient2.CheckHealth(weight, healthInfoList, healthDiary)
 
                 val token = getCurrentToken(this)

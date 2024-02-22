@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:id="@+id/checkHealthResult"
     tools:context=".CheckHealthResult">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,17 +45,19 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         android:fillViewport="true"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CheckHealth_topbar_cl">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/constraint2"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingBottom="38dp"
             android:orientation="vertical">
 
             <TextView
@@ -88,15 +91,14 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/weightEdit"
+            <TextView
+                android:id="@+id/weightResultTv"
                 android:layout_width="375dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_border"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|center_vertical"
-                android:hint="__.__  KG"
                 android:textSize="16sp" />
 
             <TextView
@@ -720,7 +722,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
                     android:text="Health Note"
-
                     android:textColor="@color/mainText"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -738,14 +739,13 @@
 
 
             <EditText
-                android:id="@+id/EditwriteyourHealth"
+                android:id="@+id/writeyourHealthResultTv"
                 android:layout_width="375dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/background_designgray"
                 android:gravity="center"
-                android:hint="Please write any additional health information \nyou would like to include here."
                 android:textSize="13dp" />
 
 

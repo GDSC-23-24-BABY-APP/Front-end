@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
+    android:id="@+id/chatFragment"
     tools:context=".ChatFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +32,7 @@
             android:id="@+id/dr.bard_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DR.BARD"
+            android:text="DR.GEMINI"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/mainText"
