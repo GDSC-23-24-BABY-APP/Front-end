@@ -69,7 +69,7 @@ class ChecklistResult : AppCompatActivity() {
         btnHospital.setOnClickListener {
             val hospitalMapFragment = HospitalMap()
 
-            transaction.replace(R.id.hospitalMap_fragment, hospitalMapFragment)
+            transaction.replace(R.id.checklistResultFragment, hospitalMapFragment)
             transaction.addToBackStack(null)
             transaction.commit()
         }
