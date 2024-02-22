@@ -24,6 +24,9 @@ interface RetrofitAPI {
     fun sendChecklist(@Body request: RetrofitClient2.ChecklistResultData): Call<RetrofitClient2.ChecklistCalResultResponse>
 
     @POST("/health/new")
-    fun checkHealth(@Header("Authorization") token:String, @Body request: RetrofitClient2.CheckHealth): Call<RetrofitClient2.ResponseCheckHealth>
+    fun checkHealth(
+        @Header("Authorization") token: String, @Body request: RetrofitClient2.CheckHealth): Call<RetrofitClient2.ResponseCheckHealth>
 
+    @GET("/health/list")
+    fun getHealthList(@Header("Authorization") token: String): Call<RetrofitClient2.HealthListResponse>
 }

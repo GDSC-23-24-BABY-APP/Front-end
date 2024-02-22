@@ -94,7 +94,7 @@
             android:name=".ChangeBabyActivity"
             android:exported="false" />
         <activity
-            android:name=".ChatActivity"
+            android:name=".ChatFragment"
             android:exported="false" />
         <activity
             android:name=".SignUpFindidActivity"

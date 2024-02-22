@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_chatbox1"
         android:paddingVertical="10dp"
@@ -27,7 +27,7 @@
             android:id="@+id/tv_itemm_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DR.BARD"
+            android:text="DR.GEMINI"
             android:textColor="@color/mainText"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"

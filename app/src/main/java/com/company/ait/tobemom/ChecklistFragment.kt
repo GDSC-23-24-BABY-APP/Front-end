@@ -69,7 +69,7 @@ class ChecklistFragment : Fragment() {
             val transaction = fragmentManager.beginTransaction()
 
             //R.id.fragment_container는 checkFragment가 표시할 레이아웃 컨네이너의 id
-            transaction.replace(R.id.checkFragment, checkCalFragment)
+            transaction.replace(R.id.checklist_fragment, checkCalFragment)
             transaction.addToBackStack(null) //뒤로 가기 버튼을 눌렀을 대 이전 fragment로 이동
             transaction.commit()
         }
@@ -79,6 +79,8 @@ class ChecklistFragment : Fragment() {
         checklistAdapter = ChecklistAdapter(emptyList())
         checklistQuesListRv.layoutManager = LinearLayoutManager(requireContext())
         checklistQuesListRv.adapter = checklistAdapter
+
+
 
         //API 호출 및 데이터 처리
         getChecklistData()
@@ -138,7 +140,6 @@ class ChecklistFragment : Fragment() {
                     if (resultData != null) {
                         // 성공한 경우 데이터를 ChecklistResult 액티비티로 전달하면서 화면 전환
                         val intent = Intent(requireContext(), ChecklistResult::class.java)
-                        //intent.putExtra("resultData", resultData.result)
                         intent.putExtra("resultData", resultData)
                         Log.d("resultData", "값: ${resultData.toString()}")
                         startActivity(intent)

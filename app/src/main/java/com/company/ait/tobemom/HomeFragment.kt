@@ -56,8 +56,12 @@ class HomeFragment : Fragment() {
 
     private fun goBard() {
         binding.homeGobardBtn.setOnClickListener {
-            val intent = Intent(activity, ChatActivity::class.java)
-            startActivity(intent)
+            activity?.let {
+                val transaction = it.supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragment_container, ChatFragment(), "chatFragmentTag")
+                transaction.addToBackStack(null)
+                transaction.commit()
+            }
         }
     }
 

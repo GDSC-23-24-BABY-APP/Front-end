@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CheckCalendarAdapter(private val dataList: List<CalendarItem>) :
+class CheckCalendarAdapter(private val dataList: List<CalendarItem>, private val clickListener: (String) -> Unit) :
     RecyclerView.Adapter<CheckCalendarAdapter.ViewHolder>() {
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,6 +22,11 @@ class CheckCalendarAdapter(private val dataList: List<CalendarItem>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.dateTextView.text = item.date
+
+        // 아이템이 클릭되었을 때 해당 날짜에 대한 데이터 가져오기
+        holder.itemView.setOnClickListener {
+            clickListener.invoke(item.date)
+        }
     }
 
     override fun getItemCount(): Int {
