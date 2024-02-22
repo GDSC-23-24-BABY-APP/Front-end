@@ -1,14 +1,17 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import java.util.Locale
 
-class FrequentlyAskedQuestions : Fragment() {
+class FrequentlyAskedQuestions : Fragment(), TextToSpeech.OnInitListener {
 
     private lateinit var faqBackBtn: ImageButton
     private lateinit var questionContent: TextView
@@ -18,10 +21,8 @@ class FrequentlyAskedQuestions : Fragment() {
     private lateinit var FaqVolumeBtn: ImageButton
 
     private var currentWeek: Int = 1
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
+    private var tts: TextToSpeech? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +43,10 @@ class FrequentlyAskedQuestions : Fragment() {
 
         //Text To Speech
         FaqVolumeBtn.setOnClickListener {
-            //TODO : Backend랑 연결 필요
+            FaqVolumeBtn!!.isEnabled = false
+            tts = TextToSpeech(requireContext(), this)
+
+            FaqVolumeBtn!!.setOnClickListener { speakOut() }
         }
 
         faqBackBtn.setOnClickListener{
@@ -95,6 +99,34 @@ class FrequentlyAskedQuestions : Fragment() {
 //            }
 //        }
 
+    }
+
+    //TTS
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.US)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The Language specified is not supported!")
+            } else {
+                FaqVolumeBtn!!.isEnabled = true
+            }
+        } else {
+            Log.e("TTS", "Initialization Failed!")
+        }
+    }
+
+    private fun speakOut() {
+        val text = questionContent!!.text.toString()
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        super.onDestroy()
     }
 
 }

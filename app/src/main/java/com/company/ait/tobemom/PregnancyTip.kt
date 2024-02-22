@@ -1,15 +1,18 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import java.util.Locale
 
 
-class PregnancyTip : Fragment() {
+class PregnancyTip : Fragment(), TextToSpeech.OnInitListener {
 
     private lateinit var pregnancyTipBackBtn: ImageButton
     private lateinit var weekOfPregnancy: TextView
@@ -19,6 +22,8 @@ class PregnancyTip : Fragment() {
     private lateinit var ptVolumeBtn: ImageButton
 
     private var currentWeekIndex: Int = 1
+
+    private var tts: TextToSpeech? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,8 +44,10 @@ class PregnancyTip : Fragment() {
 
         //Text to Speech
         ptVolumeBtn.setOnClickListener {
-            //TODO : Backend랑 연결 필요
-            //Text To Speech
+            ptVolumeBtn!!.isEnabled = false
+            tts = TextToSpeech(requireContext(), this)
+
+            ptVolumeBtn!!.setOnClickListener { speakOut() }
         }
 
         pregnancyTipBackBtn.setOnClickListener{
@@ -112,6 +119,35 @@ class PregnancyTip : Fragment() {
 //                pregnancyTips.text = getString(R.string.PTweek36_40_content)
 //            }
 //        }
+    }
 
+    //TTS
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.US)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The Language specified is not supported!")
+            } else {
+                ptVolumeBtn!!.isEnabled = true
+            }
+        } else {
+            Log.e("TTS", "Initialization Failed!")
+        }
+    }
+
+    private fun speakOut() {
+        val qtext = weekOfPregnancy!!.text.toString()
+        val atext = pregnancyTips!!.text.toString()
+        tts!!.speak(qtext, TextToSpeech.QUEUE_FLUSH, null, "")
+        tts!!.speak(atext, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        super.onDestroy()
     }
 }

@@ -39,9 +39,6 @@ class HomeFragment : Fragment() {
         //현재 주수에서의 아기 상태 사진
         binding.homeBabygrowthIv.setImageResource(R.drawable.demo_babygrowth)
 
-        //챗봇으로 이동
-        goBard()
-
         //체크리스트로 이동
         goCheck()
 
@@ -52,17 +49,6 @@ class HomeFragment : Fragment() {
         binding.homeLogoBtn.setOnClickListener {
             val intent = Intent(activity, ChangeBabyActivity::class.java)
             startActivity(intent)
-        }
-    }
-
-    private fun goBard() {
-        binding.homeGobardBtn.setOnClickListener {
-            activity?.let {
-                val transaction = it.supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, ChatFragment(), "chatFragmentTag")
-                transaction.addToBackStack(null)
-                transaction.commit()
-            }
         }
     }
 

@@ -12,9 +12,9 @@
         tools:ignore="AlwaysShowAction" />
 
     <item
-        android:id="@+id/diaryFragment"
-        android:title="DIRAY"
-        android:icon="@drawable/baseline_diary_24"
+        android:id="@+id/chatFragment"
+        android:title="CHAT"
+        android:icon="@drawable/iv_chatbot"
         app:showAsAction="always"/>
 
     <item

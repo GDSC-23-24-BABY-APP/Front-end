@@ -3,7 +3,6 @@ package com.company.ait.tobemom.utils
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.google.maps.android.data.Geometry
 import java.util.Date
 
 class RetrofitClient2 {
@@ -242,5 +241,19 @@ class RetrofitClient2 {
     data class Location(
         val lat: Double,
         val lng: Double
+    )
+
+    data class sttResponse(
+        @SerializedName("audioFile")
+        val audioFile: ByteArray
+    )
+
+    data class FcmResponse(
+        @SerializedName("status")
+        val status: String,
+        @SerializedName("data")
+        val data: String,
+        @SerializedName("message")
+        val message: String
     )
 }

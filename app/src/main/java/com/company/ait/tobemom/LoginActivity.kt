@@ -21,7 +21,12 @@ import retrofit2.Response
 class LoginActivity : AppCompatActivity(), LoginView {
 
     lateinit var binding: ActivityLoginBinding
+
     private lateinit var googleSignInClient: GoogleSignInClient
+
+//    private lateinit var googleAuth: FirebaseAuth
+//    private lateinit var googleLoginModule: GoogleSignInClient
+//    private lateinit var retrofit: Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,13 +45,27 @@ class LoginActivity : AppCompatActivity(), LoginView {
             login()
         }
 
-        //구글 로그인
-        setupGoogleSignInClient()
-        addListener()
-
         //아이디 비번 찾기
         goFindid()
         goResetpw()
+
+        //구글 로그인
+        Log.d("GoogleLogin", "start")
+        setupGoogleSignInClient()
+        Log.d("GoogleLogin", "setupGoogleSignInClient 끝")
+        addListener()
+//        //data init
+//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//            .requestIdToken(getString(R.string.googleClientID))
+//            .requestEmail()
+//            .build()
+//
+//        googleLoginModule = GoogleSignIn.getClient(this, gso)
+//        googleAuth = Firebase.auth
+//
+//        retrofit = RetrofitObject.getRetrofit
+//        initView()
+//        hasSocialSession()
     }
 
     private fun login() {
@@ -145,7 +164,82 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-    //Google Login
+//    // Google Login
+//    private fun initView() {
+//        binding.loginGoogleBtn.setOnClickListener(this)
+//    }
+//
+//    private fun hasSocialSession() {
+//        when {
+//            hasGoogleSession() -> {
+//                val intent = Intent(this@LoginActivity, MainActivity::class.java).apply {
+//                    putExtra("email", googleAuth.currentUser!!.email)
+//                }
+//                Log.d(TAG, "googleAuth currentUser email: ${googleAuth.currentUser?.email}")
+//                startActivity(intent)
+//                finish()
+//            }
+//            hasNaverSession() -> {
+//
+//            }
+//        }
+//    }
+//
+//    private fun hasGoogleSession(): Boolean {
+//        if (googleAuth.currentUser == null) {
+//            return false
+//        }
+//        return true
+//    }
+//
+//    override fun onClick(v: View) {
+//        when (v.id) {
+//            R.id.sign_in_google_btn -> signInGoogle()
+//            R.id.sign_in_naver_btn -> signInNaver()
+//        }
+//    }
+//
+//    private fun signInGoogle() {
+//        val signInIntent = googleLoginModule.signInIntent
+//        startActivityForResult(signInIntent, RC_SIGN_IN)
+//    }
+//
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == RC_SIGN_IN && resultCode == RESULT_OK) {
+//            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+//            try {
+//                val account = task.getResult(ApiException::class.java)!!
+//                firebaseAuthWithGoogle(account.idToken!!)
+//            } catch (e: ApiException) {
+//                Log.w(TAG, "Google sign in failed", e)
+//            }
+//        } else {
+//            Log.d(TAG, "onActivityResult: resultCode = $resultCode")
+//        }
+//    }
+//
+//    private fun firebaseAuthWithGoogle(idToken: String) {
+//        val credential = GoogleAuthProvider.getCredential(idToken, null)
+//        googleAuth.signInWithCredential(credential)
+//            .addOnCompleteListener(this) { task ->
+//                if (task.isSuccessful) {
+//                    Log.d(TAG, "signInWithCredential:success")
+//                    val intent = Intent(this, MainActivity::class.java).apply {
+//                        putExtra("email", googleAuth.currentUser!!.email)
+//                    }
+//                    startActivity(intent)
+//                    finish()
+//                } else {
+//                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+//                    val view = binding.root
+//                    Snackbar.make(view, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
+//                }
+//            }
+//    }
+
+
+    // 구글 로그인
     private fun setupGoogleSignInClient() {
         val googleSignInOption = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestScopes(Scope("https://www.googleapis.com/auth/userinfo.profile"))
@@ -160,6 +254,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     private fun addListener() {
         binding.loginGoogleBtn.setOnClickListener {
             requestGoogleLogin()
+            Log.d("GoogleLogin", "addListener - 구글 로그인 버튼 눌림")
         }
     }
 
@@ -167,55 +262,49 @@ class LoginActivity : AppCompatActivity(), LoginView {
         googleSignInClient.signOut()
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, GOOGLE_SIGN_IN_REQUEST_CODE)
+        Log.d("GoogleLogin", "requestGoogleLogin - 오")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        Log.d("GoogleLogin", "onActivityResult 불려짐")
         if (requestCode == GOOGLE_SIGN_IN_REQUEST_CODE) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            Log.d("GoogleLogin", "if문 처음")
+            if (data != null) {
+                Log.d("GoogleLogin", "${data}")
+                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+                Log.d("GoogleLogin", "${task}")
+                try {
+                    Log.d("GoogleLogin", "try문 처음")
+                    val account = task.getResult(ApiException::class.java)!!
+                    Log.d("GoogleLogin", "account 지남")
+                    //val userName = account?.displayName
+                    val userEmail = account?.email
+                    val authCode = account?.serverAuthCode // 구글에서 받은 인증 코드 가져오기
+                    val registrationId = account?.id // 등록 ID 가져오기 (구글 계정의 고유 ID로 대체 가능)
 
-            try {
-                val account = task.getResult(ApiException::class.java)
-                // 사용자 이름, 이메일 등을 얻을 수 있음
-                val userName = account?.displayName
-                val userEmail = account?.email
-                val authCode = account?.serverAuthCode // 구글에서 받은 인증 코드 가져오기
-                val registrationId = account?.id // 등록 ID 가져오기 (구글 계정의 고유 ID로 대체 가능)
+                    Log.d("GoogleLogin", "onActivityResult - $userEmail, $authCode, $registrationId")
 
-                Log.d("GoogleLogin", "$userName, $userEmail, $authCode, $registrationId")
+                    // Google 로그인 결과를 처리한 후 SignUpAgreeActivity로 이동
+                    val intent = Intent(this, SignUpAgreeActivity::class.java)
+                    // 사용자 정보를 SignUpAgreeActivity에 전달
+                    //intent.putExtra("userName", userName)
+                    intent.putExtra("userEmail", userEmail)
+                    startActivity(intent)
 
-//                // 사용자 정보를 담은 Bundle 생성
-//                val bundle = Bundle().apply {
-//                    putString("userName", userName)
-//                    putString("userEmail", userEmail)
-//                }
-//
-//                // HomeFragment 생성 및 Bundle 전달
-//                val homeFragment = HomeFragment()
-//                homeFragment.arguments = bundle
-//
-//                // FragmentTransaction을 사용하여 HomeFragment를 화면에 추가
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.fragment_container, homeFragment)
-//                    .commit()
-
-
-                // Google 로그인 결과를 처리한 후 SignUpAgreeActivity로 이동
-                val intent = Intent(this, HomeFragment::class.java)
-                // 사용자 정보를 SignUpAgreeActivity에 전달
-                intent.putExtra("userName", userName)
-                intent.putExtra("userEmail", userEmail)
-                startActivity(intent)
-
-                // 백엔드 서버로 사용자 정보와 구글에서 받은 인증 코드 및 등록 ID 전송
-                sendUserInfoToServer(userName, userEmail, authCode, registrationId)
-            } catch (e: ApiException) {
-                Log.e(LoginActivity::class.java.simpleName, e.stackTraceToString())
+                    // 백엔드 서버로 사용자 정보와 구글에서 받은 인증 코드 및 등록 ID 전송
+                    sendUserInfoToServer(userEmail, authCode, registrationId)
+                } catch (e: ApiException) {
+                    Log.e("GoogleLogin", "Google sign in failed with ApiException: ${e.statusCode}")
+                    e.printStackTrace()
+                }
+            } else {
+                Log.e("GoogleLogin", "Google sign in failed: Intent data is null")
             }
         }
     }
-
-    private fun sendUserInfoToServer(userName: String?, userEmail: String?, authCode: String?, registrationId: String?) {
+//    userName: String?,
+    private fun sendUserInfoToServer(userEmail: String?, authCode: String?, registrationId: String?) {
         // 사용자 정보를 서버로 전송하는 API 호출
         // Retrofit 등을 사용하여 서버에 POST 요청 등을 보낼 수 있습니다.
         val retrofitService = RetrofitObject.getRetrofitService
@@ -228,7 +317,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
                     if (response.isSuccessful) {
                         // 응답 성공 처리
                         val responseData = response.body()
-                        Log.d("GoogleLogin", "${responseData.toString()}")
+                        Log.d("GoogleLogin", "sendUserInfoToServer - ${responseData.toString()}")
                         if (responseData != null) {
                             if (responseData.status == "success") {
                                 val token = responseData.data.token
