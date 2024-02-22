@@ -1,29 +1,24 @@
 package com.company.ait.tobemom
 
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.company.ait.tobemom.databinding.ActivityChatBinding
-import com.company.ait.tobemom.dto.MessageAdapter
-import com.company.ait.tobemom.dto.MessageModel
-import com.company.ait.tobemom.dto.SendChatReq
-import com.company.ait.tobemom.dto.SendChatRes
-import com.company.ait.tobemom.utils.GlobalApplication
-import com.company.ait.tobemom.utils.RetrofitObject
-import retrofit2.Call
-import retrofit2.Callback
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.company.ait.tobemom.databinding.FragmentChatBinding
 
 
-class ChatActivity : AppCompatActivity() {
+class ChatFragment : Fragment() {
 
-    private lateinit var binding: ActivityChatBinding
+    private lateinit var binding: FragmentChatBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityChatBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentChatBinding.inflate(inflater, container, false)
+        val view = binding.root
 
 //        //messageList = ArrayList()
 //        val messageAdapter: MessageAdapter = MessageAdapter()
@@ -45,8 +40,10 @@ class ChatActivity : AppCompatActivity() {
 //        }
 
         //가져오기
-    }
 
+
+        return view
+    }
 
 //    private fun send(sendReq: SendChatReq, messageAdapter: MessageAdapter) {
 //        messageAdapter.apply {

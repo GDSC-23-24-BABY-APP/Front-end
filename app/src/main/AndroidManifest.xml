@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
+    <!--오디오 사용 권한-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <!-- 인터넷 사용 권한 설정-->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -55,6 +58,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="news" />
 
         <activity
             android:name=".SplashActivity"
@@ -80,6 +86,12 @@
                     android:scheme="kakao612da977c6ea46f65349319262a190e9" />
             </intent-filter>
         </activity>
+        <service android:name=".FcmService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+            </intent-filter>
+        </service>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -99,7 +111,7 @@
             android:name=".ChangeBabyActivity"
             android:exported="false" />
         <activity
-            android:name=".ChatActivity"
+            android:name=".ChatFragment"
             android:exported="false" />
         <activity
             android:name=".SignUpFindidActivity"

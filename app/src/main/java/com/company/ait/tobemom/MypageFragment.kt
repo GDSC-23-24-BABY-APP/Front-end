@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -42,13 +43,25 @@ class MypageFragment : Fragment() {
         binding.mypageProfileIv.setImageResource(R.drawable.ic_user_iv)  //추후 수정 예정
         binding.mypageNameTv.text = "Jihyun Hong"  //추후 수정 예정
         binding.mypageIdTv.text = "aster03"  //추후 수정 예정
-        binding.mypageBirthnameTv.text = "꿈틀이"  //추후 수정 예정
-        binding.mypageDdaycntTv.text = "23"  //추후 수정 예정
+        binding.mypageBirthdateTv.text = "2"
+        if (binding.mypageBirthdateTv.text == "1") {
+            binding.mypageStndrdthTv.text = "st"
+        } else if (binding.mypageBirthdateTv.text == "2") {
+            binding.mypageStndrdthTv.text = "nd"
+        } else if (binding.mypageBirthdateTv.text == "3") {
+            binding.mypageStndrdthTv.text = "rd"
+        } else {
+            binding.mypageStndrdthTv.text = "th"
+        }
+        binding.mypageBirthnameTv.text = "Sweety"
+
 
         //버튼 클릭 이벤트 처리
         clickBtn()
         //프로필 사진 변경
         changeProfileImage()
+        //로그아웃
+        startLogout()
 
         return view
     }
@@ -118,6 +131,12 @@ class MypageFragment : Fragment() {
             //커스텀 갤러리 화면
             // Launch the photo picker and let the user choose images and videos.
             pickImage.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
+        }
+    }
+
+    private fun startLogout() {
+        binding.mypageLogoutBtn.setOnClickListener {
+            Toast.makeText(requireContext(), "로그아웃하려면 뒤로가기 버튼을 한 번 더 눌러주세요.", Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -2,6 +2,10 @@ package com.company.ait.tobemom
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.media.AudioFormat
+import android.media.AudioRecord
+import android.media.MediaRecorder
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
@@ -9,15 +13,22 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.company.ait.tobemom.utils.RetrofitClient2
 import com.company.ait.tobemom.utils.RetrofitObject
+import com.squareup.okhttp.MediaType
+import com.squareup.okhttp.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.ByteArrayOutputStream
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 
 class CheckHealth : AppCompatActivity() {
@@ -39,7 +50,21 @@ class CheckHealth : AppCompatActivity() {
     private lateinit var Emoji23: ImageButton; private lateinit var Emoji24: ImageButton
     private lateinit var ETWriteHealth: EditText
     private lateinit var SubmitBtn: AppCompatButton
-    private lateinit var MicBtn: ImageButton;
+    // STT
+    private lateinit var MicBtn: ImageButton
+    private var isRecording = false
+    private var recordingThread: Thread? = null
+    private var audioRecord: AudioRecord? = null
+    private var recordingExecutor: ExecutorService? = null
+
+    companion object {
+        private const val TAG = "CheckHealth"
+        private const val SAMPLE_RATE = 44100
+        private const val CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_MONO
+        private const val AUDIO_FORMAT = AudioFormat.ENCODING_PCM_16BIT
+        private const val RECORD_AUDIO_PERMISSION_REQUEST_CODE = 101
+        private const val RECORD_AUDIO = android.Manifest.permission.RECORD_AUDIO
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +90,16 @@ class CheckHealth : AppCompatActivity() {
 
         //Speek To Text
         MicBtn = findViewById(R.id.btn_mic)
+        // 마이크 권한 요청
+        if (ContextCompat.checkSelfPermission(this, RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(RECORD_AUDIO), RECORD_AUDIO_PERMISSION_REQUEST_CODE)
+        } else {
+            // 마이크 권한이 이미 허용된 경우
+            initializeAudioRecording()
+        }
+        startSTT()
+        // 권한 요청
+        requestPermission()
 
         //이미지 버튼 클릭 시의 버튼 배경색 변경
         val emojiButtons: Array<ImageButton> = Array(24) { index ->
@@ -199,5 +234,140 @@ class CheckHealth : AppCompatActivity() {
     private fun displayCurrentDate(){
         val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         dateTextView.text = currentDate
+    }
+
+    // STT
+    private fun startSTT() {
+        MicBtn.setOnClickListener {
+            if (isRecording) {
+                stopRecording()
+            } else {
+                startRecording()
+            }
+        }
+    }
+
+    private fun startRecording() {
+        recordingExecutor = Executors.newSingleThreadExecutor()
+
+        recordingExecutor?.execute {
+            isRecording = true
+            val minBufferSize = AudioRecord.getMinBufferSize(
+                SAMPLE_RATE,
+                CHANNEL_CONFIG,
+                AUDIO_FORMAT
+            )
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.RECORD_AUDIO
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // TODO: 권한이 없을 경우 처리
+                return@execute
+            }
+            audioRecord = AudioRecord(
+                MediaRecorder.AudioSource.MIC,
+                SAMPLE_RATE,
+                CHANNEL_CONFIG,
+                AUDIO_FORMAT,
+                minBufferSize
+            )
+
+            val audioData = ByteArrayOutputStream()
+
+            try {
+                audioRecord?.startRecording()
+                val buffer = ByteArray(minBufferSize)
+                while (isRecording) {
+                    val bytesRead = audioRecord?.read(buffer, 0, minBufferSize) ?: -1
+                    if (bytesRead > 0) {
+                        audioData.write(buffer, 0, bytesRead)
+                    }
+                }
+            } catch (e: IOException) {
+                Log.e(TAG, "Error recording audio: ${e.message}")
+            } finally {
+                audioRecord?.stop()
+                audioRecord?.release()
+                audioData.close()
+            }
+
+            // Convert audio data to byte array
+            val audioByteArray = audioData.toByteArray()
+
+            // Convert byte array to RequestBody
+            val requestBody = RequestBody.create(MediaType.parse("audio/*"), audioByteArray)
+
+            // Send the audio data to the backend
+            sendAudioToBackend(requestBody)
+        }
+    }
+
+    private fun stopRecording() {
+        isRecording = false
+        recordingExecutor?.shutdown()
+        recordingExecutor = null
+    }
+
+    private fun sendAudioToBackend(requestBody: RequestBody) {
+//        val token = getCurrentToken(this)
+//        val retrofitService = RetrofitObject.getRetrofitService
+//
+//        val call = retrofitService.speachToText(RetrofitClient2.sttResponse(requestBody.toByteArray()))
+//
+//        call.enqueue(object : Callback<String> {
+//            override fun onResponse(call: Call<String>, response: Response<String>) {
+//                if (response.isSuccessful) {
+//                    val sttResult = response.body()
+//                    // 서버로부터 받은 음성 인식 결과 처리
+//                    Log.d("STT Result", sttResult ?: "No result received")
+//                } else {
+//                    // 서버 오류 처리
+//                    Log.e("STT Error", "Failed to convert speech to text")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<String>, t: Throwable) {
+//                // 네트워크 오류 처리
+//                Log.e("STT Failure", "Failed to make STT request: ${t.message}")
+//            }
+//        })
+    }
+
+    private fun requestPermission() {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(RECORD_AUDIO),
+                RECORD_AUDIO_PERMISSION_REQUEST_CODE
+            )
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopRecording()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == RECORD_AUDIO_PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // 마이크 권한이 허용된 경우
+                initializeAudioRecording()
+            } else {
+                // 마이크 권한이 거부된 경우
+                // 권한이 거부되었음을 사용자에게 알리고 적절히 처리
+            }
+        }
+    }
+
+    private fun initializeAudioRecording() {
+        // AudioRecord 초기화 및 녹음 시작
+        // 위의 코드에서 AudioRecord 초기화 부분을 호출
     }
 }

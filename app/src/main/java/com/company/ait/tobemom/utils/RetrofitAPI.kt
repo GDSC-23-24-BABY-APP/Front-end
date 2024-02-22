@@ -35,4 +35,13 @@ interface RetrofitAPI {
     @POST("/api/user/family/create")
     fun babyAdd(@Body request: RetrofitClient2.BabyInfoRequest): Call<String>
 
+    @POST("/stt/audio")
+    fun speachToText(@Body request: RetrofitClient2.sttResponse): Call<String>
+
+    @POST("/fcm")
+    fun fcm(
+        @Header("Authorization") token: String,
+        @Query("title") title: String,
+        @Query("body") body: String
+    ): Call<RetrofitClient2.FcmResponse>
 }
