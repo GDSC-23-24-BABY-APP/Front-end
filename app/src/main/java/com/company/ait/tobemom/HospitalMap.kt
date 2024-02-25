@@ -47,7 +47,7 @@ class HospitalMap : Fragment(), OnMapReadyCallback {
         mapView = rootView.findViewById(R.id.mapFragment) as MapView
 
         // Initialize Places SDK
-        Places.initialize(requireContext(), "AIzaSyCVZftl7Ka0UEsOnSJRnchSSb1Mu_Y7Vrc")
+        Places.initialize(requireContext(), "YOUR_GOOGLE_MAP_KEY")
         placesClient = Places.createClient(requireContext())
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext())
