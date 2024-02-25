@@ -44,7 +44,7 @@ class ChatFragment : Fragment() {
         //GenerativeModel 초기화
         generativeModel = GenerativeModel(
             modelName = "gemini-pro",
-            apiKey = "AIzaSyCIq2Ajd5ZFqK25Dy6zFpcqRboMEluizJs"
+            apiKey = "YOUR_GEMINI_KEY"
         )
 
         messageAdapter = MessageAdapter()
