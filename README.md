@@ -1,4 +1,4 @@
-## 🤰 To be Mom
+# 🤰 To be Mom
 ![image](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/63c22d41-a927-41e5-87bc-07681ce62e5e)
 
 ## 🎯 Target UN-SDGs
